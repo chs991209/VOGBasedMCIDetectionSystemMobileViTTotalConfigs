@@ -46,6 +46,11 @@ from full_experiments_using.evaluators.monte_carlo_evaluator import (  # noqa: E
 _DEFAULT_DROPOUT = 0.3
 _DEFAULT_PATIENCE = 40
 
+# Weighted soft-vote scheme derived from the task-contribution probe analysis:
+# Vertical B / B-anti / R (5,6,7) up-weighted 1.5×; Horizontal B / B-anti / R
+# (1,2,3) kept at 0.5×; low-information "A" tasks (0,4) excluded (weight 0).
+WEIGHTED_VOTE_SCHEME = {0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Full-experiment (8-task) MCI detection pipeline.")
@@ -68,6 +73,14 @@ def _parse_args() -> argparse.Namespace:
         default=_DEFAULT_PATIENCE,
         help=f"Early-stopping patience on val-AUROC (default {_DEFAULT_PATIENCE}). "
              f"Run id is suffixed with _patNNN when value differs from default.",
+    )
+    parser.add_argument(
+        "--weighted-vote",
+        dest="weighted_vote",
+        action="store_true",
+        help="Use weighted subject-level soft-voting with the probe-derived scheme "
+             f"{WEIGHTED_VOTE_SCHEME} (Vertical B/B-anti/R ×1.5, Horizontal B/B-anti/R ×0.5, "
+             "A tasks excluded). Affects only aggregation, not training. Run id suffixed _wvote.",
     )
     return parser.parse_args()
 
@@ -105,6 +118,10 @@ def main():
         run_id += f"_drop{int(round(args.dropout * 100)):03d}"
     if int(args.patience) != _DEFAULT_PATIENCE:
         run_id += f"_pat{int(args.patience):03d}"
+    if args.weighted_vote:
+        run_id += "_wvote"
+
+    task_weights = WEIGHTED_VOTE_SCHEME if args.weighted_vote else None
 
     mode_tag = "FULL+AUG" if args.augment else "FULL    "
 
@@ -112,8 +129,9 @@ def main():
     _setup_logging(log_path, mode_tag=mode_tag)
     log = logging.getLogger(__name__)
     log.info(
-        "Run ID: %s | augment=%s | dropout=%.2f | patience=%d",
+        "Run ID: %s | augment=%s | dropout=%.2f | patience=%d | weighted_vote=%s",
         run_id, args.augment, args.dropout, args.patience,
+        (task_weights if task_weights is not None else "off"),
     )
     log.info("Log file: %s", log_path)
 
@@ -164,6 +182,7 @@ def main():
         augment=args.augment,
         early_stop_patience=args.patience,
         dropout=args.dropout,
+        task_weights=task_weights,
     )
     mc.run()
 

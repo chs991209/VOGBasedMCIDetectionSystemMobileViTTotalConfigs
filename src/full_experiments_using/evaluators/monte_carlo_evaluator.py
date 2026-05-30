@@ -36,6 +36,7 @@ class MonteCarloGroupEvaluator:
         augment: bool = False,
         early_stop_patience: int = 40,
         dropout: float = 0.3,
+        task_weights: Optional[dict] = None,
     ):
         if torch.cuda.is_available():
             self.device = torch.device("cuda")
@@ -54,10 +55,28 @@ class MonteCarloGroupEvaluator:
         self.augment = augment
         self.early_stop_patience = early_stop_patience
         self.dropout = float(dropout)
+        # None → plain (unweighted) soft-vote. Dict {task_id: weight} → weighted vote.
+        self.task_weights = dict(task_weights) if task_weights is not None else None
+
+    def _aggregate_subject_prob(self, pairs):
+        """pairs: list of (prob, task_id) for one subject's windows.
+
+        If task_weights is set, returns the weighted mean
+        Σ(w_t · p) / Σ(w_t); otherwise the plain mean. Falls back to the
+        plain mean when the weighted denominator is 0 (subject has windows
+        only in zero-weight tasks — rare; logged once per occurrence)."""
+        if self.task_weights is None:
+            return float(np.mean([p for p, _ in pairs]))
+        num = sum(self.task_weights.get(t, 0.0) * p for p, t in pairs)
+        den = sum(self.task_weights.get(t, 0.0) for _, t in pairs)
+        if den <= 0.0:
+            logger.warning("Subject had only zero-weight tasks; falling back to unweighted mean.")
+            return float(np.mean([p for p, _ in pairs]))
+        return float(num / den)
 
     def _infer_subjects(self, model, test_idx, subj_ids, fold_idx):
         model.eval()
-        subj_probs: dict = defaultdict(list)
+        subj_probs: dict = defaultdict(list)  # sid -> list of (prob, task_id)
         subj_labels: dict = {}
 
         loader = DataLoader(
@@ -86,13 +105,13 @@ class MonteCarloGroupEvaluator:
                             prob=float(probs[i]),
                         )
 
-                for sid, p, l in zip(sid_slice, probs, labels_np):
-                    subj_probs[sid].append(float(p))
+                for sid, p, l, t in zip(sid_slice, probs, labels_np, tasks_np):
+                    subj_probs[sid].append((float(p), int(t)))
                     subj_labels[sid] = int(l)
                 offset += len(labels)
 
         return {
-            sid: (subj_labels[sid], float(np.mean(subj_probs[sid])))
+            sid: (subj_labels[sid], self._aggregate_subject_prob(subj_probs[sid]))
             for sid in subj_probs
         }
 
@@ -103,8 +122,9 @@ class MonteCarloGroupEvaluator:
 
         fold_metrics = []
         logger.info(
-            "Stratified MC Group CV — %d folds | device=%s | num_tasks=%d | augment=%s | dropout=%.2f",
+            "Stratified MC Group CV — %d folds | device=%s | num_tasks=%d | augment=%s | dropout=%.2f | weighted_vote=%s",
             self.n_splits, self.device, self.num_tasks, self.augment, self.dropout,
+            (self.task_weights if self.task_weights is not None else "off"),
         )
 
         gss = GroupShuffleSplit(n_splits=self.n_splits, test_size=0.3, random_state=42)

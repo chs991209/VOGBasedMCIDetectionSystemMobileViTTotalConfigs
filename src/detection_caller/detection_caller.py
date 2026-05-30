@@ -60,10 +60,17 @@ def _parse_args() -> argparse.Namespace:
         help="Early-stopping patience (default 40 in both pipelines). "
              "Run id is suffixed with _patNNN when value differs from default.",
     )
+    parser.add_argument(
+        "--weighted-vote",
+        dest="weighted_vote",
+        action="store_true",
+        help="Weighted subject-level soft-vote (probe-derived task weights). "
+             "Only meaningful for --full-experiments-using; ignored in 2-exp mode.",
+    )
     return parser.parse_args()
 
 
-def _dispatch(target_caller: Path, augment: bool, dropout, patience, label: str) -> int:
+def _dispatch(target_caller: Path, augment: bool, dropout, patience, weighted_vote, label: str) -> int:
     if not target_caller.exists():
         print(f"[!] caller not found: {target_caller}", file=sys.stderr)
         return 2
@@ -75,6 +82,8 @@ def _dispatch(target_caller: Path, augment: bool, dropout, patience, label: str)
         cmd.extend(["--dropout", str(dropout)])
     if patience is not None:
         cmd.extend(["--patience", str(int(patience))])
+    if weighted_vote:
+        cmd.append("--weighted-vote")
 
     print(f"[*] Dispatching to {label}: {' '.join(cmd)}", flush=True)
     completed = subprocess.run(cmd, cwd=os.getcwd())
@@ -88,22 +97,30 @@ def main() -> None:
         target = _SRC_DIR / "full_experiments_using" / "detection_caller" / "detection_caller.py"
         label = "full-experiments-using"
         dropout_to_forward = args.dropout
+        weighted_to_forward = args.weighted_vote
     else:
         target = _SRC_DIR / "two_experiments_using" / "detection_caller" / "detection_caller.py"
         label = "two-experiments-using"
-        # 2-exp caller doesn't accept --dropout; silently drop it if user passed one.
+        # 2-exp caller doesn't accept --dropout / --weighted-vote; drop them if passed.
         if args.dropout is not None:
             print(
                 "[!] --dropout is only used with --full-experiments-using; ignored in 2-exp mode.",
                 file=sys.stderr,
             )
+        if args.weighted_vote:
+            print(
+                "[!] --weighted-vote is only used with --full-experiments-using; ignored in 2-exp mode.",
+                file=sys.stderr,
+            )
         dropout_to_forward = None
+        weighted_to_forward = False
 
     sys.exit(_dispatch(
         target_caller=target,
         augment=args.augment,
         dropout=dropout_to_forward,
         patience=args.patience,
+        weighted_vote=weighted_to_forward,
         label=label,
     ))
 
