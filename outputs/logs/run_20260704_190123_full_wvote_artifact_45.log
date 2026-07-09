@@ -1,0 +1,7 @@
+2026-07-04 19:01:23,845 | [FULL    ] | INFO | __main__ | Run ID: 20260704_190123_full_wvote_artifact_45 | augment=False | dropout=0.50 | patience=40 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+2026-07-04 19:01:23,847 | [FULL    ] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260704_190123_full_wvote_artifact_45.log
+2026-07-04 19:01:23,848 | [FULL    ] | INFO | __main__ | Loading full 8-task VOG saccade tensors from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-07-04 19:01:24,102 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Loaded preprocessed data_store from cache: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_full.pkl (9378 epochs)
+2026-07-04 19:01:24,206 | [FULL    ] | INFO | __main__ | Total epoched samples: 9378
+2026-07-04 19:01:24,340 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | Stratified MC Group CV — 30 folds | device=cuda | num_tasks=8 | augment=False | dropout=0.50 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+2026-07-04 19:01:24,357 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | === Fold 01/30 | train: 25 subj / 6307 windows | test: 12 subj / 3071 windows ===

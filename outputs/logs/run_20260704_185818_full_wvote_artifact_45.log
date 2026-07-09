@@ -1,0 +1,24 @@
+2026-07-04 18:58:18,714 | [FULL    ] | INFO | __main__ | Run ID: 20260704_185818_full_wvote_artifact_45 | augment=False | dropout=0.30 | patience=40 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+2026-07-04 18:58:18,714 | [FULL    ] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260704_185818_full_wvote_artifact_45.log
+2026-07-04 18:58:18,715 | [FULL    ] | INFO | __main__ | Loading full 8-task VOG saccade tensors from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-07-04 18:58:19,177 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Cache config mismatch; reprocessing CSVs.
+2026-07-04 18:58:19,183 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Processing 300 CSV files under /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-07-04 18:59:33,519 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Pipeline summary | kept_epochs=9378 | files_skipped(task=4, group=0, missing_cols=0, load_errors=0)
+2026-07-04 18:59:39,334 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Cached preprocessed data_store to: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_full.pkl
+2026-07-04 18:59:39,489 | [FULL    ] | INFO | __main__ | Total epoched samples: 9378
+2026-07-04 18:59:39,653 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | Stratified MC Group CV — 30 folds | device=cuda | num_tasks=8 | augment=False | dropout=0.30 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+2026-07-04 18:59:39,671 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | === Fold 01/30 | train: 25 subj / 6307 windows | test: 12 subj / 3071 windows ===
+2026-07-04 18:59:40,157 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-04 18:59:40,183 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-07-04 18:59:40,518 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 18:59:40,740 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 18:59:40,974 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-04 18:59:41,188 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 18:59:41,398 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-07-04 18:59:41,625 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-07-04 18:59:41,854 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-04 18:59:41,942 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Device: cuda | max_epochs=500 | batch=32 | es_patience=40
+2026-07-04 18:59:41,945 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | CE weights — HC: 1.085  MCI: 0.927
+2026-07-04 18:59:42,084 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-07-04 18:59:42,322 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 18:59:42,560 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"

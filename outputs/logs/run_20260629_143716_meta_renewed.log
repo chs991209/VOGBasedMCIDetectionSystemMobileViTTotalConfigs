@@ -1,0 +1,182 @@
+2026-06-29 14:37:16,598 | [META-RNW] | INFO | __main__ | Run ID: 20260629_143716_meta_renewed | dropout=0.50 | patience=40 | lr=1e-04 | wd=1e-02
+2026-06-29 14:37:16,598 | [META-RNW] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260629_143716_meta_renewed.log
+2026-06-29 14:37:16,599 | [META-RNW] | INFO | __main__ | Loading 8-task VOG tensors (4-error CWT) from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-06-29 14:37:16,761 | [META-RNW] | INFO | full_experiments_using.data_processor.data_engineering | Loaded preprocessed data_store from cache: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_meta_4err.pkl (5736 epochs)
+2026-06-29 14:37:16,782 | [META-RNW] | INFO | meta_classifier_renewed.data_processor.data_preprocessing | Strict-parity drop (over 4 plenty tasks): 5 subject(s) had <10 trials on ≥1 kept task.
+2026-06-29 14:37:16,783 | [META-RNW] | INFO | meta_classifier_renewed.data_processor.data_preprocessing |   · dropped 20260224_093854_1212626_ (MCI) — kept-task counts [t0, t3, t4, t7] = [27, 5, 47, 20]
+2026-06-29 14:37:16,783 | [META-RNW] | INFO | meta_classifier_renewed.data_processor.data_preprocessing |   · dropped 20260317_093419_1012933 (MCI) — kept-task counts [t0, t3, t4, t7] = [49, 9, 50, 23]
+2026-06-29 14:37:16,783 | [META-RNW] | INFO | meta_classifier_renewed.data_processor.data_preprocessing |   · dropped 20260310_090536_1517154 (MCI) — kept-task counts [t0, t3, t4, t7] = [48, 7, 51, 24]
+2026-06-29 14:37:16,783 | [META-RNW] | INFO | meta_classifier_renewed.data_processor.data_preprocessing |   · dropped 20260128_084616_972310 (MCI) — kept-task counts [t0, t3, t4, t7] = [47, 9, 47, 21]
+2026-06-29 14:37:16,783 | [META-RNW] | INFO | meta_classifier_renewed.data_processor.data_preprocessing |   · dropped 20260325_084718_1491320 (MCI) — kept-task counts [t0, t3, t4, t7] = [41, 5, 50, 15]
+2026-06-29 14:37:16,797 | [META-RNW] | INFO | __main__ | Subject bundles built: 32  (bundle shape = (32, 4, 10, 4, 32, 32); KEEP_TASK_IDS=(0, 3, 4, 7))
+2026-06-29 14:37:16,797 | [META-RNW] | INFO | __main__ | Strict-parity dropped subjects: 5
+2026-06-29 14:37:16,922 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | Renewed meta MC Group CV — 30 folds | device=cuda | dropout=0.50 | lr=1e-04 | wd=1e-02 | NUM_TASKS=4
+2026-06-29 14:37:16,922 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | Loading shared MobileViT-small backbone (one-time, no patches)...
+2026-06-29 14:37:17,258 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-29 14:37:17,274 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-06-29 14:37:17,536 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-06-29 14:37:17,756 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-06-29 14:37:17,973 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-06-29 14:37:18,187 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-06-29 14:37:18,420 | [META-RNW] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-06-29 14:37:18,730 | [META-RNW] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-06-29 14:37:18,947 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | Shared backbone ready on cuda.
+2026-06-29 14:37:18,952 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | === Fold 01/30 | train: 22 subj | test: 10 subj ===
+2026-06-29 14:37:18,962 | [META-RNW] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-06-29 14:37:18,975 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Device: cuda | max_epochs=500 | batch=8 | es_patience=40 | lr=1e-04 | wd=1e-02
+2026-06-29 14:37:18,977 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | CE weights — HC: 1.100  MCI: 0.917
+2026-06-29 14:37:19,188 | [META-RNW] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-06-29 14:37:19,398 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-06-29 14:37:19,618 | [META-RNW] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"
+2026-06-29 14:37:20,626 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [001/500] T-Acc:  45.5%  V-Acc:  40.0%  V-AUROC: 0.5417  LR: 2.00e-05
+2026-06-29 14:37:20,725 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_00_best.pth
+2026-06-29 14:37:21,218 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [002/500] T-Acc:  59.1%  V-Acc:  40.0%  V-AUROC: 0.4583  LR: 4.00e-05
+2026-06-29 14:37:21,610 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [003/500] T-Acc:  45.5%  V-Acc:  40.0%  V-AUROC: 0.5000  LR: 6.00e-05
+2026-06-29 14:37:21,984 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [004/500] T-Acc:  36.4%  V-Acc:  40.0%  V-AUROC: 0.6250  LR: 8.00e-05
+2026-06-29 14:37:22,095 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_00_best.pth
+2026-06-29 14:37:22,451 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [005/500] T-Acc:  54.5%  V-Acc:  70.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:22,558 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_00_best.pth
+2026-06-29 14:37:22,937 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [006/500] T-Acc:  72.7%  V-Acc:  70.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:23,315 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [007/500] T-Acc:  59.1%  V-Acc:  70.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:23,715 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [008/500] T-Acc:  54.5%  V-Acc:  70.0%  V-AUROC: 0.7500  LR: 1.00e-04
+2026-06-29 14:37:23,824 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_00_best.pth
+2026-06-29 14:37:24,244 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [009/500] T-Acc:  81.8%  V-Acc:  60.0%  V-AUROC: 0.8333  LR: 1.00e-04
+2026-06-29 14:37:24,357 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_00_best.pth
+2026-06-29 14:37:24,763 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [010/500] T-Acc:  77.3%  V-Acc:  90.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:37:25,187 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [011/500] T-Acc:  63.6%  V-Acc:  70.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:25,631 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [012/500] T-Acc:  63.6%  V-Acc:  70.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:26,058 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [013/500] T-Acc:  63.6%  V-Acc:  70.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:26,453 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [014/500] T-Acc:  81.8%  V-Acc:  70.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:26,862 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [015/500] T-Acc:  86.4%  V-Acc:  70.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:27,249 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [016/500] T-Acc:  63.6%  V-Acc:  60.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:27,677 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [017/500] T-Acc:  77.3%  V-Acc:  70.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:37:28,142 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [018/500] T-Acc:  86.4%  V-Acc:  60.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:28,549 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [019/500] T-Acc:  81.8%  V-Acc:  50.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:28,948 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [020/500] T-Acc:  77.3%  V-Acc:  70.0%  V-AUROC: 0.5833  LR: 1.00e-04
+2026-06-29 14:37:29,368 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [021/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:29,797 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [022/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:30,236 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [023/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:30,660 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [024/500] T-Acc:  95.5%  V-Acc:  70.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:31,108 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [025/500] T-Acc:  90.9%  V-Acc:  70.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:31,532 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [026/500] T-Acc:  86.4%  V-Acc:  70.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:31,971 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [027/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:32,386 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [028/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:37:32,796 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [029/500] T-Acc: 100.0%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:37:33,223 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [030/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:37:33,625 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [031/500] T-Acc:  86.4%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:37:34,043 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [032/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:34,460 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [033/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:34,844 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [034/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:35,259 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [035/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:35,662 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [036/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:36,056 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [037/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:36,469 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [038/500] T-Acc:  81.8%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:36,879 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [039/500] T-Acc:  86.4%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:37,259 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [040/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:37,656 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [041/500] T-Acc: 100.0%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:38,086 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [042/500] T-Acc:  86.4%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 4.00e-06
+2026-06-29 14:37:38,483 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [043/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:38,891 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [044/500] T-Acc:  90.9%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:39,298 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [045/500] T-Acc: 100.0%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:39,685 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [046/500] T-Acc:  86.4%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:40,071 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [047/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:40,479 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [048/500] T-Acc:  95.5%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:40,886 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [049/500] T-Acc: 100.0%  V-Acc:  80.0%  V-AUROC: 0.6250  LR: 1.00e-06
+2026-06-29 14:37:40,887 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Early stop — best AUROC 0.8333 at epoch 9 (no improvement for 40 epochs)
+2026-06-29 14:37:40,887 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Done. Best AUROC: 0.8333 (epoch 9)
+2026-06-29 14:37:41,047 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Restored best-AUROC checkpoint into model (epoch 9, AUROC 0.8333).
+2026-06-29 14:37:41,301 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | -> Fold 01 Result | Acc=0.600 Sens=0.333 Spec=1.000 AUROC=0.833 (Fixed Threshold: 0.5)
+2026-06-29 14:37:41,320 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | === Fold 02/30 | train: 22 subj | test: 10 subj ===
+2026-06-29 14:37:41,335 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Device: cuda | max_epochs=500 | batch=8 | es_patience=40 | lr=1e-04 | wd=1e-02
+2026-06-29 14:37:41,336 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | CE weights — HC: 1.375  MCI: 0.786
+2026-06-29 14:37:41,798 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [001/500] T-Acc:  59.1%  V-Acc:  40.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:37:41,897 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_01_best.pth
+2026-06-29 14:37:42,311 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [002/500] T-Acc:  63.6%  V-Acc:  40.0%  V-AUROC: 0.8750  LR: 4.00e-05
+2026-06-29 14:37:42,417 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_01_best.pth
+2026-06-29 14:37:42,820 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [003/500] T-Acc:  63.6%  V-Acc:  40.0%  V-AUROC: 0.6250  LR: 6.00e-05
+2026-06-29 14:37:43,272 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [004/500] T-Acc:  54.5%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 8.00e-05
+2026-06-29 14:37:43,695 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [005/500] T-Acc:  45.5%  V-Acc:  50.0%  V-AUROC: 0.5833  LR: 1.00e-04
+2026-06-29 14:37:44,152 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [006/500] T-Acc:  50.0%  V-Acc:  50.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:44,572 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [007/500] T-Acc:  59.1%  V-Acc:  40.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:45,031 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [008/500] T-Acc:  63.6%  V-Acc:  50.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:45,483 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [009/500] T-Acc:  59.1%  V-Acc:  60.0%  V-AUROC: 0.5833  LR: 1.00e-04
+2026-06-29 14:37:45,937 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [010/500] T-Acc:  63.6%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:37:46,374 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [011/500] T-Acc:  68.2%  V-Acc:  50.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:37:46,809 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [012/500] T-Acc:  54.5%  V-Acc:  40.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:47,261 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [013/500] T-Acc:  59.1%  V-Acc:  40.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:37:47,709 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [014/500] T-Acc:  68.2%  V-Acc:  80.0%  V-AUROC: 0.8333  LR: 1.00e-04
+2026-06-29 14:37:48,125 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [015/500] T-Acc:  54.5%  V-Acc:  80.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:48,581 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [016/500] T-Acc:  68.2%  V-Acc:  60.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:49,027 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [017/500] T-Acc:  77.3%  V-Acc:  40.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:49,466 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [018/500] T-Acc:  81.8%  V-Acc:  40.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:49,879 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [019/500] T-Acc:  81.8%  V-Acc:  40.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:50,304 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [020/500] T-Acc:  86.4%  V-Acc:  40.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:50,759 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [021/500] T-Acc:  86.4%  V-Acc:  40.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:51,209 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [022/500] T-Acc:  86.4%  V-Acc:  60.0%  V-AUROC: 0.8750  LR: 1.00e-04
+2026-06-29 14:37:51,635 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [023/500] T-Acc:  81.8%  V-Acc:  40.0%  V-AUROC: 0.8333  LR: 1.00e-04
+2026-06-29 14:37:52,022 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [024/500] T-Acc:  72.7%  V-Acc:  40.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:37:52,430 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [025/500] T-Acc:  86.4%  V-Acc:  40.0%  V-AUROC: 0.7500  LR: 1.00e-04
+2026-06-29 14:37:52,839 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [026/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:37:53,232 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [027/500] T-Acc:  86.4%  V-Acc:  50.0%  V-AUROC: 0.7917  LR: 2.00e-05
+2026-06-29 14:37:53,590 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [028/500] T-Acc: 100.0%  V-Acc:  50.0%  V-AUROC: 0.7917  LR: 2.00e-05
+2026-06-29 14:37:53,972 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [029/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8333  LR: 2.00e-05
+2026-06-29 14:37:54,343 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [030/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8333  LR: 2.00e-05
+2026-06-29 14:37:54,749 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [031/500] T-Acc:  90.9%  V-Acc:  50.0%  V-AUROC: 0.8333  LR: 2.00e-05
+2026-06-29 14:37:55,143 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [032/500] T-Acc:  86.4%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 2.00e-05
+2026-06-29 14:37:55,560 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [033/500] T-Acc:  90.9%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 2.00e-05
+2026-06-29 14:37:55,974 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [034/500] T-Acc:  90.9%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 2.00e-05
+2026-06-29 14:37:56,372 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [035/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 2.00e-05
+2026-06-29 14:37:56,727 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [036/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 2.00e-05
+2026-06-29 14:37:57,088 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [037/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 2.00e-05
+2026-06-29 14:37:57,485 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [038/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 4.00e-06
+2026-06-29 14:37:57,881 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [039/500] T-Acc:  90.9%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 4.00e-06
+2026-06-29 14:37:58,285 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [040/500] T-Acc: 100.0%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 4.00e-06
+2026-06-29 14:37:58,673 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [041/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 4.00e-06
+2026-06-29 14:37:59,065 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [042/500] T-Acc: 100.0%  V-Acc:  50.0%  V-AUROC: 0.8750  LR: 4.00e-06
+2026-06-29 14:37:59,066 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Early stop — best AUROC 0.8750 at epoch 2 (no improvement for 40 epochs)
+2026-06-29 14:37:59,066 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Done. Best AUROC: 0.8750 (epoch 2)
+2026-06-29 14:37:59,226 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Restored best-AUROC checkpoint into model (epoch 2, AUROC 0.8750).
+2026-06-29 14:37:59,328 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | -> Fold 02 Result | Acc=0.400 Sens=1.000 Spec=0.000 AUROC=0.583 (Fixed Threshold: 0.5)
+2026-06-29 14:37:59,344 | [META-RNW] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | === Fold 03/30 | train: 22 subj | test: 10 subj ===
+2026-06-29 14:37:59,356 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Device: cuda | max_epochs=500 | batch=8 | es_patience=40 | lr=1e-04 | wd=1e-02
+2026-06-29 14:37:59,357 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | CE weights — HC: 1.100  MCI: 0.917
+2026-06-29 14:37:59,787 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [001/500] T-Acc:  45.5%  V-Acc:  40.0%  V-AUROC: 0.5833  LR: 2.00e-05
+2026-06-29 14:37:59,884 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_02_best.pth
+2026-06-29 14:38:00,268 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [002/500] T-Acc:  40.9%  V-Acc:  40.0%  V-AUROC: 0.5833  LR: 4.00e-05
+2026-06-29 14:38:00,630 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [003/500] T-Acc:  54.5%  V-Acc:  40.0%  V-AUROC: 0.5833  LR: 6.00e-05
+2026-06-29 14:38:00,746 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_02_best.pth
+2026-06-29 14:38:01,125 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [004/500] T-Acc:  40.9%  V-Acc:  60.0%  V-AUROC: 0.5000  LR: 8.00e-05
+2026-06-29 14:38:01,499 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [005/500] T-Acc:  68.2%  V-Acc:  60.0%  V-AUROC: 0.5000  LR: 1.00e-04
+2026-06-29 14:38:01,880 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [006/500] T-Acc:  63.6%  V-Acc:  60.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:38:01,991 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_02_best.pth
+2026-06-29 14:38:02,374 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [007/500] T-Acc:  40.9%  V-Acc:  50.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:38:02,776 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [008/500] T-Acc:  59.1%  V-Acc:  50.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:38:03,136 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [009/500] T-Acc:  68.2%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:38:03,543 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [010/500] T-Acc:  45.5%  V-Acc:  60.0%  V-AUROC: 0.5000  LR: 1.00e-04
+2026-06-29 14:38:03,976 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [011/500] T-Acc:  68.2%  V-Acc:  70.0%  V-AUROC: 0.5833  LR: 1.00e-04
+2026-06-29 14:38:04,417 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [012/500] T-Acc:  68.2%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:38:04,859 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [013/500] T-Acc:  72.7%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 1.00e-04
+2026-06-29 14:38:05,274 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [014/500] T-Acc:  77.3%  V-Acc:  70.0%  V-AUROC: 0.6667  LR: 1.00e-04
+2026-06-29 14:38:05,389 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_02_best.pth
+2026-06-29 14:38:05,819 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [015/500] T-Acc:  77.3%  V-Acc:  60.0%  V-AUROC: 0.8333  LR: 1.00e-04
+2026-06-29 14:38:05,937 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260629_143716_meta_renewed/fold_02_best.pth
+2026-06-29 14:38:06,346 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [016/500] T-Acc:  81.8%  V-Acc:  60.0%  V-AUROC: 0.7500  LR: 1.00e-04
+2026-06-29 14:38:06,768 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [017/500] T-Acc:  72.7%  V-Acc:  60.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:38:07,195 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [018/500] T-Acc:  77.3%  V-Acc:  80.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:38:07,618 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [019/500] T-Acc:  81.8%  V-Acc:  60.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:38:08,081 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [020/500] T-Acc:  86.4%  V-Acc:  70.0%  V-AUROC: 0.7917  LR: 1.00e-04
+2026-06-29 14:38:08,546 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [021/500] T-Acc:  77.3%  V-Acc:  70.0%  V-AUROC: 0.7500  LR: 1.00e-04
+2026-06-29 14:38:08,979 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [022/500] T-Acc:  81.8%  V-Acc:  60.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:38:09,370 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [023/500] T-Acc:  95.5%  V-Acc:  60.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:38:09,748 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [024/500] T-Acc:  86.4%  V-Acc:  70.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:38:10,147 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [025/500] T-Acc:  95.5%  V-Acc:  40.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:38:10,533 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [026/500] T-Acc:  72.7%  V-Acc:  40.0%  V-AUROC: 0.7083  LR: 1.00e-04
+2026-06-29 14:38:10,919 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [027/500] T-Acc:  77.3%  V-Acc:  50.0%  V-AUROC: 0.7083  LR: 2.00e-05
+2026-06-29 14:38:11,325 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [028/500] T-Acc:  90.9%  V-Acc:  50.0%  V-AUROC: 0.6667  LR: 2.00e-05
+2026-06-29 14:38:11,772 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [029/500] T-Acc:  86.4%  V-Acc:  80.0%  V-AUROC: 0.7083  LR: 2.00e-05
+2026-06-29 14:38:12,173 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [030/500] T-Acc:  95.5%  V-Acc:  70.0%  V-AUROC: 0.6667  LR: 2.00e-05
+2026-06-29 14:38:12,579 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [031/500] T-Acc:  90.9%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:38:12,951 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [032/500] T-Acc: 100.0%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:38:13,363 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [033/500] T-Acc:  90.9%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:38:13,783 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [034/500] T-Acc:  86.4%  V-Acc:  60.0%  V-AUROC: 0.6250  LR: 2.00e-05
+2026-06-29 14:38:14,184 | [META-RNW] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [035/500] T-Acc:  95.5%  V-Acc:  50.0%  V-AUROC: 0.6250  LR: 2.00e-05

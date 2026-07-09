@@ -1,0 +1,16 @@
+2026-07-05 08:31:20,726 | [SIFT-DBT] | INFO | __main__ | Run ID: 20260705_083120_sift_dbt_swin_s1050_s2500_optA_prior_loo | tasks=(0, 1, 2, 3, 4, 5, 6, 7) | dropout=0.50 | prior=loo | S1(ep=50, pat=10, lr=5e-05) | S2(ep=500, pat=30, lr=1e-04)
+2026-07-05 08:31:20,726 | [SIFT-DBT] | INFO | __main__ | Attention prior values (per task): [-0.47999998927116394, -0.04500000178813934, -0.09000000357627869, 0.4650000035762787, -0.014999999664723873, 0.029999999329447746, -0.04500000178813934, 0.7799999713897705]
+2026-07-05 08:31:20,727 | [SIFT-DBT] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260705_083120_sift_dbt_swin_s1050_s2500_optA_prior_loo.log
+2026-07-05 08:31:20,728 | [SIFT-DBT] | INFO | __main__ | Loading 4-error CWT cache from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_meta_4err.pkl
+2026-07-05 08:31:21,775 | [SIFT-DBT] | INFO | full_experiments_using.data_processor.data_engineering | Loaded preprocessed data_store from cache: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_meta_4err.pkl (9378 epochs)
+2026-07-05 08:31:22,005 | [SIFT-DBT] | INFO | __main__ | Stage 1 flat windows: 9378 (across 37 unique subjects)
+2026-07-05 08:31:22,530 | [SIFT-DBT] | INFO | __main__ | Stage 2 subject bundles: 37  (shape=Ragged[N=37, Tasks=8, Trials=Dynamic])  dropped=0
+2026-07-05 08:31:22,657 | [SIFT-DBT] | INFO | candidates.f_swin_sift_dbt.hybrid_trainer | Hybrid CV — 30 folds | device=cuda | tasks=8 | S1(epochs=50, patience=10, lr=5e-05) | S2(epochs=500, patience=30, lr=1e-04) | attention_prior=on
+2026-07-05 08:31:22,658 | [SIFT-DBT] | INFO | candidates.f_swin_sift_dbt.hybrid_trainer | ============================================================
+2026-07-05 08:31:22,658 | [SIFT-DBT] | INFO | candidates.f_swin_sift_dbt.hybrid_trainer | === Fold 01/30 | train: 25 subj | test: 12 subj ===
+2026-07-05 08:31:22,660 | [SIFT-DBT] | INFO | candidates.f_swin_sift_dbt.hybrid_trainer | Stage 1 fold 1 — flat windows: train 5452 (subj=22)  val 855 (subj=3)
+2026-07-05 08:31:23,311 | [SIFT-DBT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/microsoft/swin-tiny-patch4-window7-224/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-05 08:31:23,329 | [SIFT-DBT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/swin-tiny-patch4-window7-224/d00d478bfaf1f417d34a1186673ad4b4be264c51/config.json "HTTP/1.1 200 OK"
+2026-07-05 08:31:23,607 | [SIFT-DBT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/microsoft/swin-tiny-patch4-window7-224/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-07-05 08:31:24,569 | [SIFT-DBT] | INFO | candidates.f_swin_sift_dbt.model_trainers.stage1_trainer | Stage 1 CE weights — HC: 1.185  MCI: 0.865
+2026-07-05 08:32:09,911 | [SIFT-DBT] | INFO | candidates.f_swin_sift_dbt.model_trainers.stage1_trainer | S1-Ep [001/50] T-Loss: 0.6738  T-Acc:  56.6%  V-Loss: 0.6826  V-Acc:  58.7%  LR: 1.00e-05

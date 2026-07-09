@@ -1,0 +1,47 @@
+2026-05-31 18:24:29,547 | [META-DAGF] | INFO | __main__ | Run ID: 20260531_182429_meta_dagf | dropout=0.50 | patience=40 | fc_hidden=128 | lr=1e-04 | wd=1e-02
+2026-05-31 18:24:29,548 | [META-DAGF] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260531_182429_meta_dagf.log
+2026-05-31 18:24:29,549 | [META-DAGF] | INFO | __main__ | Loading 8-task VOG tensors (4-error CWT) from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-05-31 18:24:29,571 | [META-DAGF] | INFO | full_experiments_using.data_processor.data_engineering | Processing 300 CSV files under /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-05-31 18:25:54,206 | [META-DAGF] | INFO | full_experiments_using.data_processor.data_engineering | Pipeline summary | kept_epochs=5736 | files_skipped(task=4, group=0, missing_cols=0, load_errors=0)
+2026-05-31 18:25:54,583 | [META-DAGF] | INFO | full_experiments_using.data_processor.data_engineering | Cached preprocessed data_store to: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_meta_4err.pkl
+2026-05-31 18:25:54,585 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing | Strict-parity drop: 37 subject(s) had <10 trials on ≥1 task and were excluded.
+2026-05-31 18:25:54,585 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240627_083104_1722132_ (HC) — per-task counts = [63, 9, 8, 20, 63, 9, 2, 22]
+2026-05-31 18:25:54,585 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240709_083459_2025307_ (HC) — per-task counts = [63, 1, 3, 19, 63, 11, 14, 22]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240329_101344_493078_ (HC) — per-task counts = [63, 3, 1, 20, 63, 7, 2, 18]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240329_084111_1324721_ (HC) — per-task counts = [68, 5, 8, 17, 67, 13, 1, 18]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20241011_105132_853338_ (HC) — per-task counts = [60, 2, 1, 18, 52, 4, 6, 16]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20250612_100903_584743_ (HC) — per-task counts = [42, 2, 1, 13, 47, 6, 1, 19]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240329_094040_1073209_ (HC) — per-task counts = [66, 4, 2, 19, 68, 5, 0, 16]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240613_084041_1533202_ (HC) — per-task counts = [63, 8, 6, 19, 63, 10, 6, 20]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240705_102008_1149257_ (HC) — per-task counts = [58, 7, 3, 18, 63, 7, 3, 18]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240830_093351_951161_ (HC) — per-task counts = [63, 7, 2, 16, 61, 7, 7, 17]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240830_103408_1926067_ (HC) — per-task counts = [55, 2, 0, 19, 63, 7, 3, 20]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240416_133414_1187418_ (HC) — per-task counts = [58, 2, 7, 21, 57, 9, 9, 16]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240507_083503_2054190_ (HC) — per-task counts = [63, 5, 5, 19, 63, 8, 6, 22]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20240709_095414_798388_ (HC) — per-task counts = [40, 4, 2, 21, 59, 15, 4, 23]
+2026-05-31 18:25:54,586 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20251223_131850_1523559_ (MCI) — per-task counts = [51, 1, 0, 10, 50, 1, 0, 24]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20250701_091148_644377_ (MCI) — per-task counts = [50, 6, 0, 12, 51, 6, 1, 24]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20250917_084851_1188823_ (MCI) — per-task counts = [25, 0, 2, 10, 47, 1, 3, 21]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20250910_083538_1921220_ (MCI) — per-task counts = [51, 6, 2, 13, 51, 11, 5, 24]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20251015_092729_1525484_ (MCI) — per-task counts = [51, 8, 6, 12, 51, 11, 4, 22]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260120_085825_1208201_ (MCI) — per-task counts = [50, 10, 9, 12, 51, 3, 3, 18]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20251202_152715_460427_ (MCI) — per-task counts = [33, 6, 2, 10, 42, 8, 8, 25]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260224_093854_1212626_ (MCI) — per-task counts = [27, 1, 1, 5, 47, 2, 1, 20]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20251231_142955_1588893_ (MCI) — per-task counts = [51, 3, 3, 10, 51, 4, 0, 24]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20251112_091044_895787_ (MCI) — per-task counts = [37, 3, 2, 11, 45, 2, 0, 20]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20250814_111814_819327_ (MCI) — per-task counts = [50, 6, 4, 14, 47, 2, 2, 25]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20250826_085849_1502340_ (MCI) — per-task counts = [51, 10, 1, 12, 51, 12, 1, 24]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260324_091656_1959999 (MCI) — per-task counts = [45, 7, 1, 10, 51, 2, 0, 21]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260225_142456_1486695 (MCI) — per-task counts = [51, 3, 0, 12, 51, 5, 3, 20]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260311_094118_984956 (MCI) — per-task counts = [50, 3, 1, 14, 51, 0, 0, 22]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260317_093419_1012933 (MCI) — per-task counts = [49, 2, 0, 9, 50, 3, 0, 23]
+2026-05-31 18:25:54,587 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260204_134719_1968714 (MCI) — per-task counts = [46, 4, 0, 12, 49, 4, 6, 21]
+2026-05-31 18:25:54,588 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260310_090536_1517154 (MCI) — per-task counts = [48, 4, 0, 7, 51, 11, 2, 24]
+2026-05-31 18:25:54,588 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260421_091245_1871077 (MCI) — per-task counts = [28, 2, 2, 12, 48, 1, 6, 25]
+2026-05-31 18:25:54,588 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260127_134745_1477026 (MCI) — per-task counts = [48, 3, 12, 10, 51, 9, 5, 21]
+2026-05-31 18:25:54,588 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260415_084829_2091974 (MCI) — per-task counts = [50, 8, 6, 12, 51, 9, 10, 22]
+2026-05-31 18:25:54,588 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260128_084616_972310 (MCI) — per-task counts = [47, 3, 1, 9, 47, 1, 1, 21]
+2026-05-31 18:25:54,588 | [META-DAGF] | INFO | meta_classifier_using.data_processor.data_preprocessing |   · dropped 20260325_084718_1491320 (MCI) — per-task counts = [41, 4, 0, 5, 50, 1, 0, 15]
+2026-05-31 18:25:54,589 | [META-DAGF] | INFO | __main__ | Subject bundles built: 0  (bundle shape = (0,))
+2026-05-31 18:25:54,589 | [META-DAGF] | INFO | __main__ | Strict-parity dropped subjects: 37
+2026-05-31 18:25:54,589 | [META-DAGF] | ERROR | __main__ | No subjects pass the strict-parity rule. Aborting.

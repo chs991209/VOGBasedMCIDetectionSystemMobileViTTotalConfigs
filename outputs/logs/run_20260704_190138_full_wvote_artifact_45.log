@@ -1,0 +1,297 @@
+2026-07-04 19:01:38,767 | [FULL    ] | INFO | __main__ | Run ID: 20260704_190138_full_wvote_artifact_45 | augment=False | dropout=0.50 | patience=30 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+2026-07-04 19:01:38,768 | [FULL    ] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260704_190138_full_wvote_artifact_45.log
+2026-07-04 19:01:38,769 | [FULL    ] | INFO | __main__ | Loading full 8-task VOG saccade tensors from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
+2026-07-04 19:01:39,037 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Loaded preprocessed data_store from cache: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_full.pkl (9378 epochs)
+2026-07-04 19:01:39,144 | [FULL    ] | INFO | __main__ | Total epoched samples: 9378
+2026-07-04 19:01:39,274 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | Stratified MC Group CV — 30 folds | device=cuda | num_tasks=8 | augment=False | dropout=0.50 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+2026-07-04 19:01:39,288 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | === Fold 01/30 | train: 25 subj / 6307 windows | test: 12 subj / 3071 windows ===
+2026-07-04 19:01:39,585 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-04 19:01:39,601 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-07-04 19:01:39,877 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 19:01:40,083 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 19:01:40,298 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-04 19:01:40,512 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 19:01:40,748 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-07-04 19:01:41,033 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-07-04 19:01:41,203 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+2026-07-04 19:01:41,205 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | CE weights — HC: 1.085  MCI: 0.927
+2026-07-04 19:01:41,297 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-04 19:01:41,583 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-07-04 19:01:41,790 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 19:01:42,010 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"
+2026-07-04 19:02:31,500 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [001/500] T-Acc:  50.6%  V-Acc:  54.6%  V-AUROC: 0.4862  LR: 2.00e-04
+2026-07-04 19:02:31,589 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:03:19,653 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [002/500] T-Acc:  50.8%  V-Acc:  54.3%  V-AUROC: 0.5031  LR: 4.00e-04
+2026-07-04 19:03:19,768 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:04:07,743 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [003/500] T-Acc:  51.4%  V-Acc:  54.6%  V-AUROC: 0.5318  LR: 6.00e-04
+2026-07-04 19:04:07,856 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:04:55,747 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [004/500] T-Acc:  52.1%  V-Acc:  52.3%  V-AUROC: 0.5376  LR: 8.00e-04
+2026-07-04 19:04:55,860 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:05:43,879 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [005/500] T-Acc:  54.1%  V-Acc:  52.0%  V-AUROC: 0.5454  LR: 1.00e-03
+2026-07-04 19:05:43,993 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:06:31,957 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [006/500] T-Acc:  55.1%  V-Acc:  54.2%  V-AUROC: 0.5682  LR: 1.00e-03
+2026-07-04 19:06:32,073 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:07:20,083 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [007/500] T-Acc:  56.0%  V-Acc:  53.6%  V-AUROC: 0.5666  LR: 1.00e-03
+2026-07-04 19:08:08,047 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [008/500] T-Acc:  56.3%  V-Acc:  56.8%  V-AUROC: 0.5783  LR: 1.00e-03
+2026-07-04 19:08:08,161 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:08:56,171 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [009/500] T-Acc:  56.8%  V-Acc:  54.9%  V-AUROC: 0.5800  LR: 1.00e-03
+2026-07-04 19:08:56,284 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:09:44,293 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [010/500] T-Acc:  57.8%  V-Acc:  59.4%  V-AUROC: 0.5952  LR: 1.00e-03
+2026-07-04 19:09:44,398 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:10:32,384 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [011/500] T-Acc:  57.6%  V-Acc:  55.6%  V-AUROC: 0.5800  LR: 1.00e-03
+2026-07-04 19:11:20,397 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [012/500] T-Acc:  58.5%  V-Acc:  57.5%  V-AUROC: 0.5854  LR: 1.00e-03
+2026-07-04 19:12:08,406 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [013/500] T-Acc:  58.9%  V-Acc:  53.3%  V-AUROC: 0.5911  LR: 1.00e-03
+2026-07-04 19:12:56,792 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [014/500] T-Acc:  59.1%  V-Acc:  55.9%  V-AUROC: 0.5928  LR: 1.00e-03
+2026-07-04 19:13:44,794 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [015/500] T-Acc:  59.6%  V-Acc:  57.8%  V-AUROC: 0.5918  LR: 1.00e-03
+2026-07-04 19:14:32,814 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [016/500] T-Acc:  60.3%  V-Acc:  53.3%  V-AUROC: 0.5955  LR: 1.00e-03
+2026-07-04 19:14:32,928 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:15:20,923 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [017/500] T-Acc:  59.6%  V-Acc:  54.8%  V-AUROC: 0.5796  LR: 1.00e-03
+2026-07-04 19:16:08,955 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [018/500] T-Acc:  60.5%  V-Acc:  55.7%  V-AUROC: 0.5939  LR: 1.00e-03
+2026-07-04 19:16:57,163 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [019/500] T-Acc:  60.5%  V-Acc:  55.4%  V-AUROC: 0.5979  LR: 1.00e-03
+2026-07-04 19:16:57,278 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:17:45,279 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [020/500] T-Acc:  60.7%  V-Acc:  55.9%  V-AUROC: 0.5883  LR: 1.00e-03
+2026-07-04 19:18:33,265 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [021/500] T-Acc:  60.8%  V-Acc:  53.1%  V-AUROC: 0.5871  LR: 1.00e-03
+2026-07-04 19:19:21,287 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [022/500] T-Acc:  60.7%  V-Acc:  53.6%  V-AUROC: 0.5800  LR: 1.00e-03
+2026-07-04 19:20:09,266 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [023/500] T-Acc:  60.3%  V-Acc:  61.8%  V-AUROC: 0.6108  LR: 1.00e-03
+2026-07-04 19:20:09,370 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:20:57,357 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [024/500] T-Acc:  60.9%  V-Acc:  54.9%  V-AUROC: 0.5969  LR: 1.00e-03
+2026-07-04 19:21:45,398 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [025/500] T-Acc:  60.6%  V-Acc:  60.1%  V-AUROC: 0.6108  LR: 1.00e-03
+2026-07-04 19:21:45,512 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:22:33,626 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [026/500] T-Acc:  61.4%  V-Acc:  57.0%  V-AUROC: 0.6034  LR: 1.00e-03
+2026-07-04 19:23:21,626 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [027/500] T-Acc:  61.9%  V-Acc:  54.6%  V-AUROC: 0.5949  LR: 1.00e-03
+2026-07-04 19:24:09,614 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [028/500] T-Acc:  61.7%  V-Acc:  54.6%  V-AUROC: 0.5924  LR: 1.00e-03
+2026-07-04 19:24:57,613 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [029/500] T-Acc:  60.8%  V-Acc:  59.0%  V-AUROC: 0.6063  LR: 1.00e-03
+2026-07-04 19:25:45,637 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [030/500] T-Acc:  61.3%  V-Acc:  57.5%  V-AUROC: 0.5941  LR: 1.00e-03
+2026-07-04 19:26:33,655 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [031/500] T-Acc:  62.4%  V-Acc:  56.4%  V-AUROC: 0.5926  LR: 1.00e-03
+2026-07-04 19:27:21,771 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [032/500] T-Acc:  61.8%  V-Acc:  54.9%  V-AUROC: 0.5953  LR: 1.00e-03
+2026-07-04 19:28:09,839 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [033/500] T-Acc:  62.4%  V-Acc:  54.3%  V-AUROC: 0.5868  LR: 1.00e-03
+2026-07-04 19:28:57,860 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [034/500] T-Acc:  62.0%  V-Acc:  51.8%  V-AUROC: 0.5829  LR: 1.00e-03
+2026-07-04 19:29:45,940 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [035/500] T-Acc:  62.3%  V-Acc:  54.5%  V-AUROC: 0.5895  LR: 2.00e-04
+2026-07-04 19:30:34,109 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [036/500] T-Acc:  62.1%  V-Acc:  55.0%  V-AUROC: 0.5945  LR: 2.00e-04
+2026-07-04 19:31:22,128 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [037/500] T-Acc:  62.4%  V-Acc:  55.9%  V-AUROC: 0.5945  LR: 2.00e-04
+2026-07-04 19:32:10,183 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [038/500] T-Acc:  62.5%  V-Acc:  55.0%  V-AUROC: 0.5958  LR: 2.00e-04
+2026-07-04 19:32:58,211 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [039/500] T-Acc:  62.0%  V-Acc:  54.2%  V-AUROC: 0.5954  LR: 2.00e-04
+2026-07-04 19:33:46,232 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [040/500] T-Acc:  62.5%  V-Acc:  55.7%  V-AUROC: 0.5987  LR: 2.00e-04
+2026-07-04 19:34:34,251 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [041/500] T-Acc:  62.6%  V-Acc:  55.6%  V-AUROC: 0.5965  LR: 2.00e-04
+2026-07-04 19:35:22,292 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [042/500] T-Acc:  62.3%  V-Acc:  56.2%  V-AUROC: 0.6002  LR: 2.00e-04
+2026-07-04 19:36:10,341 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [043/500] T-Acc:  63.2%  V-Acc:  54.4%  V-AUROC: 0.5940  LR: 2.00e-04
+2026-07-04 19:36:58,359 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [044/500] T-Acc:  62.0%  V-Acc:  55.7%  V-AUROC: 0.5963  LR: 2.00e-04
+2026-07-04 19:37:46,371 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [045/500] T-Acc:  62.8%  V-Acc:  54.7%  V-AUROC: 0.5955  LR: 2.00e-04
+2026-07-04 19:38:34,396 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [046/500] T-Acc:  62.6%  V-Acc:  54.8%  V-AUROC: 0.5962  LR: 4.00e-05
+2026-07-04 19:39:22,415 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [047/500] T-Acc:  63.4%  V-Acc:  54.6%  V-AUROC: 0.5967  LR: 4.00e-05
+2026-07-04 19:40:10,467 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [048/500] T-Acc:  62.5%  V-Acc:  55.0%  V-AUROC: 0.5986  LR: 4.00e-05
+2026-07-04 19:41:00,637 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [049/500] T-Acc:  62.8%  V-Acc:  54.8%  V-AUROC: 0.5957  LR: 4.00e-05
+2026-07-04 19:41:49,898 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [050/500] T-Acc:  62.5%  V-Acc:  55.4%  V-AUROC: 0.5971  LR: 4.00e-05
+2026-07-04 19:42:38,763 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [051/500] T-Acc:  62.9%  V-Acc:  54.7%  V-AUROC: 0.5954  LR: 4.00e-05
+2026-07-04 19:43:28,871 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [052/500] T-Acc:  62.7%  V-Acc:  55.1%  V-AUROC: 0.5948  LR: 4.00e-05
+2026-07-04 19:44:18,482 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [053/500] T-Acc:  62.9%  V-Acc:  55.7%  V-AUROC: 0.5983  LR: 4.00e-05
+2026-07-04 19:45:06,555 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [054/500] T-Acc:  63.2%  V-Acc:  54.8%  V-AUROC: 0.5970  LR: 4.00e-05
+2026-07-04 19:45:54,427 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [055/500] T-Acc:  62.9%  V-Acc:  54.8%  V-AUROC: 0.5960  LR: 4.00e-05
+2026-07-04 19:45:54,427 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Early stop — best AUROC 0.6108 at epoch 25 (no improvement for 30 epochs)
+2026-07-04 19:45:54,427 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Done. Best AUROC: 0.6108 (epoch 25) → /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_00_best.pth
+2026-07-04 19:46:07,011 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | -> Fold 01 Result | Acc=0.455 Sens=0.375 Spec=0.667 AUROC=0.667
+2026-07-04 19:46:07,015 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | === Fold 02/30 | train: 25 subj / 6370 windows | test: 12 subj / 3008 windows ===
+2026-07-04 19:46:07,282 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-04 19:46:07,299 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-07-04 19:46:07,580 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 19:46:07,793 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 19:46:08,006 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-04 19:46:08,230 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 19:46:08,461 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-07-04 19:46:08,820 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-07-04 19:46:08,820 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+2026-07-04 19:46:08,827 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | CE weights — HC: 1.226  MCI: 0.844
+2026-07-04 19:46:09,055 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-04 19:46:09,284 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-07-04 19:46:09,499 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 19:46:09,741 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"
+2026-07-04 19:46:57,031 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [001/500] T-Acc:  51.4%  V-Acc:  49.9%  V-AUROC: 0.4845  LR: 2.00e-04
+2026-07-04 19:46:57,130 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:47:45,331 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [002/500] T-Acc:  52.6%  V-Acc:  49.9%  V-AUROC: 0.4931  LR: 4.00e-04
+2026-07-04 19:47:45,444 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:48:33,544 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [003/500] T-Acc:  52.2%  V-Acc:  50.2%  V-AUROC: 0.5005  LR: 6.00e-04
+2026-07-04 19:48:33,657 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:49:21,778 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [004/500] T-Acc:  52.5%  V-Acc:  50.9%  V-AUROC: 0.5160  LR: 8.00e-04
+2026-07-04 19:49:21,891 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:50:10,005 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [005/500] T-Acc:  53.9%  V-Acc:  53.0%  V-AUROC: 0.5330  LR: 1.00e-03
+2026-07-04 19:50:10,120 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:50:58,242 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [006/500] T-Acc:  53.9%  V-Acc:  53.0%  V-AUROC: 0.5409  LR: 1.00e-03
+2026-07-04 19:50:58,355 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:51:46,462 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [007/500] T-Acc:  55.2%  V-Acc:  55.5%  V-AUROC: 0.5658  LR: 1.00e-03
+2026-07-04 19:51:46,576 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:52:34,693 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [008/500] T-Acc:  56.0%  V-Acc:  54.9%  V-AUROC: 0.5605  LR: 1.00e-03
+2026-07-04 19:53:22,859 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [009/500] T-Acc:  56.4%  V-Acc:  55.8%  V-AUROC: 0.5777  LR: 1.00e-03
+2026-07-04 19:53:22,974 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:54:11,093 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [010/500] T-Acc:  57.8%  V-Acc:  53.5%  V-AUROC: 0.5566  LR: 1.00e-03
+2026-07-04 19:54:59,253 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [011/500] T-Acc:  57.6%  V-Acc:  55.5%  V-AUROC: 0.5777  LR: 1.00e-03
+2026-07-04 19:54:59,367 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:55:47,487 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [012/500] T-Acc:  58.2%  V-Acc:  56.7%  V-AUROC: 0.5807  LR: 1.00e-03
+2026-07-04 19:55:47,601 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:56:35,744 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [013/500] T-Acc:  58.6%  V-Acc:  55.3%  V-AUROC: 0.5788  LR: 1.00e-03
+2026-07-04 19:57:23,887 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [014/500] T-Acc:  58.7%  V-Acc:  55.8%  V-AUROC: 0.5840  LR: 1.00e-03
+2026-07-04 19:57:24,009 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:58:12,180 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [015/500] T-Acc:  59.5%  V-Acc:  55.7%  V-AUROC: 0.5918  LR: 1.00e-03
+2026-07-04 19:58:12,296 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 19:59:00,425 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [016/500] T-Acc:  60.2%  V-Acc:  55.7%  V-AUROC: 0.5779  LR: 1.00e-03
+2026-07-04 19:59:48,555 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [017/500] T-Acc:  61.5%  V-Acc:  55.1%  V-AUROC: 0.5797  LR: 1.00e-03
+2026-07-04 20:00:36,652 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [018/500] T-Acc:  60.6%  V-Acc:  54.9%  V-AUROC: 0.5783  LR: 1.00e-03
+2026-07-04 20:01:24,800 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [019/500] T-Acc:  61.0%  V-Acc:  54.8%  V-AUROC: 0.5688  LR: 1.00e-03
+2026-07-04 20:02:12,951 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [020/500] T-Acc:  60.5%  V-Acc:  55.5%  V-AUROC: 0.5738  LR: 1.00e-03
+2026-07-04 20:03:01,144 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [021/500] T-Acc:  62.0%  V-Acc:  55.0%  V-AUROC: 0.5666  LR: 1.00e-03
+2026-07-04 20:03:49,261 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [022/500] T-Acc:  61.9%  V-Acc:  55.2%  V-AUROC: 0.5709  LR: 1.00e-03
+2026-07-04 20:04:37,383 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [023/500] T-Acc:  61.3%  V-Acc:  54.7%  V-AUROC: 0.5775  LR: 1.00e-03
+2026-07-04 20:05:25,537 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [024/500] T-Acc:  60.7%  V-Acc:  55.6%  V-AUROC: 0.5864  LR: 1.00e-03
+2026-07-04 20:06:13,662 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [025/500] T-Acc:  61.8%  V-Acc:  55.4%  V-AUROC: 0.5857  LR: 1.00e-03
+2026-07-04 20:07:01,751 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [026/500] T-Acc:  62.2%  V-Acc:  55.2%  V-AUROC: 0.5677  LR: 1.00e-03
+2026-07-04 20:07:49,915 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [027/500] T-Acc:  62.7%  V-Acc:  55.0%  V-AUROC: 0.5697  LR: 2.00e-04
+2026-07-04 20:08:38,025 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [028/500] T-Acc:  62.5%  V-Acc:  54.9%  V-AUROC: 0.5726  LR: 2.00e-04
+2026-07-04 20:09:26,135 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [029/500] T-Acc:  62.8%  V-Acc:  55.0%  V-AUROC: 0.5746  LR: 2.00e-04
+2026-07-04 20:10:14,264 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [030/500] T-Acc:  63.0%  V-Acc:  54.9%  V-AUROC: 0.5757  LR: 2.00e-04
+2026-07-04 20:11:02,365 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [031/500] T-Acc:  62.8%  V-Acc:  55.0%  V-AUROC: 0.5742  LR: 2.00e-04
+2026-07-04 20:11:50,453 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [032/500] T-Acc:  62.2%  V-Acc:  54.9%  V-AUROC: 0.5747  LR: 2.00e-04
+2026-07-04 20:12:38,538 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [033/500] T-Acc:  62.3%  V-Acc:  54.7%  V-AUROC: 0.5730  LR: 2.00e-04
+2026-07-04 20:13:26,708 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [034/500] T-Acc:  63.0%  V-Acc:  54.7%  V-AUROC: 0.5728  LR: 2.00e-04
+2026-07-04 20:14:14,816 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [035/500] T-Acc:  62.9%  V-Acc:  55.3%  V-AUROC: 0.5760  LR: 2.00e-04
+2026-07-04 20:15:02,921 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [036/500] T-Acc:  61.8%  V-Acc:  55.3%  V-AUROC: 0.5748  LR: 2.00e-04
+2026-07-04 20:15:51,036 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [037/500] T-Acc:  62.6%  V-Acc:  55.7%  V-AUROC: 0.5784  LR: 2.00e-04
+2026-07-04 20:16:39,150 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [038/500] T-Acc:  63.6%  V-Acc:  55.6%  V-AUROC: 0.5776  LR: 4.00e-05
+2026-07-04 20:17:27,258 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [039/500] T-Acc:  62.8%  V-Acc:  55.4%  V-AUROC: 0.5774  LR: 4.00e-05
+2026-07-04 20:18:15,349 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [040/500] T-Acc:  62.8%  V-Acc:  55.0%  V-AUROC: 0.5764  LR: 4.00e-05
+2026-07-04 20:19:03,460 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [041/500] T-Acc:  63.0%  V-Acc:  55.5%  V-AUROC: 0.5796  LR: 4.00e-05
+2026-07-04 20:19:51,616 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [042/500] T-Acc:  62.5%  V-Acc:  55.3%  V-AUROC: 0.5771  LR: 4.00e-05
+2026-07-04 20:20:39,740 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [043/500] T-Acc:  63.1%  V-Acc:  55.3%  V-AUROC: 0.5787  LR: 4.00e-05
+2026-07-04 20:21:27,851 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [044/500] T-Acc:  63.3%  V-Acc:  55.4%  V-AUROC: 0.5785  LR: 4.00e-05
+2026-07-04 20:22:15,956 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [045/500] T-Acc:  62.4%  V-Acc:  55.2%  V-AUROC: 0.5770  LR: 4.00e-05
+2026-07-04 20:22:15,957 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Early stop — best AUROC 0.5918 at epoch 15 (no improvement for 30 epochs)
+2026-07-04 20:22:15,957 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Done. Best AUROC: 0.5918 (epoch 15) → /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_01_best.pth
+2026-07-04 20:22:28,058 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | -> Fold 02 Result | Acc=0.636 Sens=0.857 Spec=0.250 AUROC=0.429
+2026-07-04 20:22:28,065 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | === Fold 03/30 | train: 25 subj / 6226 windows | test: 12 subj / 3152 windows ===
+2026-07-04 20:22:28,478 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-04 20:22:28,699 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-07-04 20:22:28,977 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 20:22:29,188 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 20:22:29,404 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-04 20:22:29,616 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 20:22:29,830 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-07-04 20:22:30,103 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+2026-07-04 20:22:30,106 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | CE weights — HC: 1.579  MCI: 0.732
+2026-07-04 20:22:30,174 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-07-04 20:22:30,393 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-04 20:22:30,614 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-07-04 20:22:30,862 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 20:22:31,094 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"
+2026-07-04 20:23:17,782 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [001/500] T-Acc:  45.4%  V-Acc:  56.4%  V-AUROC: 0.5049  LR: 2.00e-04
+2026-07-04 20:23:17,872 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:24:05,314 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [002/500] T-Acc:  47.0%  V-Acc:  56.6%  V-AUROC: 0.5152  LR: 4.00e-04
+2026-07-04 20:24:05,422 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:24:52,897 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [003/500] T-Acc:  48.0%  V-Acc:  56.9%  V-AUROC: 0.5223  LR: 6.00e-04
+2026-07-04 20:24:53,005 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:25:40,438 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [004/500] T-Acc:  48.6%  V-Acc:  56.0%  V-AUROC: 0.5391  LR: 8.00e-04
+2026-07-04 20:25:40,545 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:26:27,986 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [005/500] T-Acc:  50.3%  V-Acc:  59.7%  V-AUROC: 0.5629  LR: 1.00e-03
+2026-07-04 20:26:28,096 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:27:15,509 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [006/500] T-Acc:  53.3%  V-Acc:  57.0%  V-AUROC: 0.5556  LR: 1.00e-03
+2026-07-04 20:28:02,902 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [007/500] T-Acc:  54.1%  V-Acc:  57.1%  V-AUROC: 0.5449  LR: 1.00e-03
+2026-07-04 20:28:50,332 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [008/500] T-Acc:  54.3%  V-Acc:  51.4%  V-AUROC: 0.5576  LR: 1.00e-03
+2026-07-04 20:29:37,774 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [009/500] T-Acc:  55.1%  V-Acc:  55.1%  V-AUROC: 0.5737  LR: 1.00e-03
+2026-07-04 20:29:37,883 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:30:25,290 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [010/500] T-Acc:  56.1%  V-Acc:  58.0%  V-AUROC: 0.5905  LR: 1.00e-03
+2026-07-04 20:30:25,398 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:31:12,870 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [011/500] T-Acc:  56.4%  V-Acc:  59.0%  V-AUROC: 0.5951  LR: 1.00e-03
+2026-07-04 20:31:12,979 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:32:00,414 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [012/500] T-Acc:  58.6%  V-Acc:  52.1%  V-AUROC: 0.5790  LR: 1.00e-03
+2026-07-04 20:32:47,847 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [013/500] T-Acc:  59.6%  V-Acc:  57.6%  V-AUROC: 0.5966  LR: 1.00e-03
+2026-07-04 20:32:47,956 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:33:35,363 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [014/500] T-Acc:  59.5%  V-Acc:  57.3%  V-AUROC: 0.6072  LR: 1.00e-03
+2026-07-04 20:33:35,473 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:34:22,882 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [015/500] T-Acc:  60.4%  V-Acc:  55.3%  V-AUROC: 0.5856  LR: 1.00e-03
+2026-07-04 20:35:10,306 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [016/500] T-Acc:  60.5%  V-Acc:  53.1%  V-AUROC: 0.5988  LR: 1.00e-03
+2026-07-04 20:35:57,740 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [017/500] T-Acc:  60.4%  V-Acc:  54.9%  V-AUROC: 0.5922  LR: 1.00e-03
+2026-07-04 20:36:45,226 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [018/500] T-Acc:  61.5%  V-Acc:  50.0%  V-AUROC: 0.5561  LR: 1.00e-03
+2026-07-04 20:37:32,658 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [019/500] T-Acc:  62.8%  V-Acc:  54.3%  V-AUROC: 0.5931  LR: 1.00e-03
+2026-07-04 20:38:20,086 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [020/500] T-Acc:  62.3%  V-Acc:  53.7%  V-AUROC: 0.5906  LR: 1.00e-03
+2026-07-04 20:39:07,515 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [021/500] T-Acc:  61.2%  V-Acc:  58.0%  V-AUROC: 0.5963  LR: 1.00e-03
+2026-07-04 20:39:54,906 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [022/500] T-Acc:  63.0%  V-Acc:  56.8%  V-AUROC: 0.5943  LR: 1.00e-03
+2026-07-04 20:40:42,321 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [023/500] T-Acc:  62.7%  V-Acc:  56.3%  V-AUROC: 0.6005  LR: 1.00e-03
+2026-07-04 20:41:29,764 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [024/500] T-Acc:  61.9%  V-Acc:  53.5%  V-AUROC: 0.6066  LR: 1.00e-03
+2026-07-04 20:42:17,254 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [025/500] T-Acc:  62.5%  V-Acc:  61.0%  V-AUROC: 0.6244  LR: 1.00e-03
+2026-07-04 20:42:17,362 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 20:43:04,814 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [026/500] T-Acc:  62.6%  V-Acc:  49.5%  V-AUROC: 0.6012  LR: 1.00e-03
+2026-07-04 20:43:52,468 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [027/500] T-Acc:  63.0%  V-Acc:  59.2%  V-AUROC: 0.6123  LR: 1.00e-03
+2026-07-04 20:44:41,480 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [028/500] T-Acc:  62.8%  V-Acc:  58.1%  V-AUROC: 0.6109  LR: 1.00e-03
+2026-07-04 20:45:30,127 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [029/500] T-Acc:  63.6%  V-Acc:  60.7%  V-AUROC: 0.6189  LR: 1.00e-03
+2026-07-04 20:46:19,825 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [030/500] T-Acc:  63.9%  V-Acc:  57.0%  V-AUROC: 0.6228  LR: 1.00e-03
+2026-07-04 20:47:10,155 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [031/500] T-Acc:  64.0%  V-Acc:  57.4%  V-AUROC: 0.6165  LR: 1.00e-03
+2026-07-04 20:48:01,648 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [032/500] T-Acc:  63.8%  V-Acc:  54.5%  V-AUROC: 0.5985  LR: 1.00e-03
+2026-07-04 20:48:53,702 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [033/500] T-Acc:  64.7%  V-Acc:  48.3%  V-AUROC: 0.5874  LR: 1.00e-03
+2026-07-04 20:49:45,059 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [034/500] T-Acc:  65.3%  V-Acc:  57.5%  V-AUROC: 0.6120  LR: 1.00e-03
+2026-07-04 20:50:34,370 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [035/500] T-Acc:  64.7%  V-Acc:  56.1%  V-AUROC: 0.6111  LR: 1.00e-03
+2026-07-04 20:51:23,591 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [036/500] T-Acc:  65.1%  V-Acc:  55.5%  V-AUROC: 0.6000  LR: 1.00e-03
+2026-07-04 20:52:13,066 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [037/500] T-Acc:  65.0%  V-Acc:  55.4%  V-AUROC: 0.6025  LR: 2.00e-04
+2026-07-04 20:53:02,754 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [038/500] T-Acc:  65.2%  V-Acc:  54.6%  V-AUROC: 0.5990  LR: 2.00e-04
+2026-07-04 20:53:52,549 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [039/500] T-Acc:  64.7%  V-Acc:  56.8%  V-AUROC: 0.6079  LR: 2.00e-04
+2026-07-04 20:54:42,082 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [040/500] T-Acc:  65.6%  V-Acc:  56.8%  V-AUROC: 0.6080  LR: 2.00e-04
+2026-07-04 20:55:31,661 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [041/500] T-Acc:  65.1%  V-Acc:  54.5%  V-AUROC: 0.6035  LR: 2.00e-04
+2026-07-04 20:56:21,538 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [042/500] T-Acc:  65.2%  V-Acc:  54.7%  V-AUROC: 0.6070  LR: 2.00e-04
+2026-07-04 20:57:11,347 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [043/500] T-Acc:  65.7%  V-Acc:  55.5%  V-AUROC: 0.6062  LR: 2.00e-04
+2026-07-04 20:58:01,067 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [044/500] T-Acc:  65.6%  V-Acc:  54.8%  V-AUROC: 0.6056  LR: 2.00e-04
+2026-07-04 20:58:50,690 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [045/500] T-Acc:  65.2%  V-Acc:  56.3%  V-AUROC: 0.6083  LR: 2.00e-04
+2026-07-04 20:59:40,121 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [046/500] T-Acc:  65.9%  V-Acc:  56.9%  V-AUROC: 0.6093  LR: 2.00e-04
+2026-07-04 21:00:29,660 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [047/500] T-Acc:  65.8%  V-Acc:  57.2%  V-AUROC: 0.6111  LR: 2.00e-04
+2026-07-04 21:01:19,360 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [048/500] T-Acc:  66.1%  V-Acc:  56.9%  V-AUROC: 0.6128  LR: 4.00e-05
+2026-07-04 21:02:08,896 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [049/500] T-Acc:  66.3%  V-Acc:  55.9%  V-AUROC: 0.6101  LR: 4.00e-05
+2026-07-04 21:02:58,401 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [050/500] T-Acc:  65.9%  V-Acc:  56.5%  V-AUROC: 0.6122  LR: 4.00e-05
+2026-07-04 21:03:48,009 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [051/500] T-Acc:  65.6%  V-Acc:  57.0%  V-AUROC: 0.6135  LR: 4.00e-05
+2026-07-04 21:04:37,629 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [052/500] T-Acc:  65.8%  V-Acc:  55.9%  V-AUROC: 0.6131  LR: 4.00e-05
+2026-07-04 21:05:27,278 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [053/500] T-Acc:  66.1%  V-Acc:  56.9%  V-AUROC: 0.6137  LR: 4.00e-05
+2026-07-04 21:06:17,059 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [054/500] T-Acc:  65.7%  V-Acc:  56.3%  V-AUROC: 0.6123  LR: 4.00e-05
+2026-07-04 21:07:07,152 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [055/500] T-Acc:  66.0%  V-Acc:  56.2%  V-AUROC: 0.6097  LR: 4.00e-05
+2026-07-04 21:07:07,152 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Early stop — best AUROC 0.6244 at epoch 25 (no improvement for 30 epochs)
+2026-07-04 21:07:07,152 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Done. Best AUROC: 0.6244 (epoch 25) → /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_02_best.pth
+2026-07-04 21:07:20,262 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | -> Fold 03 Result | Acc=0.545 Sens=1.000 Spec=0.286 AUROC=0.821
+2026-07-04 21:07:20,266 | [FULL    ] | INFO | full_experiments_using.evaluators.monte_carlo_evaluator | === Fold 04/30 | train: 25 subj / 6390 windows | test: 12 subj / 2988 windows ===
+2026-07-04 21:07:20,556 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-04 21:07:20,571 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-07-04 21:07:20,813 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 21:07:21,021 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 21:07:21,238 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-07-04 21:07:21,449 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-07-04 21:07:21,674 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-07-04 21:07:21,872 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+2026-07-04 21:07:21,875 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | CE weights — HC: 1.221  MCI: 0.847
+2026-07-04 21:07:21,899 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-07-04 21:07:22,124 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-07-04 21:07:22,349 | [FULL    ] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-07-04 21:07:22,559 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-07-04 21:07:22,778 | [FULL    ] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"
+2026-07-04 21:08:12,210 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [001/500] T-Acc:  51.0%  V-Acc:  50.0%  V-AUROC: 0.4956  LR: 2.00e-04
+2026-07-04 21:08:12,303 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:09:03,370 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [002/500] T-Acc:  51.2%  V-Acc:  50.5%  V-AUROC: 0.4993  LR: 4.00e-04
+2026-07-04 21:09:03,481 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:09:53,490 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [003/500] T-Acc:  52.5%  V-Acc:  49.2%  V-AUROC: 0.4975  LR: 6.00e-04
+2026-07-04 21:10:43,858 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [004/500] T-Acc:  53.4%  V-Acc:  48.6%  V-AUROC: 0.4882  LR: 8.00e-04
+2026-07-04 21:11:35,013 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [005/500] T-Acc:  54.7%  V-Acc:  49.0%  V-AUROC: 0.5010  LR: 1.00e-03
+2026-07-04 21:11:35,131 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:12:25,677 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [006/500] T-Acc:  56.5%  V-Acc:  49.2%  V-AUROC: 0.4976  LR: 1.00e-03
+2026-07-04 21:13:15,924 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [007/500] T-Acc:  57.3%  V-Acc:  50.6%  V-AUROC: 0.5107  LR: 1.00e-03
+2026-07-04 21:13:16,039 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:14:06,319 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [008/500] T-Acc:  57.9%  V-Acc:  49.6%  V-AUROC: 0.5034  LR: 1.00e-03
+2026-07-04 21:14:56,441 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [009/500] T-Acc:  58.2%  V-Acc:  50.8%  V-AUROC: 0.5093  LR: 1.00e-03
+2026-07-04 21:15:46,853 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [010/500] T-Acc:  59.1%  V-Acc:  51.2%  V-AUROC: 0.5157  LR: 1.00e-03
+2026-07-04 21:15:47,019 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:16:37,211 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [011/500] T-Acc:  60.0%  V-Acc:  52.1%  V-AUROC: 0.5195  LR: 1.00e-03
+2026-07-04 21:16:37,318 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:17:27,721 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [012/500] T-Acc:  59.6%  V-Acc:  52.4%  V-AUROC: 0.5275  LR: 1.00e-03
+2026-07-04 21:17:27,828 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:18:18,372 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [013/500] T-Acc:  60.7%  V-Acc:  52.6%  V-AUROC: 0.5286  LR: 1.00e-03
+2026-07-04 21:18:18,483 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:19:09,033 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [014/500] T-Acc:  60.5%  V-Acc:  50.6%  V-AUROC: 0.5140  LR: 1.00e-03
+2026-07-04 21:19:59,051 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [015/500] T-Acc:  60.3%  V-Acc:  51.3%  V-AUROC: 0.5201  LR: 1.00e-03
+2026-07-04 21:20:49,568 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [016/500] T-Acc:  61.8%  V-Acc:  52.3%  V-AUROC: 0.5274  LR: 1.00e-03
+2026-07-04 21:21:39,533 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [017/500] T-Acc:  62.0%  V-Acc:  52.0%  V-AUROC: 0.5249  LR: 1.00e-03
+2026-07-04 21:22:30,339 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [018/500] T-Acc:  61.7%  V-Acc:  52.6%  V-AUROC: 0.5319  LR: 1.00e-03
+2026-07-04 21:22:30,449 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:23:20,850 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [019/500] T-Acc:  62.3%  V-Acc:  52.6%  V-AUROC: 0.5360  LR: 1.00e-03
+2026-07-04 21:23:20,972 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer |   ↳ new best AUROC; saved checkpoint: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/checkpoints/run_20260704_190138_full_wvote_artifact_45/fold_03_best.pth
+2026-07-04 21:24:11,077 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [020/500] T-Acc:  62.3%  V-Acc:  53.1%  V-AUROC: 0.5321  LR: 1.00e-03
+2026-07-04 21:25:02,196 | [FULL    ] | INFO | full_experiments_using.model_trainers.mobile_vit_trainer | Ep [021/500] T-Acc:  62.7%  V-Acc:  52.4%  V-AUROC: 0.5301  LR: 1.00e-03

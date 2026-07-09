@@ -43,8 +43,8 @@ from full_experiments_using.evaluators.monte_carlo_evaluator import (  # noqa: E
 )
 
 
-_DEFAULT_DROPOUT = 0.3
-_DEFAULT_PATIENCE = 40
+_DEFAULT_DROPOUT = 0.5
+_DEFAULT_PATIENCE = 30
 
 # Weighted soft-vote scheme derived from the task-contribution probe analysis:
 # Vertical B / B-anti / R (5,6,7) up-weighted 1.5×; Horizontal B / B-anti / R
@@ -119,7 +119,7 @@ def main():
     if int(args.patience) != _DEFAULT_PATIENCE:
         run_id += f"_pat{int(args.patience):03d}"
     if args.weighted_vote:
-        run_id += "_wvote"
+        run_id += "_wvote_artifact_45"
 
     task_weights = WEIGHTED_VOTE_SCHEME if args.weighted_vote else None
 
@@ -143,7 +143,7 @@ def main():
         freq_bins=32,
         target_time_bins=32,
         w_morlet=4.0,
-        artifact_threshold=30.0,
+        artifact_threshold=45.0,
         # Dedicated cache file: 8-task tensors never collide with the 2-task cache.
         cache_path=CACHE_DIR / "data_store_full.pkl",
     )

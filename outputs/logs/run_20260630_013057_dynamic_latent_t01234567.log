@@ -1,0 +1,18 @@
+2026-06-30 01:30:57,415 | [DYN-LATENT] | INFO | __main__ | Run ID: 20260630_013057_dynamic_latent_t01234567 | tasks=[0=HSacA, 1=HSacB, 2=HSacBanti, 3=HSacR, 4=VSacA, 5=VSacB, 6=VSacBanti, 7=VSacR] | min_trials=1 | batch=8
+2026-06-30 01:30:57,677 | [DYN-LATENT] | INFO | full_experiments_using.data_processor.data_engineering | Loaded preprocessed data_store from cache: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/cache/data_store_meta_4err.pkl (9378 epochs)
+2026-06-30 01:30:57,845 | [DYN-LATENT] | INFO | __main__ | Subject bundles built: 37 (Shape: Ragged[N=37, Tasks=8, Trials=Dynamic])
+2026-06-30 01:30:57,974 | [DYN-LATENT] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | Renewed MC Group CV (Dynamic Latent Aggregation) — 30 folds | device=cuda | dropout=0.50 | lr=1e-04 | wd=1e-02
+2026-06-30 01:30:58,310 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-30 01:30:58,326 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/apple/mobilevit-small/6c8612545dc98676d27bc518fa521d9e9af23e34/config.json "HTTP/1.1 200 OK"
+2026-06-30 01:30:58,574 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-06-30 01:30:58,788 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-06-30 01:30:59,020 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-06-30 01:30:59,259 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-06-30 01:30:59,505 | [DYN-LATENT] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small "HTTP/1.1 200 OK"
+2026-06-30 01:30:59,807 | [DYN-LATENT] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/main "HTTP/1.1 200 OK"
+2026-06-30 01:31:00,034 | [DYN-LATENT] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/discussions?p=0 "HTTP/1.1 200 OK"
+2026-06-30 01:31:00,052 | [DYN-LATENT] | INFO | meta_classifier_renewed.evaluators.monte_carlo_evaluator | === Fold 01/30 | train: 25 subj | test: 12 subj ===
+2026-06-30 01:31:00,257 | [DYN-LATENT] | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/apple/mobilevit-small/commits/refs%2Fpr%2F6 "HTTP/1.1 200 OK"
+2026-06-30 01:31:00,468 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-06-30 01:31:00,679 | [DYN-LATENT] | INFO | httpx | HTTP Request: HEAD https://huggingface.co/apple/mobilevit-small/resolve/refs%2Fpr%2F6/model.safetensors "HTTP/1.1 302 Found"
+2026-06-30 01:31:04,174 | [DYN-LATENT] | INFO | meta_classifier_renewed.model_trainers.meta_trainer | Ep [001/500] T-Acc:  60.0%  V-Acc:  66.7%  V-AUROC: 0.5938  LR: 2.00e-05

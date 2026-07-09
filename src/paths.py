@@ -10,6 +10,11 @@ LOGS_DIR = OUTPUTS_DIR / "logs"
 REPORTS_DIR = OUTPUTS_DIR / "reports"
 CACHE_DIR = OUTPUTS_DIR / "cache"
 
+IMGS_DIR = PROJECT_ROOT / "imgs"
+WAVELET_IMGS_DIR = IMGS_DIR / "wavelet_transformed_spectrograms"
+STFT_IMGS_DIR = IMGS_DIR / "short_term_fourier_transformed_spectrograms"
+TIME_SERIES_IMGS_DIR = IMGS_DIR / "time_series_visualized"
+
 
 def ensure_output_dirs() -> None:
     for d in (CHECKPOINTS_DIR, LOGS_DIR, REPORTS_DIR, CACHE_DIR):

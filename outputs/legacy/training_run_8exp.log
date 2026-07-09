@@ -1,0 +1,1810 @@
+[*] Loading data from: /home/leggo/AIResearch/VOGBasedDetectionSystem/data
+[*] Dataset: 5736 windows  (HC=2495, MCI=3241)
+
+[*] Stratified MC Group CV — 30 folds | device=cuda
+
+=== Fold 01/30 | train: 25 subj / 3789 windows | test: 12 subj / 1947 windows ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 8847.99it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.064  MCI: 0.943
+Ep [001/500] T-Acc:  53.7%  V-Acc:  48.1%  V-AUROC: 0.5759  LR: 2.00e-04
+Ep [002/500] T-Acc:  54.4%  V-Acc:  49.2%  V-AUROC: 0.5789  LR: 4.00e-04
+Ep [003/500] T-Acc:  54.7%  V-Acc:  51.1%  V-AUROC: 0.5777  LR: 6.00e-04
+Ep [004/500] T-Acc:  56.1%  V-Acc:  53.3%  V-AUROC: 0.5976  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.3%  V-Acc:  55.2%  V-AUROC: 0.5819  LR: 1.00e-03
+Ep [006/500] T-Acc:  57.4%  V-Acc:  55.9%  V-AUROC: 0.6062  LR: 1.00e-03
+Ep [007/500] T-Acc:  57.6%  V-Acc:  56.4%  V-AUROC: 0.6039  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.6%  V-Acc:  57.2%  V-AUROC: 0.6169  LR: 1.00e-03
+Ep [009/500] T-Acc:  61.0%  V-Acc:  56.0%  V-AUROC: 0.6184  LR: 1.00e-03
+Ep [010/500] T-Acc:  60.2%  V-Acc:  54.9%  V-AUROC: 0.6132  LR: 1.00e-03
+Ep [011/500] T-Acc:  60.1%  V-Acc:  54.2%  V-AUROC: 0.6161  LR: 1.00e-03
+Ep [012/500] T-Acc:  60.6%  V-Acc:  56.3%  V-AUROC: 0.6228  LR: 1.00e-03
+Ep [013/500] T-Acc:  61.9%  V-Acc:  56.1%  V-AUROC: 0.6150  LR: 1.00e-03
+Ep [014/500] T-Acc:  61.1%  V-Acc:  57.6%  V-AUROC: 0.6177  LR: 1.00e-03
+Ep [015/500] T-Acc:  61.4%  V-Acc:  55.5%  V-AUROC: 0.6252  LR: 1.00e-03
+Ep [016/500] T-Acc:  63.0%  V-Acc:  56.4%  V-AUROC: 0.6322  LR: 1.00e-03
+Ep [017/500] T-Acc:  60.8%  V-Acc:  58.1%  V-AUROC: 0.6263  LR: 1.00e-03
+Ep [018/500] T-Acc:  62.4%  V-Acc:  57.7%  V-AUROC: 0.6273  LR: 1.00e-03
+Ep [019/500] T-Acc:  63.9%  V-Acc:  57.3%  V-AUROC: 0.6243  LR: 1.00e-03
+Ep [020/500] T-Acc:  62.6%  V-Acc:  58.7%  V-AUROC: 0.6303  LR: 1.00e-03
+Ep [021/500] T-Acc:  64.0%  V-Acc:  58.7%  V-AUROC: 0.6254  LR: 1.00e-03
+Ep [022/500] T-Acc:  64.1%  V-Acc:  57.8%  V-AUROC: 0.6285  LR: 1.00e-03
+Ep [023/500] T-Acc:  62.5%  V-Acc:  57.1%  V-AUROC: 0.6327  LR: 1.00e-03
+Ep [024/500] T-Acc:  63.8%  V-Acc:  54.5%  V-AUROC: 0.6285  LR: 1.00e-03
+Ep [025/500] T-Acc:  64.1%  V-Acc:  57.4%  V-AUROC: 0.6370  LR: 1.00e-03
+Ep [026/500] T-Acc:  64.0%  V-Acc:  58.7%  V-AUROC: 0.6362  LR: 1.00e-03
+Ep [027/500] T-Acc:  63.5%  V-Acc:  56.2%  V-AUROC: 0.6314  LR: 1.00e-03
+Ep [028/500] T-Acc:  65.0%  V-Acc:  58.5%  V-AUROC: 0.6410  LR: 1.00e-03
+Ep [029/500] T-Acc:  64.6%  V-Acc:  59.2%  V-AUROC: 0.6356  LR: 1.00e-03
+Ep [030/500] T-Acc:  65.5%  V-Acc:  57.2%  V-AUROC: 0.6344  LR: 1.00e-03
+Ep [031/500] T-Acc:  64.9%  V-Acc:  59.2%  V-AUROC: 0.6407  LR: 1.00e-03
+Ep [032/500] T-Acc:  65.7%  V-Acc:  57.6%  V-AUROC: 0.6396  LR: 1.00e-03
+Ep [033/500] T-Acc:  65.1%  V-Acc:  57.6%  V-AUROC: 0.6410  LR: 1.00e-03
+Ep [034/500] T-Acc:  65.7%  V-Acc:  57.8%  V-AUROC: 0.6407  LR: 1.00e-03
+Ep [035/500] T-Acc:  65.0%  V-Acc:  58.9%  V-AUROC: 0.6430  LR: 1.00e-03
+Ep [036/500] T-Acc:  65.8%  V-Acc:  59.9%  V-AUROC: 0.6359  LR: 1.00e-03
+Ep [037/500] T-Acc:  66.0%  V-Acc:  60.1%  V-AUROC: 0.6431  LR: 1.00e-03
+Ep [038/500] T-Acc:  65.7%  V-Acc:  59.9%  V-AUROC: 0.6439  LR: 1.00e-03
+Ep [039/500] T-Acc:  65.6%  V-Acc:  58.6%  V-AUROC: 0.6415  LR: 1.00e-03
+Ep [040/500] T-Acc:  65.7%  V-Acc:  59.2%  V-AUROC: 0.6426  LR: 1.00e-03
+Ep [041/500] T-Acc:  65.8%  V-Acc:  58.4%  V-AUROC: 0.6471  LR: 1.00e-03
+Ep [042/500] T-Acc:  66.2%  V-Acc:  57.4%  V-AUROC: 0.6417  LR: 1.00e-03
+Ep [043/500] T-Acc:  65.7%  V-Acc:  57.5%  V-AUROC: 0.6346  LR: 1.00e-03
+Ep [044/500] T-Acc:  66.1%  V-Acc:  59.5%  V-AUROC: 0.6477  LR: 1.00e-03
+Ep [045/500] T-Acc:  66.5%  V-Acc:  60.1%  V-AUROC: 0.6416  LR: 1.00e-03
+Ep [046/500] T-Acc:  65.6%  V-Acc:  59.9%  V-AUROC: 0.6521  LR: 1.00e-03
+Ep [047/500] T-Acc:  64.6%  V-Acc:  61.4%  V-AUROC: 0.6461  LR: 1.00e-03
+Ep [048/500] T-Acc:  65.5%  V-Acc:  59.0%  V-AUROC: 0.6503  LR: 1.00e-03
+Ep [049/500] T-Acc:  66.6%  V-Acc:  58.3%  V-AUROC: 0.6515  LR: 1.00e-03
+Ep [050/500] T-Acc:  65.2%  V-Acc:  57.5%  V-AUROC: 0.6513  LR: 1.00e-03
+Ep [051/500] T-Acc:  65.7%  V-Acc:  57.1%  V-AUROC: 0.6420  LR: 1.00e-03
+Ep [052/500] T-Acc:  66.1%  V-Acc:  57.5%  V-AUROC: 0.6530  LR: 1.00e-03
+Ep [053/500] T-Acc:  65.4%  V-Acc:  57.7%  V-AUROC: 0.6452  LR: 1.00e-03
+Ep [054/500] T-Acc:  66.2%  V-Acc:  58.1%  V-AUROC: 0.6566  LR: 1.00e-03
+Ep [055/500] T-Acc:  66.8%  V-Acc:  60.2%  V-AUROC: 0.6454  LR: 1.00e-03
+Ep [056/500] T-Acc:  66.2%  V-Acc:  56.8%  V-AUROC: 0.6427  LR: 1.00e-03
+Ep [057/500] T-Acc:  66.2%  V-Acc:  56.5%  V-AUROC: 0.6435  LR: 1.00e-03
+Ep [058/500] T-Acc:  66.3%  V-Acc:  57.7%  V-AUROC: 0.6441  LR: 1.00e-03
+Ep [059/500] T-Acc:  66.9%  V-Acc:  57.4%  V-AUROC: 0.6401  LR: 1.00e-03
+Ep [060/500] T-Acc:  66.5%  V-Acc:  58.7%  V-AUROC: 0.6475  LR: 1.00e-03
+Ep [061/500] T-Acc:  66.7%  V-Acc:  57.0%  V-AUROC: 0.6532  LR: 1.00e-03
+Ep [062/500] T-Acc:  66.6%  V-Acc:  58.9%  V-AUROC: 0.6523  LR: 1.00e-03
+Ep [063/500] T-Acc:  66.0%  V-Acc:  59.7%  V-AUROC: 0.6440  LR: 1.00e-03
+Ep [064/500] T-Acc:  66.8%  V-Acc:  61.1%  V-AUROC: 0.6547  LR: 1.00e-03
+Ep [065/500] T-Acc:  67.0%  V-Acc:  59.9%  V-AUROC: 0.6477  LR: 1.00e-03
+Ep [066/500] T-Acc:  67.2%  V-Acc:  58.3%  V-AUROC: 0.6514  LR: 2.00e-04
+Ep [067/500] T-Acc:  66.8%  V-Acc:  59.7%  V-AUROC: 0.6504  LR: 2.00e-04
+Ep [068/500] T-Acc:  66.4%  V-Acc:  58.6%  V-AUROC: 0.6493  LR: 2.00e-04
+Ep [069/500] T-Acc:  66.8%  V-Acc:  58.4%  V-AUROC: 0.6492  LR: 2.00e-04
+Ep [070/500] T-Acc:  67.9%  V-Acc:  58.5%  V-AUROC: 0.6505  LR: 2.00e-04
+Ep [071/500] T-Acc:  66.8%  V-Acc:  58.1%  V-AUROC: 0.6464  LR: 2.00e-04
+Ep [072/500] T-Acc:  67.7%  V-Acc:  59.4%  V-AUROC: 0.6491  LR: 2.00e-04
+Ep [073/500] T-Acc:  67.1%  V-Acc:  57.7%  V-AUROC: 0.6494  LR: 2.00e-04
+Ep [074/500] T-Acc:  66.8%  V-Acc:  58.2%  V-AUROC: 0.6488  LR: 2.00e-04
+Ep [075/500] T-Acc:  67.1%  V-Acc:  59.3%  V-AUROC: 0.6496  LR: 2.00e-04
+Ep [076/500] T-Acc:  68.4%  V-Acc:  58.7%  V-AUROC: 0.6495  LR: 2.00e-04
+Ep [077/500] T-Acc:  67.1%  V-Acc:  57.7%  V-AUROC: 0.6491  LR: 4.00e-05
+Ep [078/500] T-Acc:  67.7%  V-Acc:  57.1%  V-AUROC: 0.6487  LR: 4.00e-05
+Ep [079/500] T-Acc:  66.9%  V-Acc:  59.2%  V-AUROC: 0.6497  LR: 4.00e-05
+Ep [080/500] T-Acc:  67.2%  V-Acc:  58.6%  V-AUROC: 0.6508  LR: 4.00e-05
+Ep [081/500] T-Acc:  66.9%  V-Acc:  59.4%  V-AUROC: 0.6500  LR: 4.00e-05
+Ep [082/500] T-Acc:  67.3%  V-Acc:  58.7%  V-AUROC: 0.6491  LR: 4.00e-05
+Ep [083/500] T-Acc:  67.7%  V-Acc:  58.0%  V-AUROC: 0.6496  LR: 4.00e-05
+Ep [084/500] T-Acc:  67.5%  V-Acc:  58.0%  V-AUROC: 0.6478  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6566 at epoch 54. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6566 (epoch 54) → 'best_task_conditioned_model.pth'
+-> Acc=0.545  Sens=0.500  Spec=0.667  AUROC=0.667
+
+=== Fold 02/30 | train: 25 subj / 3910 windows | test: 12 subj / 1826 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7578.68it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.220  MCI: 0.847
+Ep [001/500] T-Acc:  53.4%  V-Acc:  53.8%  V-AUROC: 0.5225  LR: 2.00e-04
+Ep [002/500] T-Acc:  54.2%  V-Acc:  54.0%  V-AUROC: 0.5337  LR: 4.00e-04
+Ep [003/500] T-Acc:  54.4%  V-Acc:  52.9%  V-AUROC: 0.5249  LR: 6.00e-04
+Ep [004/500] T-Acc:  54.6%  V-Acc:  53.2%  V-AUROC: 0.5407  LR: 8.00e-04
+Ep [005/500] T-Acc:  53.9%  V-Acc:  52.1%  V-AUROC: 0.5458  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.8%  V-Acc:  52.6%  V-AUROC: 0.5469  LR: 1.00e-03
+Ep [007/500] T-Acc:  56.1%  V-Acc:  55.9%  V-AUROC: 0.5806  LR: 1.00e-03
+Ep [008/500] T-Acc:  57.7%  V-Acc:  55.1%  V-AUROC: 0.5722  LR: 1.00e-03
+Ep [009/500] T-Acc:  57.3%  V-Acc:  55.3%  V-AUROC: 0.5841  LR: 1.00e-03
+Ep [010/500] T-Acc:  59.0%  V-Acc:  54.5%  V-AUROC: 0.5761  LR: 1.00e-03
+Ep [011/500] T-Acc:  56.8%  V-Acc:  53.5%  V-AUROC: 0.5624  LR: 1.00e-03
+Ep [012/500] T-Acc:  57.7%  V-Acc:  55.4%  V-AUROC: 0.5824  LR: 1.00e-03
+Ep [013/500] T-Acc:  57.7%  V-Acc:  55.5%  V-AUROC: 0.5860  LR: 1.00e-03
+Ep [014/500] T-Acc:  58.6%  V-Acc:  55.9%  V-AUROC: 0.5813  LR: 1.00e-03
+Ep [015/500] T-Acc:  59.1%  V-Acc:  56.1%  V-AUROC: 0.5893  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.6%  V-Acc:  57.2%  V-AUROC: 0.5951  LR: 1.00e-03
+Ep [017/500] T-Acc:  60.5%  V-Acc:  57.0%  V-AUROC: 0.5911  LR: 1.00e-03
+Ep [018/500] T-Acc:  61.6%  V-Acc:  57.0%  V-AUROC: 0.5895  LR: 1.00e-03
+Ep [019/500] T-Acc:  62.2%  V-Acc:  56.2%  V-AUROC: 0.5787  LR: 1.00e-03
+Ep [020/500] T-Acc:  62.6%  V-Acc:  56.7%  V-AUROC: 0.5782  LR: 1.00e-03
+Ep [021/500] T-Acc:  61.8%  V-Acc:  57.6%  V-AUROC: 0.5971  LR: 1.00e-03
+Ep [022/500] T-Acc:  61.7%  V-Acc:  55.5%  V-AUROC: 0.5802  LR: 1.00e-03
+Ep [023/500] T-Acc:  61.3%  V-Acc:  58.1%  V-AUROC: 0.5976  LR: 1.00e-03
+Ep [024/500] T-Acc:  61.2%  V-Acc:  55.9%  V-AUROC: 0.5939  LR: 1.00e-03
+Ep [025/500] T-Acc:  60.5%  V-Acc:  55.9%  V-AUROC: 0.5921  LR: 1.00e-03
+Ep [026/500] T-Acc:  62.3%  V-Acc:  57.9%  V-AUROC: 0.6044  LR: 1.00e-03
+Ep [027/500] T-Acc:  62.1%  V-Acc:  57.3%  V-AUROC: 0.6001  LR: 1.00e-03
+Ep [028/500] T-Acc:  62.0%  V-Acc:  57.6%  V-AUROC: 0.5881  LR: 1.00e-03
+Ep [029/500] T-Acc:  62.3%  V-Acc:  57.8%  V-AUROC: 0.6020  LR: 1.00e-03
+Ep [030/500] T-Acc:  62.3%  V-Acc:  57.9%  V-AUROC: 0.6097  LR: 1.00e-03
+Ep [031/500] T-Acc:  63.1%  V-Acc:  58.3%  V-AUROC: 0.6158  LR: 1.00e-03
+Ep [032/500] T-Acc:  63.2%  V-Acc:  54.7%  V-AUROC: 0.5677  LR: 1.00e-03
+Ep [033/500] T-Acc:  63.1%  V-Acc:  55.5%  V-AUROC: 0.5811  LR: 1.00e-03
+Ep [034/500] T-Acc:  64.5%  V-Acc:  56.7%  V-AUROC: 0.5772  LR: 1.00e-03
+Ep [035/500] T-Acc:  63.2%  V-Acc:  57.0%  V-AUROC: 0.5832  LR: 1.00e-03
+Ep [036/500] T-Acc:  63.4%  V-Acc:  56.7%  V-AUROC: 0.5906  LR: 1.00e-03
+Ep [037/500] T-Acc:  63.8%  V-Acc:  56.2%  V-AUROC: 0.5983  LR: 1.00e-03
+Ep [038/500] T-Acc:  63.9%  V-Acc:  56.0%  V-AUROC: 0.5884  LR: 1.00e-03
+Ep [039/500] T-Acc:  64.1%  V-Acc:  56.0%  V-AUROC: 0.5847  LR: 1.00e-03
+Ep [040/500] T-Acc:  64.3%  V-Acc:  56.5%  V-AUROC: 0.5859  LR: 1.00e-03
+Ep [041/500] T-Acc:  63.7%  V-Acc:  57.0%  V-AUROC: 0.6034  LR: 1.00e-03
+Ep [042/500] T-Acc:  64.8%  V-Acc:  56.7%  V-AUROC: 0.5945  LR: 1.00e-03
+Ep [043/500] T-Acc:  64.6%  V-Acc:  56.2%  V-AUROC: 0.5945  LR: 2.00e-04
+Ep [044/500] T-Acc:  64.5%  V-Acc:  56.2%  V-AUROC: 0.5979  LR: 2.00e-04
+Ep [045/500] T-Acc:  64.7%  V-Acc:  57.0%  V-AUROC: 0.5967  LR: 2.00e-04
+Ep [046/500] T-Acc:  65.3%  V-Acc:  56.7%  V-AUROC: 0.5930  LR: 2.00e-04
+Ep [047/500] T-Acc:  64.4%  V-Acc:  56.2%  V-AUROC: 0.5943  LR: 2.00e-04
+Ep [048/500] T-Acc:  65.3%  V-Acc:  56.1%  V-AUROC: 0.5962  LR: 2.00e-04
+Ep [049/500] T-Acc:  64.5%  V-Acc:  57.1%  V-AUROC: 0.5977  LR: 2.00e-04
+Ep [050/500] T-Acc:  65.9%  V-Acc:  56.8%  V-AUROC: 0.5967  LR: 2.00e-04
+Ep [051/500] T-Acc:  66.1%  V-Acc:  56.7%  V-AUROC: 0.5993  LR: 2.00e-04
+Ep [052/500] T-Acc:  66.5%  V-Acc:  57.2%  V-AUROC: 0.5966  LR: 2.00e-04
+Ep [053/500] T-Acc:  66.1%  V-Acc:  57.2%  V-AUROC: 0.5934  LR: 2.00e-04
+Ep [054/500] T-Acc:  65.1%  V-Acc:  56.8%  V-AUROC: 0.5957  LR: 4.00e-05
+Ep [055/500] T-Acc:  66.3%  V-Acc:  57.4%  V-AUROC: 0.5952  LR: 4.00e-05
+Ep [056/500] T-Acc:  65.5%  V-Acc:  57.3%  V-AUROC: 0.5943  LR: 4.00e-05
+Ep [057/500] T-Acc:  65.3%  V-Acc:  57.8%  V-AUROC: 0.5949  LR: 4.00e-05
+Ep [058/500] T-Acc:  65.5%  V-Acc:  57.4%  V-AUROC: 0.5964  LR: 4.00e-05
+Ep [059/500] T-Acc:  65.4%  V-Acc:  57.6%  V-AUROC: 0.5969  LR: 4.00e-05
+Ep [060/500] T-Acc:  65.3%  V-Acc:  57.1%  V-AUROC: 0.5951  LR: 4.00e-05
+Ep [061/500] T-Acc:  65.0%  V-Acc:  57.4%  V-AUROC: 0.5962  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6158 at epoch 31. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6158 (epoch 31) → 'best_task_conditioned_model.pth'
+-> Acc=0.545  Sens=0.714  Spec=0.250  AUROC=0.643
+
+=== Fold 03/30 | train: 25 subj / 3777 windows | test: 12 subj / 1959 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 10241.38it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.543  MCI: 0.740
+Ep [001/500] T-Acc:  49.3%  V-Acc:  49.5%  V-AUROC: 0.4841  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.0%  V-Acc:  50.1%  V-AUROC: 0.5005  LR: 4.00e-04
+Ep [003/500] T-Acc:  52.6%  V-Acc:  50.6%  V-AUROC: 0.5072  LR: 6.00e-04
+Ep [004/500] T-Acc:  54.5%  V-Acc:  49.5%  V-AUROC: 0.5077  LR: 8.00e-04
+Ep [005/500] T-Acc:  55.4%  V-Acc:  52.4%  V-AUROC: 0.5380  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.1%  V-Acc:  50.9%  V-AUROC: 0.5436  LR: 1.00e-03
+Ep [007/500] T-Acc:  57.6%  V-Acc:  53.2%  V-AUROC: 0.5563  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.2%  V-Acc:  55.6%  V-AUROC: 0.5639  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.5%  V-Acc:  57.2%  V-AUROC: 0.5744  LR: 1.00e-03
+Ep [010/500] T-Acc:  57.6%  V-Acc:  56.0%  V-AUROC: 0.5728  LR: 1.00e-03
+Ep [011/500] T-Acc:  59.0%  V-Acc:  53.6%  V-AUROC: 0.5731  LR: 1.00e-03
+Ep [012/500] T-Acc:  60.0%  V-Acc:  51.7%  V-AUROC: 0.5755  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.3%  V-Acc:  56.5%  V-AUROC: 0.5759  LR: 1.00e-03
+Ep [014/500] T-Acc:  59.2%  V-Acc:  54.0%  V-AUROC: 0.5861  LR: 1.00e-03
+Ep [015/500] T-Acc:  60.9%  V-Acc:  55.6%  V-AUROC: 0.5871  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.5%  V-Acc:  53.1%  V-AUROC: 0.5736  LR: 1.00e-03
+Ep [017/500] T-Acc:  60.1%  V-Acc:  57.1%  V-AUROC: 0.5878  LR: 1.00e-03
+Ep [018/500] T-Acc:  60.7%  V-Acc:  54.4%  V-AUROC: 0.5820  LR: 1.00e-03
+Ep [019/500] T-Acc:  60.6%  V-Acc:  53.2%  V-AUROC: 0.5783  LR: 1.00e-03
+Ep [020/500] T-Acc:  61.4%  V-Acc:  55.5%  V-AUROC: 0.5823  LR: 1.00e-03
+Ep [021/500] T-Acc:  60.9%  V-Acc:  52.9%  V-AUROC: 0.5827  LR: 1.00e-03
+Ep [022/500] T-Acc:  60.9%  V-Acc:  54.9%  V-AUROC: 0.5807  LR: 1.00e-03
+Ep [023/500] T-Acc:  60.5%  V-Acc:  57.6%  V-AUROC: 0.5804  LR: 1.00e-03
+Ep [024/500] T-Acc:  60.6%  V-Acc:  59.4%  V-AUROC: 0.5904  LR: 1.00e-03
+Ep [025/500] T-Acc:  61.7%  V-Acc:  54.7%  V-AUROC: 0.5806  LR: 1.00e-03
+Ep [026/500] T-Acc:  61.4%  V-Acc:  58.1%  V-AUROC: 0.5891  LR: 1.00e-03
+Ep [027/500] T-Acc:  61.8%  V-Acc:  55.9%  V-AUROC: 0.5776  LR: 1.00e-03
+Ep [028/500] T-Acc:  61.6%  V-Acc:  56.2%  V-AUROC: 0.5859  LR: 1.00e-03
+Ep [029/500] T-Acc:  62.0%  V-Acc:  57.2%  V-AUROC: 0.5874  LR: 1.00e-03
+Ep [030/500] T-Acc:  61.4%  V-Acc:  57.5%  V-AUROC: 0.5881  LR: 1.00e-03
+Ep [031/500] T-Acc:  61.8%  V-Acc:  55.6%  V-AUROC: 0.5814  LR: 1.00e-03
+Ep [032/500] T-Acc:  61.6%  V-Acc:  55.9%  V-AUROC: 0.5968  LR: 1.00e-03
+Ep [033/500] T-Acc:  61.8%  V-Acc:  55.6%  V-AUROC: 0.5955  LR: 1.00e-03
+Ep [034/500] T-Acc:  62.2%  V-Acc:  56.3%  V-AUROC: 0.5974  LR: 1.00e-03
+Ep [035/500] T-Acc:  62.6%  V-Acc:  56.7%  V-AUROC: 0.5974  LR: 1.00e-03
+Ep [036/500] T-Acc:  61.7%  V-Acc:  57.6%  V-AUROC: 0.6029  LR: 1.00e-03
+Ep [037/500] T-Acc:  61.3%  V-Acc:  59.1%  V-AUROC: 0.5958  LR: 1.00e-03
+Ep [038/500] T-Acc:  62.4%  V-Acc:  57.7%  V-AUROC: 0.5936  LR: 1.00e-03
+Ep [039/500] T-Acc:  61.1%  V-Acc:  57.2%  V-AUROC: 0.5966  LR: 1.00e-03
+Ep [040/500] T-Acc:  62.3%  V-Acc:  55.6%  V-AUROC: 0.5958  LR: 1.00e-03
+Ep [041/500] T-Acc:  62.4%  V-Acc:  58.0%  V-AUROC: 0.5935  LR: 1.00e-03
+Ep [042/500] T-Acc:  62.0%  V-Acc:  56.0%  V-AUROC: 0.5990  LR: 1.00e-03
+Ep [043/500] T-Acc:  61.8%  V-Acc:  58.8%  V-AUROC: 0.5984  LR: 1.00e-03
+Ep [044/500] T-Acc:  62.3%  V-Acc:  57.2%  V-AUROC: 0.5986  LR: 1.00e-03
+Ep [045/500] T-Acc:  62.7%  V-Acc:  56.6%  V-AUROC: 0.5879  LR: 1.00e-03
+Ep [046/500] T-Acc:  61.9%  V-Acc:  58.2%  V-AUROC: 0.6024  LR: 1.00e-03
+Ep [047/500] T-Acc:  62.2%  V-Acc:  48.7%  V-AUROC: 0.5863  LR: 1.00e-03
+Ep [048/500] T-Acc:  63.0%  V-Acc:  58.0%  V-AUROC: 0.6035  LR: 2.00e-04
+Ep [049/500] T-Acc:  62.2%  V-Acc:  58.0%  V-AUROC: 0.6067  LR: 2.00e-04
+Ep [050/500] T-Acc:  62.3%  V-Acc:  57.9%  V-AUROC: 0.6067  LR: 2.00e-04
+Ep [051/500] T-Acc:  62.9%  V-Acc:  59.2%  V-AUROC: 0.6078  LR: 2.00e-04
+Ep [052/500] T-Acc:  64.2%  V-Acc:  57.2%  V-AUROC: 0.6079  LR: 2.00e-04
+Ep [053/500] T-Acc:  63.3%  V-Acc:  58.0%  V-AUROC: 0.6087  LR: 2.00e-04
+Ep [054/500] T-Acc:  63.3%  V-Acc:  58.6%  V-AUROC: 0.6052  LR: 2.00e-04
+Ep [055/500] T-Acc:  63.1%  V-Acc:  57.8%  V-AUROC: 0.6045  LR: 2.00e-04
+Ep [056/500] T-Acc:  63.0%  V-Acc:  57.9%  V-AUROC: 0.6050  LR: 2.00e-04
+Ep [057/500] T-Acc:  63.3%  V-Acc:  58.0%  V-AUROC: 0.6076  LR: 2.00e-04
+Ep [058/500] T-Acc:  63.5%  V-Acc:  58.2%  V-AUROC: 0.6071  LR: 2.00e-04
+Ep [059/500] T-Acc:  63.8%  V-Acc:  58.0%  V-AUROC: 0.6071  LR: 2.00e-04
+Ep [060/500] T-Acc:  62.8%  V-Acc:  58.4%  V-AUROC: 0.6050  LR: 2.00e-04
+Ep [061/500] T-Acc:  63.4%  V-Acc:  56.6%  V-AUROC: 0.6060  LR: 2.00e-04
+Ep [062/500] T-Acc:  63.4%  V-Acc:  56.9%  V-AUROC: 0.6081  LR: 2.00e-04
+Ep [063/500] T-Acc:  63.8%  V-Acc:  58.4%  V-AUROC: 0.6103  LR: 2.00e-04
+Ep [064/500] T-Acc:  63.6%  V-Acc:  58.3%  V-AUROC: 0.6095  LR: 2.00e-04
+Ep [065/500] T-Acc:  63.5%  V-Acc:  56.9%  V-AUROC: 0.6059  LR: 2.00e-04
+Ep [066/500] T-Acc:  63.1%  V-Acc:  57.1%  V-AUROC: 0.6096  LR: 2.00e-04
+Ep [067/500] T-Acc:  63.1%  V-Acc:  57.5%  V-AUROC: 0.6100  LR: 2.00e-04
+Ep [068/500] T-Acc:  63.7%  V-Acc:  57.6%  V-AUROC: 0.6079  LR: 2.00e-04
+Ep [069/500] T-Acc:  64.1%  V-Acc:  58.0%  V-AUROC: 0.6079  LR: 2.00e-04
+Ep [070/500] T-Acc:  64.3%  V-Acc:  57.8%  V-AUROC: 0.6079  LR: 2.00e-04
+Ep [071/500] T-Acc:  64.1%  V-Acc:  56.3%  V-AUROC: 0.6065  LR: 2.00e-04
+Ep [072/500] T-Acc:  63.2%  V-Acc:  56.7%  V-AUROC: 0.6082  LR: 2.00e-04
+Ep [073/500] T-Acc:  63.4%  V-Acc:  56.9%  V-AUROC: 0.6104  LR: 2.00e-04
+Ep [074/500] T-Acc:  63.3%  V-Acc:  58.3%  V-AUROC: 0.6110  LR: 2.00e-04
+Ep [075/500] T-Acc:  63.7%  V-Acc:  56.0%  V-AUROC: 0.6109  LR: 2.00e-04
+Ep [076/500] T-Acc:  63.9%  V-Acc:  57.2%  V-AUROC: 0.6105  LR: 2.00e-04
+Ep [077/500] T-Acc:  63.6%  V-Acc:  57.0%  V-AUROC: 0.6106  LR: 2.00e-04
+Ep [078/500] T-Acc:  63.4%  V-Acc:  58.7%  V-AUROC: 0.6118  LR: 2.00e-04
+Ep [079/500] T-Acc:  63.9%  V-Acc:  58.0%  V-AUROC: 0.6111  LR: 2.00e-04
+Ep [080/500] T-Acc:  63.6%  V-Acc:  57.1%  V-AUROC: 0.6124  LR: 2.00e-04
+Ep [081/500] T-Acc:  63.9%  V-Acc:  57.6%  V-AUROC: 0.6105  LR: 2.00e-04
+Ep [082/500] T-Acc:  64.5%  V-Acc:  57.7%  V-AUROC: 0.6130  LR: 2.00e-04
+Ep [083/500] T-Acc:  64.4%  V-Acc:  56.2%  V-AUROC: 0.6104  LR: 2.00e-04
+Ep [084/500] T-Acc:  64.0%  V-Acc:  57.1%  V-AUROC: 0.6093  LR: 2.00e-04
+Ep [085/500] T-Acc:  64.1%  V-Acc:  57.1%  V-AUROC: 0.6130  LR: 2.00e-04
+Ep [086/500] T-Acc:  64.2%  V-Acc:  57.4%  V-AUROC: 0.6089  LR: 2.00e-04
+Ep [087/500] T-Acc:  63.3%  V-Acc:  57.1%  V-AUROC: 0.6122  LR: 2.00e-04
+Ep [088/500] T-Acc:  64.0%  V-Acc:  57.1%  V-AUROC: 0.6103  LR: 2.00e-04
+Ep [089/500] T-Acc:  63.1%  V-Acc:  56.9%  V-AUROC: 0.6098  LR: 2.00e-04
+Ep [090/500] T-Acc:  63.5%  V-Acc:  56.5%  V-AUROC: 0.6102  LR: 2.00e-04
+Ep [091/500] T-Acc:  63.5%  V-Acc:  56.5%  V-AUROC: 0.6104  LR: 2.00e-04
+Ep [092/500] T-Acc:  64.4%  V-Acc:  58.1%  V-AUROC: 0.6131  LR: 2.00e-04
+Ep [093/500] T-Acc:  63.3%  V-Acc:  57.5%  V-AUROC: 0.6142  LR: 2.00e-04
+Ep [094/500] T-Acc:  64.1%  V-Acc:  55.7%  V-AUROC: 0.6108  LR: 2.00e-04
+Ep [095/500] T-Acc:  64.0%  V-Acc:  57.9%  V-AUROC: 0.6152  LR: 2.00e-04
+Ep [096/500] T-Acc:  64.6%  V-Acc:  57.0%  V-AUROC: 0.6071  LR: 2.00e-04
+Ep [097/500] T-Acc:  64.2%  V-Acc:  57.9%  V-AUROC: 0.6118  LR: 2.00e-04
+Ep [098/500] T-Acc:  63.9%  V-Acc:  56.7%  V-AUROC: 0.6130  LR: 2.00e-04
+Ep [099/500] T-Acc:  63.8%  V-Acc:  57.8%  V-AUROC: 0.6128  LR: 2.00e-04
+Ep [100/500] T-Acc:  63.0%  V-Acc:  57.5%  V-AUROC: 0.6161  LR: 2.00e-04
+Ep [101/500] T-Acc:  63.6%  V-Acc:  57.0%  V-AUROC: 0.6133  LR: 2.00e-04
+Ep [102/500] T-Acc:  64.2%  V-Acc:  57.2%  V-AUROC: 0.6141  LR: 2.00e-04
+Ep [103/500] T-Acc:  64.9%  V-Acc:  57.9%  V-AUROC: 0.6154  LR: 2.00e-04
+Ep [104/500] T-Acc:  63.2%  V-Acc:  58.5%  V-AUROC: 0.6140  LR: 2.00e-04
+Ep [105/500] T-Acc:  64.1%  V-Acc:  57.1%  V-AUROC: 0.6161  LR: 2.00e-04
+Ep [106/500] T-Acc:  64.2%  V-Acc:  57.1%  V-AUROC: 0.6126  LR: 2.00e-04
+Ep [107/500] T-Acc:  64.4%  V-Acc:  57.8%  V-AUROC: 0.6146  LR: 2.00e-04
+Ep [108/500] T-Acc:  64.4%  V-Acc:  57.0%  V-AUROC: 0.6101  LR: 2.00e-04
+Ep [109/500] T-Acc:  64.7%  V-Acc:  57.5%  V-AUROC: 0.6148  LR: 2.00e-04
+Ep [110/500] T-Acc:  63.1%  V-Acc:  55.8%  V-AUROC: 0.6106  LR: 2.00e-04
+Ep [111/500] T-Acc:  63.9%  V-Acc:  55.9%  V-AUROC: 0.6062  LR: 2.00e-04
+Ep [112/500] T-Acc:  64.6%  V-Acc:  57.3%  V-AUROC: 0.6111  LR: 4.00e-05
+Ep [113/500] T-Acc:  64.7%  V-Acc:  57.5%  V-AUROC: 0.6125  LR: 4.00e-05
+Ep [114/500] T-Acc:  65.0%  V-Acc:  58.2%  V-AUROC: 0.6142  LR: 4.00e-05
+Ep [115/500] T-Acc:  65.0%  V-Acc:  56.2%  V-AUROC: 0.6135  LR: 4.00e-05
+Ep [116/500] T-Acc:  64.7%  V-Acc:  56.5%  V-AUROC: 0.6143  LR: 4.00e-05
+Ep [117/500] T-Acc:  64.8%  V-Acc:  57.1%  V-AUROC: 0.6151  LR: 4.00e-05
+Ep [118/500] T-Acc:  63.9%  V-Acc:  56.5%  V-AUROC: 0.6155  LR: 4.00e-05
+Ep [119/500] T-Acc:  64.5%  V-Acc:  56.2%  V-AUROC: 0.6135  LR: 4.00e-05
+Ep [120/500] T-Acc:  64.0%  V-Acc:  58.1%  V-AUROC: 0.6155  LR: 4.00e-05
+Ep [121/500] T-Acc:  64.9%  V-Acc:  57.9%  V-AUROC: 0.6164  LR: 4.00e-05
+Ep [122/500] T-Acc:  63.4%  V-Acc:  56.5%  V-AUROC: 0.6135  LR: 4.00e-05
+Ep [123/500] T-Acc:  64.9%  V-Acc:  57.3%  V-AUROC: 0.6156  LR: 4.00e-05
+Ep [124/500] T-Acc:  63.7%  V-Acc:  56.8%  V-AUROC: 0.6141  LR: 4.00e-05
+Ep [125/500] T-Acc:  64.3%  V-Acc:  56.2%  V-AUROC: 0.6142  LR: 4.00e-05
+Ep [126/500] T-Acc:  65.1%  V-Acc:  56.6%  V-AUROC: 0.6139  LR: 4.00e-05
+Ep [127/500] T-Acc:  64.0%  V-Acc:  57.0%  V-AUROC: 0.6147  LR: 4.00e-05
+Ep [128/500] T-Acc:  64.4%  V-Acc:  57.9%  V-AUROC: 0.6131  LR: 4.00e-05
+Ep [129/500] T-Acc:  64.6%  V-Acc:  57.2%  V-AUROC: 0.6140  LR: 4.00e-05
+Ep [130/500] T-Acc:  65.2%  V-Acc:  56.5%  V-AUROC: 0.6149  LR: 4.00e-05
+Ep [131/500] T-Acc:  64.2%  V-Acc:  56.2%  V-AUROC: 0.6130  LR: 4.00e-05
+Ep [132/500] T-Acc:  64.4%  V-Acc:  57.7%  V-AUROC: 0.6135  LR: 4.00e-05
+Ep [133/500] T-Acc:  63.0%  V-Acc:  57.2%  V-AUROC: 0.6131  LR: 8.00e-06
+Ep [134/500] T-Acc:  64.4%  V-Acc:  57.2%  V-AUROC: 0.6130  LR: 8.00e-06
+Ep [135/500] T-Acc:  63.9%  V-Acc:  56.4%  V-AUROC: 0.6153  LR: 8.00e-06
+Ep [136/500] T-Acc:  64.3%  V-Acc:  57.6%  V-AUROC: 0.6134  LR: 8.00e-06
+Ep [137/500] T-Acc:  65.0%  V-Acc:  56.5%  V-AUROC: 0.6141  LR: 8.00e-06
+Ep [138/500] T-Acc:  64.0%  V-Acc:  57.6%  V-AUROC: 0.6143  LR: 8.00e-06
+Ep [139/500] T-Acc:  64.5%  V-Acc:  56.5%  V-AUROC: 0.6135  LR: 8.00e-06
+Ep [140/500] T-Acc:  64.5%  V-Acc:  56.6%  V-AUROC: 0.6138  LR: 8.00e-06
+Ep [141/500] T-Acc:  64.3%  V-Acc:  56.7%  V-AUROC: 0.6146  LR: 8.00e-06
+Ep [142/500] T-Acc:  64.8%  V-Acc:  57.1%  V-AUROC: 0.6143  LR: 8.00e-06
+Ep [143/500] T-Acc:  64.0%  V-Acc:  57.2%  V-AUROC: 0.6137  LR: 8.00e-06
+Ep [144/500] T-Acc:  64.4%  V-Acc:  57.5%  V-AUROC: 0.6141  LR: 1.60e-06
+Ep [145/500] T-Acc:  64.1%  V-Acc:  57.9%  V-AUROC: 0.6152  LR: 1.60e-06
+Ep [146/500] T-Acc:  64.6%  V-Acc:  55.7%  V-AUROC: 0.6125  LR: 1.60e-06
+Ep [147/500] T-Acc:  63.6%  V-Acc:  56.7%  V-AUROC: 0.6144  LR: 1.60e-06
+Ep [148/500] T-Acc:  65.2%  V-Acc:  57.6%  V-AUROC: 0.6140  LR: 1.60e-06
+Ep [149/500] T-Acc:  64.2%  V-Acc:  57.0%  V-AUROC: 0.6151  LR: 1.60e-06
+Ep [150/500] T-Acc:  65.0%  V-Acc:  57.6%  V-AUROC: 0.6142  LR: 1.60e-06
+Ep [151/500] T-Acc:  64.6%  V-Acc:  57.3%  V-AUROC: 0.6144  LR: 1.60e-06
+[Early Stop] Best AUROC 0.6164 at epoch 121. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6164 (epoch 121) → 'best_task_conditioned_model.pth'
+-> Acc=0.750  Sens=0.800  Spec=0.714  AUROC=0.914
+
+=== Fold 04/30 | train: 25 subj / 3917 windows | test: 12 subj / 1819 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 8649.24it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.213  MCI: 0.850
+Ep [001/500] T-Acc:  49.0%  V-Acc:  49.0%  V-AUROC: 0.4851  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.0%  V-Acc:  49.5%  V-AUROC: 0.4993  LR: 4.00e-04
+Ep [003/500] T-Acc:  51.4%  V-Acc:  51.1%  V-AUROC: 0.5103  LR: 6.00e-04
+Ep [004/500] T-Acc:  53.3%  V-Acc:  52.4%  V-AUROC: 0.5279  LR: 8.00e-04
+Ep [005/500] T-Acc:  54.4%  V-Acc:  51.8%  V-AUROC: 0.5276  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.8%  V-Acc:  51.0%  V-AUROC: 0.5176  LR: 1.00e-03
+Ep [007/500] T-Acc:  55.8%  V-Acc:  51.8%  V-AUROC: 0.5245  LR: 1.00e-03
+Ep [008/500] T-Acc:  57.6%  V-Acc:  52.2%  V-AUROC: 0.5398  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.5%  V-Acc:  50.9%  V-AUROC: 0.5289  LR: 1.00e-03
+Ep [010/500] T-Acc:  59.5%  V-Acc:  52.7%  V-AUROC: 0.5402  LR: 1.00e-03
+Ep [011/500] T-Acc:  59.0%  V-Acc:  51.6%  V-AUROC: 0.5332  LR: 1.00e-03
+Ep [012/500] T-Acc:  61.7%  V-Acc:  51.6%  V-AUROC: 0.5308  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.3%  V-Acc:  51.8%  V-AUROC: 0.5288  LR: 1.00e-03
+Ep [014/500] T-Acc:  61.9%  V-Acc:  51.5%  V-AUROC: 0.5252  LR: 1.00e-03
+Ep [015/500] T-Acc:  62.3%  V-Acc:  53.4%  V-AUROC: 0.5522  LR: 1.00e-03
+Ep [016/500] T-Acc:  62.0%  V-Acc:  52.7%  V-AUROC: 0.5397  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.7%  V-Acc:  53.4%  V-AUROC: 0.5497  LR: 1.00e-03
+Ep [018/500] T-Acc:  62.2%  V-Acc:  52.7%  V-AUROC: 0.5587  LR: 1.00e-03
+Ep [019/500] T-Acc:  63.6%  V-Acc:  53.3%  V-AUROC: 0.5632  LR: 1.00e-03
+Ep [020/500] T-Acc:  63.6%  V-Acc:  53.8%  V-AUROC: 0.5584  LR: 1.00e-03
+Ep [021/500] T-Acc:  64.1%  V-Acc:  54.6%  V-AUROC: 0.5641  LR: 1.00e-03
+Ep [022/500] T-Acc:  64.1%  V-Acc:  56.2%  V-AUROC: 0.5880  LR: 1.00e-03
+Ep [023/500] T-Acc:  64.0%  V-Acc:  53.7%  V-AUROC: 0.5581  LR: 1.00e-03
+Ep [024/500] T-Acc:  63.7%  V-Acc:  55.0%  V-AUROC: 0.5672  LR: 1.00e-03
+Ep [025/500] T-Acc:  63.8%  V-Acc:  53.9%  V-AUROC: 0.5552  LR: 1.00e-03
+Ep [026/500] T-Acc:  63.6%  V-Acc:  54.5%  V-AUROC: 0.5704  LR: 1.00e-03
+Ep [027/500] T-Acc:  64.4%  V-Acc:  54.1%  V-AUROC: 0.5623  LR: 1.00e-03
+Ep [028/500] T-Acc:  64.9%  V-Acc:  55.7%  V-AUROC: 0.5791  LR: 1.00e-03
+Ep [029/500] T-Acc:  65.8%  V-Acc:  56.0%  V-AUROC: 0.5821  LR: 1.00e-03
+Ep [030/500] T-Acc:  65.2%  V-Acc:  55.6%  V-AUROC: 0.5719  LR: 1.00e-03
+Ep [031/500] T-Acc:  65.7%  V-Acc:  55.0%  V-AUROC: 0.5666  LR: 1.00e-03
+Ep [032/500] T-Acc:  64.4%  V-Acc:  55.5%  V-AUROC: 0.5701  LR: 1.00e-03
+Ep [033/500] T-Acc:  65.0%  V-Acc:  55.6%  V-AUROC: 0.5749  LR: 1.00e-03
+Ep [034/500] T-Acc:  66.2%  V-Acc:  54.9%  V-AUROC: 0.5714  LR: 2.00e-04
+Ep [035/500] T-Acc:  65.8%  V-Acc:  55.4%  V-AUROC: 0.5683  LR: 2.00e-04
+Ep [036/500] T-Acc:  66.7%  V-Acc:  55.1%  V-AUROC: 0.5690  LR: 2.00e-04
+Ep [037/500] T-Acc:  65.9%  V-Acc:  55.0%  V-AUROC: 0.5730  LR: 2.00e-04
+Ep [038/500] T-Acc:  65.3%  V-Acc:  55.9%  V-AUROC: 0.5717  LR: 2.00e-04
+Ep [039/500] T-Acc:  66.7%  V-Acc:  54.6%  V-AUROC: 0.5745  LR: 2.00e-04
+Ep [040/500] T-Acc:  66.1%  V-Acc:  55.7%  V-AUROC: 0.5784  LR: 2.00e-04
+Ep [041/500] T-Acc:  65.7%  V-Acc:  55.8%  V-AUROC: 0.5799  LR: 2.00e-04
+Ep [042/500] T-Acc:  65.3%  V-Acc:  55.5%  V-AUROC: 0.5789  LR: 2.00e-04
+Ep [043/500] T-Acc:  65.8%  V-Acc:  55.9%  V-AUROC: 0.5762  LR: 2.00e-04
+Ep [044/500] T-Acc:  66.1%  V-Acc:  56.3%  V-AUROC: 0.5800  LR: 2.00e-04
+Ep [045/500] T-Acc:  66.5%  V-Acc:  56.2%  V-AUROC: 0.5804  LR: 4.00e-05
+Ep [046/500] T-Acc:  65.8%  V-Acc:  56.1%  V-AUROC: 0.5796  LR: 4.00e-05
+Ep [047/500] T-Acc:  66.9%  V-Acc:  56.1%  V-AUROC: 0.5798  LR: 4.00e-05
+Ep [048/500] T-Acc:  66.4%  V-Acc:  56.3%  V-AUROC: 0.5771  LR: 4.00e-05
+Ep [049/500] T-Acc:  66.9%  V-Acc:  55.7%  V-AUROC: 0.5794  LR: 4.00e-05
+Ep [050/500] T-Acc:  66.0%  V-Acc:  56.0%  V-AUROC: 0.5786  LR: 4.00e-05
+Ep [051/500] T-Acc:  66.8%  V-Acc:  56.0%  V-AUROC: 0.5760  LR: 4.00e-05
+Ep [052/500] T-Acc:  66.1%  V-Acc:  56.1%  V-AUROC: 0.5785  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5880 at epoch 22. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5880 (epoch 22) → 'best_task_conditioned_model.pth'
+-> Acc=0.636  Sens=0.857  Spec=0.250  AUROC=0.571
+
+=== Fold 05/30 | train: 25 subj / 3805 windows | test: 12 subj / 1931 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 10075.93it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.334  MCI: 0.800
+Ep [001/500] T-Acc:  50.8%  V-Acc:  52.0%  V-AUROC: 0.5392  LR: 2.00e-04
+Ep [002/500] T-Acc:  52.2%  V-Acc:  53.3%  V-AUROC: 0.5512  LR: 4.00e-04
+Ep [003/500] T-Acc:  54.1%  V-Acc:  54.3%  V-AUROC: 0.5718  LR: 6.00e-04
+Ep [004/500] T-Acc:  54.5%  V-Acc:  59.5%  V-AUROC: 0.6162  LR: 8.00e-04
+Ep [005/500] T-Acc:  54.6%  V-Acc:  60.7%  V-AUROC: 0.6341  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.9%  V-Acc:  59.1%  V-AUROC: 0.6332  LR: 1.00e-03
+Ep [007/500] T-Acc:  58.5%  V-Acc:  60.0%  V-AUROC: 0.6457  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.0%  V-Acc:  63.3%  V-AUROC: 0.6563  LR: 1.00e-03
+Ep [009/500] T-Acc:  60.1%  V-Acc:  62.8%  V-AUROC: 0.6623  LR: 1.00e-03
+Ep [010/500] T-Acc:  58.5%  V-Acc:  62.1%  V-AUROC: 0.6633  LR: 1.00e-03
+Ep [011/500] T-Acc:  60.6%  V-Acc:  60.1%  V-AUROC: 0.6565  LR: 1.00e-03
+Ep [012/500] T-Acc:  60.2%  V-Acc:  61.3%  V-AUROC: 0.6649  LR: 1.00e-03
+Ep [013/500] T-Acc:  61.0%  V-Acc:  63.2%  V-AUROC: 0.6739  LR: 1.00e-03
+Ep [014/500] T-Acc:  60.6%  V-Acc:  62.6%  V-AUROC: 0.6736  LR: 1.00e-03
+Ep [015/500] T-Acc:  62.1%  V-Acc:  62.8%  V-AUROC: 0.6762  LR: 1.00e-03
+Ep [016/500] T-Acc:  62.0%  V-Acc:  61.7%  V-AUROC: 0.6765  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.7%  V-Acc:  63.4%  V-AUROC: 0.6834  LR: 1.00e-03
+Ep [018/500] T-Acc:  62.7%  V-Acc:  62.8%  V-AUROC: 0.6715  LR: 1.00e-03
+Ep [019/500] T-Acc:  62.7%  V-Acc:  62.9%  V-AUROC: 0.6832  LR: 1.00e-03
+Ep [020/500] T-Acc:  63.3%  V-Acc:  62.0%  V-AUROC: 0.6780  LR: 1.00e-03
+Ep [021/500] T-Acc:  63.8%  V-Acc:  62.8%  V-AUROC: 0.6844  LR: 1.00e-03
+Ep [022/500] T-Acc:  63.7%  V-Acc:  63.3%  V-AUROC: 0.6896  LR: 1.00e-03
+Ep [023/500] T-Acc:  64.1%  V-Acc:  63.1%  V-AUROC: 0.6851  LR: 1.00e-03
+Ep [024/500] T-Acc:  64.1%  V-Acc:  63.4%  V-AUROC: 0.6868  LR: 1.00e-03
+Ep [025/500] T-Acc:  63.2%  V-Acc:  61.8%  V-AUROC: 0.6778  LR: 1.00e-03
+Ep [026/500] T-Acc:  64.8%  V-Acc:  62.7%  V-AUROC: 0.6728  LR: 1.00e-03
+Ep [027/500] T-Acc:  62.8%  V-Acc:  63.3%  V-AUROC: 0.6873  LR: 1.00e-03
+Ep [028/500] T-Acc:  63.0%  V-Acc:  63.5%  V-AUROC: 0.6903  LR: 1.00e-03
+Ep [029/500] T-Acc:  64.8%  V-Acc:  64.0%  V-AUROC: 0.6926  LR: 1.00e-03
+Ep [030/500] T-Acc:  64.8%  V-Acc:  62.9%  V-AUROC: 0.6881  LR: 1.00e-03
+Ep [031/500] T-Acc:  64.5%  V-Acc:  61.9%  V-AUROC: 0.6751  LR: 1.00e-03
+Ep [032/500] T-Acc:  64.2%  V-Acc:  63.7%  V-AUROC: 0.6853  LR: 1.00e-03
+Ep [033/500] T-Acc:  64.1%  V-Acc:  62.1%  V-AUROC: 0.6797  LR: 1.00e-03
+Ep [034/500] T-Acc:  64.8%  V-Acc:  62.9%  V-AUROC: 0.6890  LR: 1.00e-03
+Ep [035/500] T-Acc:  63.7%  V-Acc:  63.0%  V-AUROC: 0.6829  LR: 1.00e-03
+Ep [036/500] T-Acc:  64.7%  V-Acc:  63.3%  V-AUROC: 0.6860  LR: 1.00e-03
+Ep [037/500] T-Acc:  64.2%  V-Acc:  62.9%  V-AUROC: 0.6916  LR: 1.00e-03
+Ep [038/500] T-Acc:  64.1%  V-Acc:  64.1%  V-AUROC: 0.6882  LR: 1.00e-03
+Ep [039/500] T-Acc:  65.7%  V-Acc:  62.7%  V-AUROC: 0.6880  LR: 1.00e-03
+Ep [040/500] T-Acc:  64.2%  V-Acc:  63.2%  V-AUROC: 0.6868  LR: 1.00e-03
+Ep [041/500] T-Acc:  65.7%  V-Acc:  63.1%  V-AUROC: 0.6896  LR: 2.00e-04
+Ep [042/500] T-Acc:  66.1%  V-Acc:  63.9%  V-AUROC: 0.6863  LR: 2.00e-04
+Ep [043/500] T-Acc:  66.3%  V-Acc:  62.9%  V-AUROC: 0.6906  LR: 2.00e-04
+Ep [044/500] T-Acc:  65.9%  V-Acc:  64.0%  V-AUROC: 0.6913  LR: 2.00e-04
+Ep [045/500] T-Acc:  66.4%  V-Acc:  63.2%  V-AUROC: 0.6906  LR: 2.00e-04
+Ep [046/500] T-Acc:  65.5%  V-Acc:  63.7%  V-AUROC: 0.6927  LR: 2.00e-04
+Ep [047/500] T-Acc:  65.7%  V-Acc:  63.7%  V-AUROC: 0.6910  LR: 2.00e-04
+Ep [048/500] T-Acc:  65.5%  V-Acc:  63.5%  V-AUROC: 0.6922  LR: 2.00e-04
+Ep [049/500] T-Acc:  65.5%  V-Acc:  63.1%  V-AUROC: 0.6890  LR: 2.00e-04
+Ep [050/500] T-Acc:  65.3%  V-Acc:  62.4%  V-AUROC: 0.6891  LR: 2.00e-04
+Ep [051/500] T-Acc:  66.1%  V-Acc:  63.7%  V-AUROC: 0.6906  LR: 2.00e-04
+Ep [052/500] T-Acc:  66.0%  V-Acc:  63.6%  V-AUROC: 0.6924  LR: 2.00e-04
+Ep [053/500] T-Acc:  66.6%  V-Acc:  64.3%  V-AUROC: 0.6904  LR: 2.00e-04
+Ep [054/500] T-Acc:  65.7%  V-Acc:  64.1%  V-AUROC: 0.6917  LR: 2.00e-04
+Ep [055/500] T-Acc:  66.0%  V-Acc:  63.2%  V-AUROC: 0.6909  LR: 2.00e-04
+Ep [056/500] T-Acc:  65.4%  V-Acc:  63.7%  V-AUROC: 0.6902  LR: 2.00e-04
+Ep [057/500] T-Acc:  65.6%  V-Acc:  63.4%  V-AUROC: 0.6926  LR: 2.00e-04
+Ep [058/500] T-Acc:  65.6%  V-Acc:  64.0%  V-AUROC: 0.6917  LR: 4.00e-05
+Ep [059/500] T-Acc:  66.6%  V-Acc:  63.5%  V-AUROC: 0.6900  LR: 4.00e-05
+Ep [060/500] T-Acc:  66.0%  V-Acc:  63.4%  V-AUROC: 0.6915  LR: 4.00e-05
+Ep [061/500] T-Acc:  67.1%  V-Acc:  64.4%  V-AUROC: 0.6926  LR: 4.00e-05
+Ep [062/500] T-Acc:  66.3%  V-Acc:  63.4%  V-AUROC: 0.6923  LR: 4.00e-05
+Ep [063/500] T-Acc:  65.0%  V-Acc:  64.6%  V-AUROC: 0.6918  LR: 4.00e-05
+Ep [064/500] T-Acc:  66.8%  V-Acc:  64.2%  V-AUROC: 0.6917  LR: 4.00e-05
+Ep [065/500] T-Acc:  65.9%  V-Acc:  63.1%  V-AUROC: 0.6923  LR: 4.00e-05
+Ep [066/500] T-Acc:  65.4%  V-Acc:  63.4%  V-AUROC: 0.6919  LR: 4.00e-05
+Ep [067/500] T-Acc:  65.9%  V-Acc:  64.6%  V-AUROC: 0.6917  LR: 4.00e-05
+Ep [068/500] T-Acc:  66.5%  V-Acc:  63.2%  V-AUROC: 0.6913  LR: 4.00e-05
+Ep [069/500] T-Acc:  65.2%  V-Acc:  63.3%  V-AUROC: 0.6924  LR: 8.00e-06
+Ep [070/500] T-Acc:  66.6%  V-Acc:  64.5%  V-AUROC: 0.6938  LR: 8.00e-06
+Ep [071/500] T-Acc:  66.5%  V-Acc:  63.5%  V-AUROC: 0.6931  LR: 8.00e-06
+Ep [072/500] T-Acc:  65.8%  V-Acc:  63.4%  V-AUROC: 0.6932  LR: 8.00e-06
+Ep [073/500] T-Acc:  66.1%  V-Acc:  63.5%  V-AUROC: 0.6930  LR: 8.00e-06
+Ep [074/500] T-Acc:  66.1%  V-Acc:  62.9%  V-AUROC: 0.6910  LR: 8.00e-06
+Ep [075/500] T-Acc:  65.9%  V-Acc:  63.1%  V-AUROC: 0.6927  LR: 8.00e-06
+Ep [076/500] T-Acc:  65.0%  V-Acc:  63.6%  V-AUROC: 0.6933  LR: 8.00e-06
+Ep [077/500] T-Acc:  65.8%  V-Acc:  63.6%  V-AUROC: 0.6906  LR: 8.00e-06
+Ep [078/500] T-Acc:  66.8%  V-Acc:  63.5%  V-AUROC: 0.6908  LR: 8.00e-06
+Ep [079/500] T-Acc:  66.0%  V-Acc:  62.8%  V-AUROC: 0.6916  LR: 8.00e-06
+Ep [080/500] T-Acc:  66.4%  V-Acc:  63.7%  V-AUROC: 0.6915  LR: 8.00e-06
+Ep [081/500] T-Acc:  65.7%  V-Acc:  63.8%  V-AUROC: 0.6930  LR: 8.00e-06
+Ep [082/500] T-Acc:  65.7%  V-Acc:  64.3%  V-AUROC: 0.6933  LR: 1.60e-06
+Ep [083/500] T-Acc:  65.4%  V-Acc:  64.3%  V-AUROC: 0.6934  LR: 1.60e-06
+Ep [084/500] T-Acc:  65.6%  V-Acc:  64.0%  V-AUROC: 0.6936  LR: 1.60e-06
+Ep [085/500] T-Acc:  66.6%  V-Acc:  63.3%  V-AUROC: 0.6900  LR: 1.60e-06
+Ep [086/500] T-Acc:  66.3%  V-Acc:  64.1%  V-AUROC: 0.6921  LR: 1.60e-06
+Ep [087/500] T-Acc:  66.8%  V-Acc:  63.6%  V-AUROC: 0.6911  LR: 1.60e-06
+Ep [088/500] T-Acc:  66.3%  V-Acc:  64.2%  V-AUROC: 0.6920  LR: 1.60e-06
+Ep [089/500] T-Acc:  65.5%  V-Acc:  64.0%  V-AUROC: 0.6920  LR: 1.60e-06
+Ep [090/500] T-Acc:  65.5%  V-Acc:  63.4%  V-AUROC: 0.6917  LR: 1.60e-06
+Ep [091/500] T-Acc:  65.8%  V-Acc:  63.9%  V-AUROC: 0.6924  LR: 1.60e-06
+Ep [092/500] T-Acc:  64.9%  V-Acc:  63.2%  V-AUROC: 0.6912  LR: 1.60e-06
+Ep [093/500] T-Acc:  65.6%  V-Acc:  64.5%  V-AUROC: 0.6915  LR: 1.00e-06
+Ep [094/500] T-Acc:  66.0%  V-Acc:  63.6%  V-AUROC: 0.6925  LR: 1.00e-06
+Ep [095/500] T-Acc:  65.6%  V-Acc:  63.7%  V-AUROC: 0.6925  LR: 1.00e-06
+Ep [096/500] T-Acc:  66.5%  V-Acc:  63.5%  V-AUROC: 0.6929  LR: 1.00e-06
+Ep [097/500] T-Acc:  65.4%  V-Acc:  64.2%  V-AUROC: 0.6919  LR: 1.00e-06
+Ep [098/500] T-Acc:  66.4%  V-Acc:  64.3%  V-AUROC: 0.6920  LR: 1.00e-06
+Ep [099/500] T-Acc:  65.1%  V-Acc:  64.3%  V-AUROC: 0.6928  LR: 1.00e-06
+Ep [100/500] T-Acc:  65.6%  V-Acc:  63.4%  V-AUROC: 0.6928  LR: 1.00e-06
+[Early Stop] Best AUROC 0.6938 at epoch 70. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6938 (epoch 70) → 'best_task_conditioned_model.pth'
+-> Acc=0.818  Sens=0.800  Spec=0.833  AUROC=0.867
+
+=== Fold 06/30 | train: 25 subj / 3948 windows | test: 12 subj / 1788 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 12524.97it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.069  MCI: 0.939
+Ep [001/500] T-Acc:  47.6%  V-Acc:  52.5%  V-AUROC: 0.5123  LR: 2.00e-04
+Ep [002/500] T-Acc:  48.3%  V-Acc:  52.5%  V-AUROC: 0.5179  LR: 4.00e-04
+Ep [003/500] T-Acc:  50.8%  V-Acc:  52.7%  V-AUROC: 0.5203  LR: 6.00e-04
+Ep [004/500] T-Acc:  52.3%  V-Acc:  51.8%  V-AUROC: 0.5242  LR: 8.00e-04
+Ep [005/500] T-Acc:  55.0%  V-Acc:  50.5%  V-AUROC: 0.5036  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.7%  V-Acc:  52.3%  V-AUROC: 0.5146  LR: 1.00e-03
+Ep [007/500] T-Acc:  57.7%  V-Acc:  51.4%  V-AUROC: 0.5123  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.7%  V-Acc:  52.2%  V-AUROC: 0.5199  LR: 1.00e-03
+Ep [009/500] T-Acc:  59.9%  V-Acc:  52.3%  V-AUROC: 0.5176  LR: 1.00e-03
+Ep [010/500] T-Acc:  60.8%  V-Acc:  53.1%  V-AUROC: 0.5227  LR: 1.00e-03
+Ep [011/500] T-Acc:  61.2%  V-Acc:  53.2%  V-AUROC: 0.5113  LR: 1.00e-03
+Ep [012/500] T-Acc:  62.4%  V-Acc:  56.7%  V-AUROC: 0.5187  LR: 1.00e-03
+Ep [013/500] T-Acc:  62.7%  V-Acc:  54.6%  V-AUROC: 0.5160  LR: 1.00e-03
+Ep [014/500] T-Acc:  62.3%  V-Acc:  54.5%  V-AUROC: 0.5161  LR: 1.00e-03
+Ep [015/500] T-Acc:  63.3%  V-Acc:  55.5%  V-AUROC: 0.4973  LR: 1.00e-03
+Ep [016/500] T-Acc:  63.2%  V-Acc:  53.8%  V-AUROC: 0.5099  LR: 1.00e-03
+Ep [017/500] T-Acc:  64.7%  V-Acc:  55.5%  V-AUROC: 0.5067  LR: 1.00e-03
+Ep [018/500] T-Acc:  64.7%  V-Acc:  54.5%  V-AUROC: 0.5063  LR: 1.00e-03
+Ep [019/500] T-Acc:  64.8%  V-Acc:  54.2%  V-AUROC: 0.5059  LR: 1.00e-03
+Ep [020/500] T-Acc:  64.2%  V-Acc:  53.2%  V-AUROC: 0.5008  LR: 1.00e-03
+Ep [021/500] T-Acc:  65.7%  V-Acc:  55.5%  V-AUROC: 0.5039  LR: 1.00e-03
+Ep [022/500] T-Acc:  66.4%  V-Acc:  54.3%  V-AUROC: 0.5074  LR: 2.00e-04
+Ep [023/500] T-Acc:  64.8%  V-Acc:  53.8%  V-AUROC: 0.5065  LR: 2.00e-04
+Ep [024/500] T-Acc:  65.2%  V-Acc:  54.9%  V-AUROC: 0.5110  LR: 2.00e-04
+Ep [025/500] T-Acc:  65.4%  V-Acc:  54.7%  V-AUROC: 0.5121  LR: 2.00e-04
+Ep [026/500] T-Acc:  66.0%  V-Acc:  55.4%  V-AUROC: 0.5118  LR: 2.00e-04
+Ep [027/500] T-Acc:  65.0%  V-Acc:  54.5%  V-AUROC: 0.5117  LR: 2.00e-04
+Ep [028/500] T-Acc:  64.9%  V-Acc:  54.4%  V-AUROC: 0.5086  LR: 2.00e-04
+Ep [029/500] T-Acc:  65.3%  V-Acc:  55.0%  V-AUROC: 0.5097  LR: 2.00e-04
+Ep [030/500] T-Acc:  65.2%  V-Acc:  54.3%  V-AUROC: 0.5058  LR: 2.00e-04
+Ep [031/500] T-Acc:  66.0%  V-Acc:  54.3%  V-AUROC: 0.5061  LR: 2.00e-04
+Ep [032/500] T-Acc:  65.9%  V-Acc:  54.8%  V-AUROC: 0.5041  LR: 2.00e-04
+Ep [033/500] T-Acc:  65.6%  V-Acc:  54.3%  V-AUROC: 0.5041  LR: 4.00e-05
+Ep [034/500] T-Acc:  66.0%  V-Acc:  54.3%  V-AUROC: 0.5048  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5242 at epoch 4. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5242 (epoch 4) → 'best_task_conditioned_model.pth'
+-> Acc=0.600  Sens=0.857  Spec=0.000  AUROC=0.286
+
+=== Fold 07/30 | train: 25 subj / 3959 windows | test: 12 subj / 1777 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7592.95it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.331  MCI: 0.801
+Ep [001/500] T-Acc:  52.0%  V-Acc:  50.6%  V-AUROC: 0.5184  LR: 2.00e-04
+Ep [002/500] T-Acc:  52.4%  V-Acc:  51.7%  V-AUROC: 0.5222  LR: 4.00e-04
+Ep [003/500] T-Acc:  53.0%  V-Acc:  53.0%  V-AUROC: 0.5442  LR: 6.00e-04
+Ep [004/500] T-Acc:  55.8%  V-Acc:  54.5%  V-AUROC: 0.5425  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.8%  V-Acc:  55.4%  V-AUROC: 0.5492  LR: 1.00e-03
+Ep [006/500] T-Acc:  57.2%  V-Acc:  54.9%  V-AUROC: 0.5539  LR: 1.00e-03
+Ep [007/500] T-Acc:  57.6%  V-Acc:  53.6%  V-AUROC: 0.5453  LR: 1.00e-03
+Ep [008/500] T-Acc:  56.9%  V-Acc:  54.9%  V-AUROC: 0.5562  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.7%  V-Acc:  53.9%  V-AUROC: 0.5500  LR: 1.00e-03
+Ep [010/500] T-Acc:  58.2%  V-Acc:  53.5%  V-AUROC: 0.5483  LR: 1.00e-03
+Ep [011/500] T-Acc:  59.9%  V-Acc:  53.5%  V-AUROC: 0.5540  LR: 1.00e-03
+Ep [012/500] T-Acc:  58.9%  V-Acc:  54.2%  V-AUROC: 0.5540  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.1%  V-Acc:  54.2%  V-AUROC: 0.5540  LR: 1.00e-03
+Ep [014/500] T-Acc:  59.4%  V-Acc:  54.6%  V-AUROC: 0.5475  LR: 1.00e-03
+Ep [015/500] T-Acc:  61.2%  V-Acc:  53.8%  V-AUROC: 0.5420  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.9%  V-Acc:  53.9%  V-AUROC: 0.5481  LR: 1.00e-03
+Ep [017/500] T-Acc:  60.5%  V-Acc:  53.3%  V-AUROC: 0.5447  LR: 1.00e-03
+Ep [018/500] T-Acc:  61.9%  V-Acc:  53.4%  V-AUROC: 0.5500  LR: 1.00e-03
+Ep [019/500] T-Acc:  62.0%  V-Acc:  53.6%  V-AUROC: 0.5538  LR: 1.00e-03
+Ep [020/500] T-Acc:  61.6%  V-Acc:  53.7%  V-AUROC: 0.5496  LR: 2.00e-04
+Ep [021/500] T-Acc:  60.7%  V-Acc:  53.7%  V-AUROC: 0.5502  LR: 2.00e-04
+Ep [022/500] T-Acc:  61.6%  V-Acc:  53.3%  V-AUROC: 0.5481  LR: 2.00e-04
+Ep [023/500] T-Acc:  61.0%  V-Acc:  53.1%  V-AUROC: 0.5495  LR: 2.00e-04
+Ep [024/500] T-Acc:  61.4%  V-Acc:  53.5%  V-AUROC: 0.5479  LR: 2.00e-04
+Ep [025/500] T-Acc:  61.8%  V-Acc:  53.6%  V-AUROC: 0.5483  LR: 2.00e-04
+Ep [026/500] T-Acc:  61.8%  V-Acc:  53.3%  V-AUROC: 0.5501  LR: 2.00e-04
+Ep [027/500] T-Acc:  61.9%  V-Acc:  53.6%  V-AUROC: 0.5489  LR: 2.00e-04
+Ep [028/500] T-Acc:  61.4%  V-Acc:  53.1%  V-AUROC: 0.5497  LR: 2.00e-04
+Ep [029/500] T-Acc:  61.9%  V-Acc:  53.6%  V-AUROC: 0.5508  LR: 2.00e-04
+Ep [030/500] T-Acc:  61.9%  V-Acc:  54.4%  V-AUROC: 0.5510  LR: 2.00e-04
+Ep [031/500] T-Acc:  62.1%  V-Acc:  53.8%  V-AUROC: 0.5504  LR: 4.00e-05
+Ep [032/500] T-Acc:  62.6%  V-Acc:  53.4%  V-AUROC: 0.5505  LR: 4.00e-05
+Ep [033/500] T-Acc:  61.6%  V-Acc:  53.6%  V-AUROC: 0.5515  LR: 4.00e-05
+Ep [034/500] T-Acc:  61.3%  V-Acc:  53.6%  V-AUROC: 0.5525  LR: 4.00e-05
+Ep [035/500] T-Acc:  61.7%  V-Acc:  53.3%  V-AUROC: 0.5513  LR: 4.00e-05
+Ep [036/500] T-Acc:  61.7%  V-Acc:  53.8%  V-AUROC: 0.5538  LR: 4.00e-05
+Ep [037/500] T-Acc:  61.8%  V-Acc:  53.4%  V-AUROC: 0.5494  LR: 4.00e-05
+Ep [038/500] T-Acc:  61.6%  V-Acc:  54.0%  V-AUROC: 0.5520  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5562 at epoch 8. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5562 (epoch 8) → 'best_task_conditioned_model.pth'
+-> Acc=0.500  Sens=0.600  Spec=0.400  AUROC=0.560
+
+=== Fold 08/30 | train: 25 subj / 4013 windows | test: 12 subj / 1723 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 6074.92it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.213  MCI: 0.851
+Ep [001/500] T-Acc:  48.4%  V-Acc:  47.4%  V-AUROC: 0.4758  LR: 2.00e-04
+Ep [002/500] T-Acc:  51.1%  V-Acc:  49.6%  V-AUROC: 0.4938  LR: 4.00e-04
+Ep [003/500] T-Acc:  52.8%  V-Acc:  51.2%  V-AUROC: 0.5152  LR: 6.00e-04
+Ep [004/500] T-Acc:  55.6%  V-Acc:  51.5%  V-AUROC: 0.5216  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.8%  V-Acc:  53.2%  V-AUROC: 0.5356  LR: 1.00e-03
+Ep [006/500] T-Acc:  57.8%  V-Acc:  53.5%  V-AUROC: 0.5461  LR: 1.00e-03
+Ep [007/500] T-Acc:  60.2%  V-Acc:  53.1%  V-AUROC: 0.5434  LR: 1.00e-03
+Ep [008/500] T-Acc:  62.4%  V-Acc:  52.4%  V-AUROC: 0.5454  LR: 1.00e-03
+Ep [009/500] T-Acc:  61.4%  V-Acc:  51.7%  V-AUROC: 0.5315  LR: 1.00e-03
+Ep [010/500] T-Acc:  62.9%  V-Acc:  51.8%  V-AUROC: 0.5479  LR: 1.00e-03
+Ep [011/500] T-Acc:  63.1%  V-Acc:  54.9%  V-AUROC: 0.5574  LR: 1.00e-03
+Ep [012/500] T-Acc:  64.8%  V-Acc:  54.4%  V-AUROC: 0.5372  LR: 1.00e-03
+Ep [013/500] T-Acc:  62.6%  V-Acc:  53.7%  V-AUROC: 0.5466  LR: 1.00e-03
+Ep [014/500] T-Acc:  63.9%  V-Acc:  53.4%  V-AUROC: 0.5520  LR: 1.00e-03
+Ep [015/500] T-Acc:  64.7%  V-Acc:  53.7%  V-AUROC: 0.5475  LR: 1.00e-03
+Ep [016/500] T-Acc:  65.8%  V-Acc:  55.1%  V-AUROC: 0.5630  LR: 1.00e-03
+Ep [017/500] T-Acc:  65.9%  V-Acc:  53.2%  V-AUROC: 0.5490  LR: 1.00e-03
+Ep [018/500] T-Acc:  66.6%  V-Acc:  52.9%  V-AUROC: 0.5473  LR: 1.00e-03
+Ep [019/500] T-Acc:  66.2%  V-Acc:  53.2%  V-AUROC: 0.5526  LR: 1.00e-03
+Ep [020/500] T-Acc:  66.5%  V-Acc:  53.5%  V-AUROC: 0.5507  LR: 1.00e-03
+Ep [021/500] T-Acc:  66.3%  V-Acc:  53.3%  V-AUROC: 0.5494  LR: 1.00e-03
+Ep [022/500] T-Acc:  67.2%  V-Acc:  52.9%  V-AUROC: 0.5396  LR: 1.00e-03
+Ep [023/500] T-Acc:  67.1%  V-Acc:  54.1%  V-AUROC: 0.5513  LR: 1.00e-03
+Ep [024/500] T-Acc:  66.8%  V-Acc:  52.8%  V-AUROC: 0.5398  LR: 1.00e-03
+Ep [025/500] T-Acc:  66.4%  V-Acc:  53.1%  V-AUROC: 0.5373  LR: 1.00e-03
+Ep [026/500] T-Acc:  66.7%  V-Acc:  52.8%  V-AUROC: 0.5431  LR: 1.00e-03
+Ep [027/500] T-Acc:  67.2%  V-Acc:  52.1%  V-AUROC: 0.5394  LR: 1.00e-03
+Ep [028/500] T-Acc:  68.3%  V-Acc:  52.4%  V-AUROC: 0.5352  LR: 2.00e-04
+Ep [029/500] T-Acc:  67.0%  V-Acc:  52.3%  V-AUROC: 0.5372  LR: 2.00e-04
+Ep [030/500] T-Acc:  68.1%  V-Acc:  52.2%  V-AUROC: 0.5372  LR: 2.00e-04
+Ep [031/500] T-Acc:  68.4%  V-Acc:  52.1%  V-AUROC: 0.5407  LR: 2.00e-04
+Ep [032/500] T-Acc:  68.0%  V-Acc:  52.8%  V-AUROC: 0.5422  LR: 2.00e-04
+Ep [033/500] T-Acc:  68.6%  V-Acc:  52.8%  V-AUROC: 0.5418  LR: 2.00e-04
+Ep [034/500] T-Acc:  67.8%  V-Acc:  51.9%  V-AUROC: 0.5377  LR: 2.00e-04
+Ep [035/500] T-Acc:  68.9%  V-Acc:  52.3%  V-AUROC: 0.5378  LR: 2.00e-04
+Ep [036/500] T-Acc:  67.9%  V-Acc:  52.5%  V-AUROC: 0.5428  LR: 2.00e-04
+Ep [037/500] T-Acc:  68.0%  V-Acc:  52.3%  V-AUROC: 0.5390  LR: 2.00e-04
+Ep [038/500] T-Acc:  68.3%  V-Acc:  52.0%  V-AUROC: 0.5395  LR: 2.00e-04
+Ep [039/500] T-Acc:  68.5%  V-Acc:  52.2%  V-AUROC: 0.5395  LR: 4.00e-05
+Ep [040/500] T-Acc:  68.9%  V-Acc:  52.1%  V-AUROC: 0.5394  LR: 4.00e-05
+Ep [041/500] T-Acc:  69.0%  V-Acc:  52.1%  V-AUROC: 0.5403  LR: 4.00e-05
+Ep [042/500] T-Acc:  68.0%  V-Acc:  52.3%  V-AUROC: 0.5400  LR: 4.00e-05
+Ep [043/500] T-Acc:  68.5%  V-Acc:  52.4%  V-AUROC: 0.5395  LR: 4.00e-05
+Ep [044/500] T-Acc:  67.8%  V-Acc:  52.5%  V-AUROC: 0.5409  LR: 4.00e-05
+Ep [045/500] T-Acc:  68.6%  V-Acc:  52.6%  V-AUROC: 0.5420  LR: 4.00e-05
+Ep [046/500] T-Acc:  69.3%  V-Acc:  52.4%  V-AUROC: 0.5399  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5630 at epoch 16. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5630 (epoch 16) → 'best_task_conditioned_model.pth'
+-> Acc=0.600  Sens=0.667  Spec=0.500  AUROC=0.417
+
+=== Fold 09/30 | train: 25 subj / 3813 windows | test: 12 subj / 1923 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7814.46it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.330  MCI: 0.801
+Ep [001/500] T-Acc:  50.7%  V-Acc:  47.7%  V-AUROC: 0.4754  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.3%  V-Acc:  50.5%  V-AUROC: 0.5011  LR: 4.00e-04
+Ep [003/500] T-Acc:  51.2%  V-Acc:  52.0%  V-AUROC: 0.5287  LR: 6.00e-04
+Ep [004/500] T-Acc:  54.2%  V-Acc:  54.6%  V-AUROC: 0.5568  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.2%  V-Acc:  55.5%  V-AUROC: 0.5677  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.7%  V-Acc:  57.2%  V-AUROC: 0.5970  LR: 1.00e-03
+Ep [007/500] T-Acc:  56.6%  V-Acc:  56.4%  V-AUROC: 0.5859  LR: 1.00e-03
+Ep [008/500] T-Acc:  57.3%  V-Acc:  60.2%  V-AUROC: 0.6219  LR: 1.00e-03
+Ep [009/500] T-Acc:  57.5%  V-Acc:  58.9%  V-AUROC: 0.5984  LR: 1.00e-03
+Ep [010/500] T-Acc:  56.7%  V-Acc:  58.5%  V-AUROC: 0.6228  LR: 1.00e-03
+Ep [011/500] T-Acc:  57.5%  V-Acc:  61.1%  V-AUROC: 0.6283  LR: 1.00e-03
+Ep [012/500] T-Acc:  58.3%  V-Acc:  60.9%  V-AUROC: 0.6479  LR: 1.00e-03
+Ep [013/500] T-Acc:  59.2%  V-Acc:  60.7%  V-AUROC: 0.6417  LR: 1.00e-03
+Ep [014/500] T-Acc:  58.8%  V-Acc:  60.6%  V-AUROC: 0.6291  LR: 1.00e-03
+Ep [015/500] T-Acc:  58.3%  V-Acc:  60.4%  V-AUROC: 0.6444  LR: 1.00e-03
+Ep [016/500] T-Acc:  59.3%  V-Acc:  62.1%  V-AUROC: 0.6526  LR: 1.00e-03
+Ep [017/500] T-Acc:  59.2%  V-Acc:  63.0%  V-AUROC: 0.6608  LR: 1.00e-03
+Ep [018/500] T-Acc:  59.8%  V-Acc:  63.1%  V-AUROC: 0.6601  LR: 1.00e-03
+Ep [019/500] T-Acc:  60.2%  V-Acc:  63.0%  V-AUROC: 0.6678  LR: 1.00e-03
+Ep [020/500] T-Acc:  61.1%  V-Acc:  61.5%  V-AUROC: 0.6559  LR: 1.00e-03
+Ep [021/500] T-Acc:  61.5%  V-Acc:  62.9%  V-AUROC: 0.6684  LR: 1.00e-03
+Ep [022/500] T-Acc:  60.7%  V-Acc:  64.1%  V-AUROC: 0.6705  LR: 1.00e-03
+Ep [023/500] T-Acc:  61.0%  V-Acc:  65.4%  V-AUROC: 0.6848  LR: 1.00e-03
+Ep [024/500] T-Acc:  61.2%  V-Acc:  63.0%  V-AUROC: 0.6701  LR: 1.00e-03
+Ep [025/500] T-Acc:  61.3%  V-Acc:  63.1%  V-AUROC: 0.6743  LR: 1.00e-03
+Ep [026/500] T-Acc:  61.5%  V-Acc:  64.0%  V-AUROC: 0.6843  LR: 1.00e-03
+Ep [027/500] T-Acc:  61.9%  V-Acc:  63.3%  V-AUROC: 0.6809  LR: 1.00e-03
+Ep [028/500] T-Acc:  60.9%  V-Acc:  62.2%  V-AUROC: 0.6733  LR: 1.00e-03
+Ep [029/500] T-Acc:  59.7%  V-Acc:  61.7%  V-AUROC: 0.6658  LR: 1.00e-03
+Ep [030/500] T-Acc:  59.7%  V-Acc:  62.8%  V-AUROC: 0.6639  LR: 1.00e-03
+Ep [031/500] T-Acc:  61.0%  V-Acc:  61.5%  V-AUROC: 0.6624  LR: 1.00e-03
+Ep [032/500] T-Acc:  60.9%  V-Acc:  62.2%  V-AUROC: 0.6697  LR: 1.00e-03
+Ep [033/500] T-Acc:  60.5%  V-Acc:  62.7%  V-AUROC: 0.6754  LR: 1.00e-03
+Ep [034/500] T-Acc:  61.3%  V-Acc:  62.8%  V-AUROC: 0.6675  LR: 1.00e-03
+Ep [035/500] T-Acc:  62.0%  V-Acc:  63.4%  V-AUROC: 0.6780  LR: 2.00e-04
+Ep [036/500] T-Acc:  61.8%  V-Acc:  63.0%  V-AUROC: 0.6778  LR: 2.00e-04
+Ep [037/500] T-Acc:  61.4%  V-Acc:  63.1%  V-AUROC: 0.6776  LR: 2.00e-04
+Ep [038/500] T-Acc:  62.8%  V-Acc:  63.2%  V-AUROC: 0.6731  LR: 2.00e-04
+Ep [039/500] T-Acc:  62.3%  V-Acc:  63.6%  V-AUROC: 0.6825  LR: 2.00e-04
+Ep [040/500] T-Acc:  61.8%  V-Acc:  63.8%  V-AUROC: 0.6826  LR: 2.00e-04
+Ep [041/500] T-Acc:  62.4%  V-Acc:  63.9%  V-AUROC: 0.6853  LR: 2.00e-04
+Ep [042/500] T-Acc:  62.4%  V-Acc:  63.4%  V-AUROC: 0.6794  LR: 2.00e-04
+Ep [043/500] T-Acc:  61.8%  V-Acc:  63.6%  V-AUROC: 0.6763  LR: 2.00e-04
+Ep [044/500] T-Acc:  61.6%  V-Acc:  63.8%  V-AUROC: 0.6804  LR: 2.00e-04
+Ep [045/500] T-Acc:  62.2%  V-Acc:  64.4%  V-AUROC: 0.6800  LR: 2.00e-04
+Ep [046/500] T-Acc:  62.5%  V-Acc:  64.3%  V-AUROC: 0.6767  LR: 2.00e-04
+Ep [047/500] T-Acc:  61.7%  V-Acc:  63.9%  V-AUROC: 0.6817  LR: 2.00e-04
+Ep [048/500] T-Acc:  62.7%  V-Acc:  63.8%  V-AUROC: 0.6818  LR: 2.00e-04
+Ep [049/500] T-Acc:  61.6%  V-Acc:  64.3%  V-AUROC: 0.6813  LR: 2.00e-04
+Ep [050/500] T-Acc:  62.5%  V-Acc:  64.0%  V-AUROC: 0.6825  LR: 2.00e-04
+Ep [051/500] T-Acc:  62.4%  V-Acc:  63.3%  V-AUROC: 0.6828  LR: 2.00e-04
+Ep [052/500] T-Acc:  62.1%  V-Acc:  63.2%  V-AUROC: 0.6837  LR: 2.00e-04
+Ep [053/500] T-Acc:  62.3%  V-Acc:  63.2%  V-AUROC: 0.6833  LR: 4.00e-05
+Ep [054/500] T-Acc:  61.2%  V-Acc:  63.2%  V-AUROC: 0.6812  LR: 4.00e-05
+Ep [055/500] T-Acc:  62.6%  V-Acc:  63.9%  V-AUROC: 0.6802  LR: 4.00e-05
+Ep [056/500] T-Acc:  62.2%  V-Acc:  63.8%  V-AUROC: 0.6819  LR: 4.00e-05
+Ep [057/500] T-Acc:  62.0%  V-Acc:  64.1%  V-AUROC: 0.6828  LR: 4.00e-05
+Ep [058/500] T-Acc:  63.0%  V-Acc:  63.0%  V-AUROC: 0.6814  LR: 4.00e-05
+Ep [059/500] T-Acc:  63.0%  V-Acc:  63.7%  V-AUROC: 0.6809  LR: 4.00e-05
+Ep [060/500] T-Acc:  62.7%  V-Acc:  63.2%  V-AUROC: 0.6820  LR: 4.00e-05
+Ep [061/500] T-Acc:  61.7%  V-Acc:  64.3%  V-AUROC: 0.6821  LR: 4.00e-05
+Ep [062/500] T-Acc:  62.4%  V-Acc:  63.8%  V-AUROC: 0.6823  LR: 4.00e-05
+Ep [063/500] T-Acc:  62.2%  V-Acc:  64.2%  V-AUROC: 0.6813  LR: 4.00e-05
+Ep [064/500] T-Acc:  63.3%  V-Acc:  63.8%  V-AUROC: 0.6813  LR: 8.00e-06
+Ep [065/500] T-Acc:  62.3%  V-Acc:  64.0%  V-AUROC: 0.6829  LR: 8.00e-06
+Ep [066/500] T-Acc:  63.1%  V-Acc:  63.7%  V-AUROC: 0.6827  LR: 8.00e-06
+Ep [067/500] T-Acc:  61.9%  V-Acc:  63.5%  V-AUROC: 0.6828  LR: 8.00e-06
+Ep [068/500] T-Acc:  62.3%  V-Acc:  63.3%  V-AUROC: 0.6814  LR: 8.00e-06
+Ep [069/500] T-Acc:  62.7%  V-Acc:  64.0%  V-AUROC: 0.6818  LR: 8.00e-06
+Ep [070/500] T-Acc:  62.8%  V-Acc:  63.9%  V-AUROC: 0.6819  LR: 8.00e-06
+Ep [071/500] T-Acc:  62.5%  V-Acc:  63.8%  V-AUROC: 0.6816  LR: 8.00e-06
+[Early Stop] Best AUROC 0.6853 at epoch 41. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6853 (epoch 41) → 'best_task_conditioned_model.pth'
+-> Acc=0.818  Sens=0.800  Spec=0.833  AUROC=0.833
+
+=== Fold 10/30 | train: 25 subj / 3815 windows | test: 12 subj / 1921 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7859.19it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.077  MCI: 0.933
+Ep [001/500] T-Acc:  47.2%  V-Acc:  42.9%  V-AUROC: 0.4830  LR: 2.00e-04
+Ep [002/500] T-Acc:  48.0%  V-Acc:  43.8%  V-AUROC: 0.4808  LR: 4.00e-04
+Ep [003/500] T-Acc:  48.6%  V-Acc:  43.2%  V-AUROC: 0.4926  LR: 6.00e-04
+Ep [004/500] T-Acc:  51.3%  V-Acc:  47.6%  V-AUROC: 0.5279  LR: 8.00e-04
+Ep [005/500] T-Acc:  52.7%  V-Acc:  47.9%  V-AUROC: 0.5206  LR: 1.00e-03
+Ep [006/500] T-Acc:  53.4%  V-Acc:  48.8%  V-AUROC: 0.5593  LR: 1.00e-03
+Ep [007/500] T-Acc:  55.4%  V-Acc:  50.4%  V-AUROC: 0.5477  LR: 1.00e-03
+Ep [008/500] T-Acc:  57.4%  V-Acc:  54.5%  V-AUROC: 0.5597  LR: 1.00e-03
+Ep [009/500] T-Acc:  56.2%  V-Acc:  50.9%  V-AUROC: 0.5581  LR: 1.00e-03
+Ep [010/500] T-Acc:  57.5%  V-Acc:  53.0%  V-AUROC: 0.5899  LR: 1.00e-03
+Ep [011/500] T-Acc:  58.1%  V-Acc:  52.6%  V-AUROC: 0.5876  LR: 1.00e-03
+Ep [012/500] T-Acc:  58.6%  V-Acc:  52.9%  V-AUROC: 0.5849  LR: 1.00e-03
+Ep [013/500] T-Acc:  58.4%  V-Acc:  56.2%  V-AUROC: 0.5882  LR: 1.00e-03
+Ep [014/500] T-Acc:  60.5%  V-Acc:  52.3%  V-AUROC: 0.5817  LR: 1.00e-03
+Ep [015/500] T-Acc:  58.5%  V-Acc:  57.7%  V-AUROC: 0.5908  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.0%  V-Acc:  54.1%  V-AUROC: 0.5806  LR: 1.00e-03
+Ep [017/500] T-Acc:  61.5%  V-Acc:  52.5%  V-AUROC: 0.5808  LR: 1.00e-03
+Ep [018/500] T-Acc:  59.4%  V-Acc:  53.5%  V-AUROC: 0.5459  LR: 1.00e-03
+Ep [019/500] T-Acc:  60.1%  V-Acc:  52.0%  V-AUROC: 0.5818  LR: 1.00e-03
+Ep [020/500] T-Acc:  60.8%  V-Acc:  58.6%  V-AUROC: 0.5871  LR: 1.00e-03
+Ep [021/500] T-Acc:  61.1%  V-Acc:  54.2%  V-AUROC: 0.5816  LR: 1.00e-03
+Ep [022/500] T-Acc:  60.4%  V-Acc:  54.8%  V-AUROC: 0.5910  LR: 1.00e-03
+Ep [023/500] T-Acc:  62.0%  V-Acc:  53.8%  V-AUROC: 0.5990  LR: 1.00e-03
+Ep [024/500] T-Acc:  62.2%  V-Acc:  54.4%  V-AUROC: 0.5983  LR: 1.00e-03
+Ep [025/500] T-Acc:  62.9%  V-Acc:  55.8%  V-AUROC: 0.6155  LR: 1.00e-03
+Ep [026/500] T-Acc:  62.8%  V-Acc:  58.4%  V-AUROC: 0.5936  LR: 1.00e-03
+Ep [027/500] T-Acc:  62.1%  V-Acc:  54.3%  V-AUROC: 0.6050  LR: 1.00e-03
+Ep [028/500] T-Acc:  63.0%  V-Acc:  56.8%  V-AUROC: 0.6105  LR: 1.00e-03
+Ep [029/500] T-Acc:  63.7%  V-Acc:  52.8%  V-AUROC: 0.5902  LR: 1.00e-03
+Ep [030/500] T-Acc:  62.4%  V-Acc:  58.6%  V-AUROC: 0.6178  LR: 1.00e-03
+Ep [031/500] T-Acc:  63.7%  V-Acc:  57.2%  V-AUROC: 0.6090  LR: 1.00e-03
+Ep [032/500] T-Acc:  64.6%  V-Acc:  54.6%  V-AUROC: 0.6146  LR: 1.00e-03
+Ep [033/500] T-Acc:  64.4%  V-Acc:  57.2%  V-AUROC: 0.6146  LR: 1.00e-03
+Ep [034/500] T-Acc:  65.0%  V-Acc:  60.1%  V-AUROC: 0.6128  LR: 1.00e-03
+Ep [035/500] T-Acc:  64.1%  V-Acc:  58.5%  V-AUROC: 0.6115  LR: 1.00e-03
+Ep [036/500] T-Acc:  64.5%  V-Acc:  55.5%  V-AUROC: 0.6223  LR: 1.00e-03
+Ep [037/500] T-Acc:  63.8%  V-Acc:  55.5%  V-AUROC: 0.6206  LR: 1.00e-03
+Ep [038/500] T-Acc:  64.3%  V-Acc:  60.5%  V-AUROC: 0.5959  LR: 1.00e-03
+Ep [039/500] T-Acc:  65.0%  V-Acc:  59.3%  V-AUROC: 0.6154  LR: 1.00e-03
+Ep [040/500] T-Acc:  65.0%  V-Acc:  59.9%  V-AUROC: 0.6060  LR: 1.00e-03
+Ep [041/500] T-Acc:  65.2%  V-Acc:  57.6%  V-AUROC: 0.6268  LR: 1.00e-03
+Ep [042/500] T-Acc:  64.8%  V-Acc:  58.9%  V-AUROC: 0.6198  LR: 1.00e-03
+Ep [043/500] T-Acc:  65.6%  V-Acc:  55.1%  V-AUROC: 0.6128  LR: 1.00e-03
+Ep [044/500] T-Acc:  66.2%  V-Acc:  58.5%  V-AUROC: 0.6231  LR: 1.00e-03
+Ep [045/500] T-Acc:  64.7%  V-Acc:  58.2%  V-AUROC: 0.6261  LR: 1.00e-03
+Ep [046/500] T-Acc:  65.7%  V-Acc:  58.6%  V-AUROC: 0.6220  LR: 1.00e-03
+Ep [047/500] T-Acc:  65.7%  V-Acc:  58.2%  V-AUROC: 0.6262  LR: 1.00e-03
+Ep [048/500] T-Acc:  65.9%  V-Acc:  52.9%  V-AUROC: 0.6120  LR: 1.00e-03
+Ep [049/500] T-Acc:  65.7%  V-Acc:  58.6%  V-AUROC: 0.6171  LR: 1.00e-03
+Ep [050/500] T-Acc:  66.1%  V-Acc:  57.5%  V-AUROC: 0.6367  LR: 1.00e-03
+Ep [051/500] T-Acc:  66.1%  V-Acc:  53.6%  V-AUROC: 0.6198  LR: 1.00e-03
+Ep [052/500] T-Acc:  64.9%  V-Acc:  57.2%  V-AUROC: 0.6297  LR: 1.00e-03
+Ep [053/500] T-Acc:  65.9%  V-Acc:  60.3%  V-AUROC: 0.6210  LR: 1.00e-03
+Ep [054/500] T-Acc:  65.3%  V-Acc:  57.7%  V-AUROC: 0.6385  LR: 1.00e-03
+Ep [055/500] T-Acc:  65.0%  V-Acc:  56.3%  V-AUROC: 0.6412  LR: 1.00e-03
+Ep [056/500] T-Acc:  64.7%  V-Acc:  59.3%  V-AUROC: 0.6238  LR: 1.00e-03
+Ep [057/500] T-Acc:  65.7%  V-Acc:  58.2%  V-AUROC: 0.6361  LR: 1.00e-03
+Ep [058/500] T-Acc:  66.2%  V-Acc:  56.2%  V-AUROC: 0.6328  LR: 1.00e-03
+Ep [059/500] T-Acc:  65.6%  V-Acc:  54.7%  V-AUROC: 0.6214  LR: 1.00e-03
+Ep [060/500] T-Acc:  66.3%  V-Acc:  59.1%  V-AUROC: 0.6255  LR: 1.00e-03
+Ep [061/500] T-Acc:  65.3%  V-Acc:  57.9%  V-AUROC: 0.6212  LR: 1.00e-03
+Ep [062/500] T-Acc:  66.4%  V-Acc:  59.6%  V-AUROC: 0.6169  LR: 1.00e-03
+Ep [063/500] T-Acc:  66.5%  V-Acc:  58.8%  V-AUROC: 0.6215  LR: 1.00e-03
+Ep [064/500] T-Acc:  66.3%  V-Acc:  58.6%  V-AUROC: 0.6190  LR: 1.00e-03
+Ep [065/500] T-Acc:  66.4%  V-Acc:  59.4%  V-AUROC: 0.6253  LR: 1.00e-03
+Ep [066/500] T-Acc:  66.0%  V-Acc:  58.6%  V-AUROC: 0.6333  LR: 1.00e-03
+Ep [067/500] T-Acc:  67.0%  V-Acc:  58.6%  V-AUROC: 0.6225  LR: 2.00e-04
+Ep [068/500] T-Acc:  67.7%  V-Acc:  57.5%  V-AUROC: 0.6241  LR: 2.00e-04
+Ep [069/500] T-Acc:  68.0%  V-Acc:  58.5%  V-AUROC: 0.6298  LR: 2.00e-04
+Ep [070/500] T-Acc:  66.7%  V-Acc:  58.5%  V-AUROC: 0.6286  LR: 2.00e-04
+Ep [071/500] T-Acc:  67.4%  V-Acc:  57.5%  V-AUROC: 0.6283  LR: 2.00e-04
+Ep [072/500] T-Acc:  66.7%  V-Acc:  58.7%  V-AUROC: 0.6238  LR: 2.00e-04
+Ep [073/500] T-Acc:  67.4%  V-Acc:  58.7%  V-AUROC: 0.6243  LR: 2.00e-04
+Ep [074/500] T-Acc:  66.5%  V-Acc:  58.5%  V-AUROC: 0.6273  LR: 2.00e-04
+Ep [075/500] T-Acc:  67.3%  V-Acc:  58.3%  V-AUROC: 0.6269  LR: 2.00e-04
+Ep [076/500] T-Acc:  67.9%  V-Acc:  58.1%  V-AUROC: 0.6275  LR: 2.00e-04
+Ep [077/500] T-Acc:  66.5%  V-Acc:  57.9%  V-AUROC: 0.6250  LR: 2.00e-04
+Ep [078/500] T-Acc:  67.3%  V-Acc:  58.6%  V-AUROC: 0.6279  LR: 4.00e-05
+Ep [079/500] T-Acc:  67.1%  V-Acc:  58.4%  V-AUROC: 0.6250  LR: 4.00e-05
+Ep [080/500] T-Acc:  67.0%  V-Acc:  58.3%  V-AUROC: 0.6277  LR: 4.00e-05
+Ep [081/500] T-Acc:  66.9%  V-Acc:  59.1%  V-AUROC: 0.6262  LR: 4.00e-05
+Ep [082/500] T-Acc:  67.2%  V-Acc:  57.8%  V-AUROC: 0.6259  LR: 4.00e-05
+Ep [083/500] T-Acc:  66.6%  V-Acc:  58.5%  V-AUROC: 0.6243  LR: 4.00e-05
+Ep [084/500] T-Acc:  67.3%  V-Acc:  58.9%  V-AUROC: 0.6246  LR: 4.00e-05
+Ep [085/500] T-Acc:  66.9%  V-Acc:  58.4%  V-AUROC: 0.6266  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6412 at epoch 55. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6412 (epoch 55) → 'best_task_conditioned_model.pth'
+-> Acc=0.727  Sens=0.750  Spec=0.667  AUROC=0.708
+
+=== Fold 11/30 | train: 25 subj / 3953 windows | test: 12 subj / 1783 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7816.32it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.344  MCI: 0.796
+Ep [001/500] T-Acc:  47.4%  V-Acc:  51.1%  V-AUROC: 0.5261  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.1%  V-Acc:  52.8%  V-AUROC: 0.5524  LR: 4.00e-04
+Ep [003/500] T-Acc:  51.5%  V-Acc:  56.1%  V-AUROC: 0.5756  LR: 6.00e-04
+Ep [004/500] T-Acc:  51.5%  V-Acc:  56.3%  V-AUROC: 0.6137  LR: 8.00e-04
+Ep [005/500] T-Acc:  54.2%  V-Acc:  57.9%  V-AUROC: 0.6169  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.3%  V-Acc:  57.3%  V-AUROC: 0.6172  LR: 1.00e-03
+Ep [007/500] T-Acc:  56.6%  V-Acc:  59.4%  V-AUROC: 0.6328  LR: 1.00e-03
+Ep [008/500] T-Acc:  56.7%  V-Acc:  57.9%  V-AUROC: 0.6289  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.7%  V-Acc:  58.7%  V-AUROC: 0.6288  LR: 1.00e-03
+Ep [010/500] T-Acc:  58.7%  V-Acc:  59.2%  V-AUROC: 0.6303  LR: 1.00e-03
+Ep [011/500] T-Acc:  60.4%  V-Acc:  58.0%  V-AUROC: 0.6211  LR: 1.00e-03
+Ep [012/500] T-Acc:  59.7%  V-Acc:  59.8%  V-AUROC: 0.6324  LR: 1.00e-03
+Ep [013/500] T-Acc:  61.4%  V-Acc:  57.8%  V-AUROC: 0.6254  LR: 1.00e-03
+Ep [014/500] T-Acc:  62.0%  V-Acc:  58.8%  V-AUROC: 0.6289  LR: 1.00e-03
+Ep [015/500] T-Acc:  62.2%  V-Acc:  57.6%  V-AUROC: 0.6153  LR: 1.00e-03
+Ep [016/500] T-Acc:  62.3%  V-Acc:  58.5%  V-AUROC: 0.6123  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.1%  V-Acc:  57.3%  V-AUROC: 0.6092  LR: 1.00e-03
+Ep [018/500] T-Acc:  61.8%  V-Acc:  57.7%  V-AUROC: 0.6176  LR: 1.00e-03
+Ep [019/500] T-Acc:  62.9%  V-Acc:  58.9%  V-AUROC: 0.6214  LR: 2.00e-04
+Ep [020/500] T-Acc:  63.0%  V-Acc:  58.3%  V-AUROC: 0.6215  LR: 2.00e-04
+Ep [021/500] T-Acc:  61.9%  V-Acc:  58.7%  V-AUROC: 0.6192  LR: 2.00e-04
+Ep [022/500] T-Acc:  62.8%  V-Acc:  58.2%  V-AUROC: 0.6224  LR: 2.00e-04
+Ep [023/500] T-Acc:  61.4%  V-Acc:  59.1%  V-AUROC: 0.6198  LR: 2.00e-04
+Ep [024/500] T-Acc:  62.7%  V-Acc:  58.1%  V-AUROC: 0.6211  LR: 2.00e-04
+Ep [025/500] T-Acc:  63.6%  V-Acc:  58.2%  V-AUROC: 0.6208  LR: 2.00e-04
+Ep [026/500] T-Acc:  62.8%  V-Acc:  58.2%  V-AUROC: 0.6193  LR: 2.00e-04
+Ep [027/500] T-Acc:  62.6%  V-Acc:  58.2%  V-AUROC: 0.6188  LR: 2.00e-04
+Ep [028/500] T-Acc:  61.9%  V-Acc:  57.7%  V-AUROC: 0.6174  LR: 2.00e-04
+Ep [029/500] T-Acc:  63.3%  V-Acc:  58.1%  V-AUROC: 0.6166  LR: 2.00e-04
+Ep [030/500] T-Acc:  63.2%  V-Acc:  57.7%  V-AUROC: 0.6174  LR: 4.00e-05
+Ep [031/500] T-Acc:  63.3%  V-Acc:  58.6%  V-AUROC: 0.6166  LR: 4.00e-05
+Ep [032/500] T-Acc:  62.6%  V-Acc:  57.8%  V-AUROC: 0.6173  LR: 4.00e-05
+Ep [033/500] T-Acc:  63.0%  V-Acc:  57.9%  V-AUROC: 0.6165  LR: 4.00e-05
+Ep [034/500] T-Acc:  62.7%  V-Acc:  58.2%  V-AUROC: 0.6179  LR: 4.00e-05
+Ep [035/500] T-Acc:  64.8%  V-Acc:  58.0%  V-AUROC: 0.6182  LR: 4.00e-05
+Ep [036/500] T-Acc:  62.4%  V-Acc:  57.8%  V-AUROC: 0.6179  LR: 4.00e-05
+Ep [037/500] T-Acc:  63.6%  V-Acc:  58.3%  V-AUROC: 0.6194  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6328 at epoch 7. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6328 (epoch 7) → 'best_task_conditioned_model.pth'
+-> Acc=0.500  Sens=0.400  Spec=0.600  AUROC=0.560
+
+=== Fold 12/30 | train: 25 subj / 3843 windows | test: 12 subj / 1893 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 8362.86it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.210  MCI: 0.852
+Ep [001/500] T-Acc:  48.6%  V-Acc:  47.5%  V-AUROC: 0.4697  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.6%  V-Acc:  48.1%  V-AUROC: 0.4820  LR: 4.00e-04
+Ep [003/500] T-Acc:  52.1%  V-Acc:  50.6%  V-AUROC: 0.5269  LR: 6.00e-04
+Ep [004/500] T-Acc:  53.9%  V-Acc:  52.2%  V-AUROC: 0.5484  LR: 8.00e-04
+Ep [005/500] T-Acc:  55.3%  V-Acc:  52.7%  V-AUROC: 0.5521  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.8%  V-Acc:  55.0%  V-AUROC: 0.5607  LR: 1.00e-03
+Ep [007/500] T-Acc:  55.8%  V-Acc:  54.3%  V-AUROC: 0.5707  LR: 1.00e-03
+Ep [008/500] T-Acc:  56.2%  V-Acc:  55.5%  V-AUROC: 0.5956  LR: 1.00e-03
+Ep [009/500] T-Acc:  57.7%  V-Acc:  56.3%  V-AUROC: 0.5925  LR: 1.00e-03
+Ep [010/500] T-Acc:  57.4%  V-Acc:  56.5%  V-AUROC: 0.5921  LR: 1.00e-03
+Ep [011/500] T-Acc:  58.3%  V-Acc:  57.0%  V-AUROC: 0.5955  LR: 1.00e-03
+Ep [012/500] T-Acc:  59.2%  V-Acc:  57.6%  V-AUROC: 0.6016  LR: 1.00e-03
+Ep [013/500] T-Acc:  61.1%  V-Acc:  57.1%  V-AUROC: 0.5978  LR: 1.00e-03
+Ep [014/500] T-Acc:  59.0%  V-Acc:  56.7%  V-AUROC: 0.5996  LR: 1.00e-03
+Ep [015/500] T-Acc:  60.4%  V-Acc:  58.1%  V-AUROC: 0.5946  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.8%  V-Acc:  57.2%  V-AUROC: 0.6058  LR: 1.00e-03
+Ep [017/500] T-Acc:  61.2%  V-Acc:  58.3%  V-AUROC: 0.6063  LR: 1.00e-03
+Ep [018/500] T-Acc:  62.2%  V-Acc:  57.4%  V-AUROC: 0.5948  LR: 1.00e-03
+Ep [019/500] T-Acc:  61.8%  V-Acc:  57.3%  V-AUROC: 0.6039  LR: 1.00e-03
+Ep [020/500] T-Acc:  61.3%  V-Acc:  57.5%  V-AUROC: 0.6080  LR: 1.00e-03
+Ep [021/500] T-Acc:  62.3%  V-Acc:  58.0%  V-AUROC: 0.6097  LR: 1.00e-03
+Ep [022/500] T-Acc:  62.6%  V-Acc:  56.9%  V-AUROC: 0.6107  LR: 1.00e-03
+Ep [023/500] T-Acc:  62.2%  V-Acc:  57.9%  V-AUROC: 0.6062  LR: 1.00e-03
+Ep [024/500] T-Acc:  63.1%  V-Acc:  57.1%  V-AUROC: 0.6093  LR: 1.00e-03
+Ep [025/500] T-Acc:  62.1%  V-Acc:  58.7%  V-AUROC: 0.6103  LR: 1.00e-03
+Ep [026/500] T-Acc:  62.6%  V-Acc:  58.1%  V-AUROC: 0.6126  LR: 1.00e-03
+Ep [027/500] T-Acc:  62.9%  V-Acc:  58.2%  V-AUROC: 0.6146  LR: 1.00e-03
+Ep [028/500] T-Acc:  63.8%  V-Acc:  58.3%  V-AUROC: 0.6144  LR: 1.00e-03
+Ep [029/500] T-Acc:  63.5%  V-Acc:  58.3%  V-AUROC: 0.6207  LR: 1.00e-03
+Ep [030/500] T-Acc:  63.2%  V-Acc:  57.7%  V-AUROC: 0.6192  LR: 1.00e-03
+Ep [031/500] T-Acc:  62.2%  V-Acc:  58.3%  V-AUROC: 0.6154  LR: 1.00e-03
+Ep [032/500] T-Acc:  63.4%  V-Acc:  58.0%  V-AUROC: 0.6175  LR: 1.00e-03
+Ep [033/500] T-Acc:  62.2%  V-Acc:  57.8%  V-AUROC: 0.6186  LR: 1.00e-03
+Ep [034/500] T-Acc:  62.8%  V-Acc:  58.5%  V-AUROC: 0.6275  LR: 1.00e-03
+Ep [035/500] T-Acc:  62.4%  V-Acc:  58.8%  V-AUROC: 0.6292  LR: 1.00e-03
+Ep [036/500] T-Acc:  63.4%  V-Acc:  58.1%  V-AUROC: 0.6227  LR: 1.00e-03
+Ep [037/500] T-Acc:  63.4%  V-Acc:  58.5%  V-AUROC: 0.6293  LR: 1.00e-03
+Ep [038/500] T-Acc:  62.0%  V-Acc:  58.7%  V-AUROC: 0.6190  LR: 1.00e-03
+Ep [039/500] T-Acc:  63.1%  V-Acc:  59.2%  V-AUROC: 0.6234  LR: 1.00e-03
+Ep [040/500] T-Acc:  63.7%  V-Acc:  59.4%  V-AUROC: 0.6302  LR: 1.00e-03
+Ep [041/500] T-Acc:  63.8%  V-Acc:  58.8%  V-AUROC: 0.6333  LR: 1.00e-03
+Ep [042/500] T-Acc:  61.8%  V-Acc:  57.8%  V-AUROC: 0.6206  LR: 1.00e-03
+Ep [043/500] T-Acc:  63.4%  V-Acc:  59.1%  V-AUROC: 0.6291  LR: 1.00e-03
+Ep [044/500] T-Acc:  63.7%  V-Acc:  58.5%  V-AUROC: 0.6253  LR: 1.00e-03
+Ep [045/500] T-Acc:  63.9%  V-Acc:  58.7%  V-AUROC: 0.6312  LR: 1.00e-03
+Ep [046/500] T-Acc:  63.6%  V-Acc:  58.1%  V-AUROC: 0.6264  LR: 1.00e-03
+Ep [047/500] T-Acc:  63.4%  V-Acc:  58.4%  V-AUROC: 0.6200  LR: 1.00e-03
+Ep [048/500] T-Acc:  64.2%  V-Acc:  57.7%  V-AUROC: 0.6213  LR: 1.00e-03
+Ep [049/500] T-Acc:  64.0%  V-Acc:  58.3%  V-AUROC: 0.6278  LR: 1.00e-03
+Ep [050/500] T-Acc:  64.5%  V-Acc:  59.0%  V-AUROC: 0.6314  LR: 1.00e-03
+Ep [051/500] T-Acc:  64.2%  V-Acc:  59.1%  V-AUROC: 0.6235  LR: 1.00e-03
+Ep [052/500] T-Acc:  64.6%  V-Acc:  60.0%  V-AUROC: 0.6313  LR: 1.00e-03
+Ep [053/500] T-Acc:  64.2%  V-Acc:  59.1%  V-AUROC: 0.6293  LR: 2.00e-04
+Ep [054/500] T-Acc:  64.8%  V-Acc:  58.5%  V-AUROC: 0.6250  LR: 2.00e-04
+Ep [055/500] T-Acc:  64.3%  V-Acc:  59.1%  V-AUROC: 0.6264  LR: 2.00e-04
+Ep [056/500] T-Acc:  64.6%  V-Acc:  58.7%  V-AUROC: 0.6251  LR: 2.00e-04
+Ep [057/500] T-Acc:  64.8%  V-Acc:  58.6%  V-AUROC: 0.6264  LR: 2.00e-04
+Ep [058/500] T-Acc:  64.5%  V-Acc:  58.4%  V-AUROC: 0.6249  LR: 2.00e-04
+Ep [059/500] T-Acc:  65.1%  V-Acc:  58.9%  V-AUROC: 0.6251  LR: 2.00e-04
+Ep [060/500] T-Acc:  65.3%  V-Acc:  58.9%  V-AUROC: 0.6237  LR: 2.00e-04
+Ep [061/500] T-Acc:  64.5%  V-Acc:  59.1%  V-AUROC: 0.6255  LR: 2.00e-04
+Ep [062/500] T-Acc:  64.3%  V-Acc:  59.2%  V-AUROC: 0.6275  LR: 2.00e-04
+Ep [063/500] T-Acc:  65.1%  V-Acc:  59.1%  V-AUROC: 0.6232  LR: 2.00e-04
+Ep [064/500] T-Acc:  64.6%  V-Acc:  58.7%  V-AUROC: 0.6237  LR: 4.00e-05
+Ep [065/500] T-Acc:  65.1%  V-Acc:  58.8%  V-AUROC: 0.6251  LR: 4.00e-05
+Ep [066/500] T-Acc:  65.0%  V-Acc:  58.4%  V-AUROC: 0.6244  LR: 4.00e-05
+Ep [067/500] T-Acc:  64.7%  V-Acc:  59.1%  V-AUROC: 0.6236  LR: 4.00e-05
+Ep [068/500] T-Acc:  65.3%  V-Acc:  59.4%  V-AUROC: 0.6250  LR: 4.00e-05
+Ep [069/500] T-Acc:  64.3%  V-Acc:  59.2%  V-AUROC: 0.6238  LR: 4.00e-05
+Ep [070/500] T-Acc:  65.1%  V-Acc:  58.8%  V-AUROC: 0.6261  LR: 4.00e-05
+Ep [071/500] T-Acc:  65.1%  V-Acc:  58.9%  V-AUROC: 0.6258  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6333 at epoch 41. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6333 (epoch 41) → 'best_task_conditioned_model.pth'
+-> Acc=0.727  Sens=0.714  Spec=0.750  AUROC=0.679
+
+=== Fold 13/30 | train: 25 subj / 3790 windows | test: 12 subj / 1946 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7853.22it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.493  MCI: 0.752
+Ep [001/500] T-Acc:  55.5%  V-Acc:  53.2%  V-AUROC: 0.5819  LR: 2.00e-04
+Ep [002/500] T-Acc:  56.6%  V-Acc:  52.6%  V-AUROC: 0.5683  LR: 4.00e-04
+Ep [003/500] T-Acc:  55.2%  V-Acc:  52.1%  V-AUROC: 0.5540  LR: 6.00e-04
+Ep [004/500] T-Acc:  56.8%  V-Acc:  54.7%  V-AUROC: 0.5597  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.8%  V-Acc:  54.1%  V-AUROC: 0.5601  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.6%  V-Acc:  56.2%  V-AUROC: 0.5580  LR: 1.00e-03
+Ep [007/500] T-Acc:  58.8%  V-Acc:  56.6%  V-AUROC: 0.5545  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.6%  V-Acc:  55.8%  V-AUROC: 0.5408  LR: 1.00e-03
+Ep [009/500] T-Acc:  57.9%  V-Acc:  56.0%  V-AUROC: 0.5557  LR: 1.00e-03
+Ep [010/500] T-Acc:  61.6%  V-Acc:  54.9%  V-AUROC: 0.5499  LR: 1.00e-03
+Ep [011/500] T-Acc:  60.5%  V-Acc:  55.8%  V-AUROC: 0.5432  LR: 1.00e-03
+Ep [012/500] T-Acc:  61.8%  V-Acc:  54.9%  V-AUROC: 0.5397  LR: 1.00e-03
+Ep [013/500] T-Acc:  63.4%  V-Acc:  56.9%  V-AUROC: 0.5378  LR: 1.00e-03
+Ep [014/500] T-Acc:  62.8%  V-Acc:  55.7%  V-AUROC: 0.5427  LR: 1.00e-03
+Ep [015/500] T-Acc:  63.3%  V-Acc:  53.2%  V-AUROC: 0.5130  LR: 1.00e-03
+Ep [016/500] T-Acc:  64.5%  V-Acc:  55.9%  V-AUROC: 0.5516  LR: 1.00e-03
+Ep [017/500] T-Acc:  65.4%  V-Acc:  55.8%  V-AUROC: 0.5420  LR: 1.00e-03
+Ep [018/500] T-Acc:  66.5%  V-Acc:  55.1%  V-AUROC: 0.5465  LR: 2.00e-04
+Ep [019/500] T-Acc:  65.2%  V-Acc:  54.2%  V-AUROC: 0.5435  LR: 2.00e-04
+Ep [020/500] T-Acc:  66.5%  V-Acc:  54.3%  V-AUROC: 0.5429  LR: 2.00e-04
+Ep [021/500] T-Acc:  65.9%  V-Acc:  54.8%  V-AUROC: 0.5428  LR: 2.00e-04
+Ep [022/500] T-Acc:  66.0%  V-Acc:  55.8%  V-AUROC: 0.5388  LR: 2.00e-04
+Ep [023/500] T-Acc:  67.1%  V-Acc:  55.4%  V-AUROC: 0.5364  LR: 2.00e-04
+Ep [024/500] T-Acc:  66.4%  V-Acc:  55.3%  V-AUROC: 0.5388  LR: 2.00e-04
+Ep [025/500] T-Acc:  66.9%  V-Acc:  55.8%  V-AUROC: 0.5465  LR: 2.00e-04
+Ep [026/500] T-Acc:  67.1%  V-Acc:  56.8%  V-AUROC: 0.5458  LR: 2.00e-04
+Ep [027/500] T-Acc:  66.0%  V-Acc:  54.8%  V-AUROC: 0.5446  LR: 2.00e-04
+Ep [028/500] T-Acc:  66.2%  V-Acc:  54.4%  V-AUROC: 0.5431  LR: 2.00e-04
+Ep [029/500] T-Acc:  66.9%  V-Acc:  56.8%  V-AUROC: 0.5445  LR: 4.00e-05
+Ep [030/500] T-Acc:  67.9%  V-Acc:  55.8%  V-AUROC: 0.5429  LR: 4.00e-05
+Ep [031/500] T-Acc:  66.8%  V-Acc:  54.8%  V-AUROC: 0.5447  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5819 at epoch 1. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5819 (epoch 1) → 'best_task_conditioned_model.pth'
+-> Acc=0.545  Sens=0.400  Spec=0.667  AUROC=0.467
+
+=== Fold 14/30 | train: 25 subj / 3784 windows | test: 12 subj / 1952 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 8352.63it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.341  MCI: 0.797
+Ep [001/500] T-Acc:  50.4%  V-Acc:  48.0%  V-AUROC: 0.4974  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.1%  V-Acc:  48.0%  V-AUROC: 0.5002  LR: 4.00e-04
+Ep [003/500] T-Acc:  52.8%  V-Acc:  49.8%  V-AUROC: 0.5157  LR: 6.00e-04
+Ep [004/500] T-Acc:  54.5%  V-Acc:  51.1%  V-AUROC: 0.5381  LR: 8.00e-04
+Ep [005/500] T-Acc:  55.5%  V-Acc:  53.0%  V-AUROC: 0.5600  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.0%  V-Acc:  53.1%  V-AUROC: 0.5626  LR: 1.00e-03
+Ep [007/500] T-Acc:  58.6%  V-Acc:  53.2%  V-AUROC: 0.5669  LR: 1.00e-03
+Ep [008/500] T-Acc:  59.5%  V-Acc:  53.4%  V-AUROC: 0.5675  LR: 1.00e-03
+Ep [009/500] T-Acc:  59.0%  V-Acc:  52.9%  V-AUROC: 0.5775  LR: 1.00e-03
+Ep [010/500] T-Acc:  59.6%  V-Acc:  55.9%  V-AUROC: 0.5800  LR: 1.00e-03
+Ep [011/500] T-Acc:  61.7%  V-Acc:  55.4%  V-AUROC: 0.5771  LR: 1.00e-03
+Ep [012/500] T-Acc:  62.6%  V-Acc:  52.3%  V-AUROC: 0.5687  LR: 1.00e-03
+Ep [013/500] T-Acc:  62.8%  V-Acc:  51.8%  V-AUROC: 0.5738  LR: 1.00e-03
+Ep [014/500] T-Acc:  63.0%  V-Acc:  52.6%  V-AUROC: 0.5662  LR: 1.00e-03
+Ep [015/500] T-Acc:  63.7%  V-Acc:  56.0%  V-AUROC: 0.5822  LR: 1.00e-03
+Ep [016/500] T-Acc:  62.7%  V-Acc:  55.0%  V-AUROC: 0.5809  LR: 1.00e-03
+Ep [017/500] T-Acc:  64.0%  V-Acc:  53.3%  V-AUROC: 0.5712  LR: 1.00e-03
+Ep [018/500] T-Acc:  64.4%  V-Acc:  55.0%  V-AUROC: 0.5849  LR: 1.00e-03
+Ep [019/500] T-Acc:  64.4%  V-Acc:  52.5%  V-AUROC: 0.5779  LR: 1.00e-03
+Ep [020/500] T-Acc:  64.8%  V-Acc:  54.1%  V-AUROC: 0.5770  LR: 1.00e-03
+Ep [021/500] T-Acc:  64.8%  V-Acc:  54.2%  V-AUROC: 0.5788  LR: 1.00e-03
+Ep [022/500] T-Acc:  64.8%  V-Acc:  53.9%  V-AUROC: 0.5810  LR: 1.00e-03
+Ep [023/500] T-Acc:  66.0%  V-Acc:  54.3%  V-AUROC: 0.5744  LR: 1.00e-03
+Ep [024/500] T-Acc:  65.7%  V-Acc:  53.7%  V-AUROC: 0.5732  LR: 1.00e-03
+Ep [025/500] T-Acc:  65.6%  V-Acc:  54.6%  V-AUROC: 0.5898  LR: 1.00e-03
+Ep [026/500] T-Acc:  66.2%  V-Acc:  54.4%  V-AUROC: 0.5780  LR: 1.00e-03
+Ep [027/500] T-Acc:  66.4%  V-Acc:  55.6%  V-AUROC: 0.5821  LR: 1.00e-03
+Ep [028/500] T-Acc:  66.0%  V-Acc:  52.8%  V-AUROC: 0.5723  LR: 1.00e-03
+Ep [029/500] T-Acc:  64.6%  V-Acc:  54.3%  V-AUROC: 0.5797  LR: 1.00e-03
+Ep [030/500] T-Acc:  65.8%  V-Acc:  52.7%  V-AUROC: 0.5742  LR: 1.00e-03
+Ep [031/500] T-Acc:  65.9%  V-Acc:  54.7%  V-AUROC: 0.5853  LR: 1.00e-03
+Ep [032/500] T-Acc:  65.9%  V-Acc:  52.4%  V-AUROC: 0.5744  LR: 1.00e-03
+Ep [033/500] T-Acc:  67.4%  V-Acc:  55.2%  V-AUROC: 0.5804  LR: 1.00e-03
+Ep [034/500] T-Acc:  66.3%  V-Acc:  52.8%  V-AUROC: 0.5715  LR: 1.00e-03
+Ep [035/500] T-Acc:  67.0%  V-Acc:  52.2%  V-AUROC: 0.5651  LR: 1.00e-03
+Ep [036/500] T-Acc:  67.0%  V-Acc:  54.4%  V-AUROC: 0.5728  LR: 1.00e-03
+Ep [037/500] T-Acc:  66.5%  V-Acc:  52.6%  V-AUROC: 0.5667  LR: 2.00e-04
+Ep [038/500] T-Acc:  67.7%  V-Acc:  54.0%  V-AUROC: 0.5709  LR: 2.00e-04
+Ep [039/500] T-Acc:  67.4%  V-Acc:  53.0%  V-AUROC: 0.5683  LR: 2.00e-04
+Ep [040/500] T-Acc:  67.8%  V-Acc:  53.7%  V-AUROC: 0.5716  LR: 2.00e-04
+Ep [041/500] T-Acc:  67.1%  V-Acc:  53.9%  V-AUROC: 0.5683  LR: 2.00e-04
+Ep [042/500] T-Acc:  66.8%  V-Acc:  54.1%  V-AUROC: 0.5711  LR: 2.00e-04
+Ep [043/500] T-Acc:  66.8%  V-Acc:  54.3%  V-AUROC: 0.5722  LR: 2.00e-04
+Ep [044/500] T-Acc:  67.5%  V-Acc:  53.5%  V-AUROC: 0.5725  LR: 2.00e-04
+Ep [045/500] T-Acc:  68.9%  V-Acc:  53.4%  V-AUROC: 0.5734  LR: 2.00e-04
+Ep [046/500] T-Acc:  67.8%  V-Acc:  54.3%  V-AUROC: 0.5771  LR: 2.00e-04
+Ep [047/500] T-Acc:  67.3%  V-Acc:  53.6%  V-AUROC: 0.5734  LR: 2.00e-04
+Ep [048/500] T-Acc:  67.7%  V-Acc:  53.3%  V-AUROC: 0.5720  LR: 4.00e-05
+Ep [049/500] T-Acc:  67.5%  V-Acc:  53.7%  V-AUROC: 0.5735  LR: 4.00e-05
+Ep [050/500] T-Acc:  67.5%  V-Acc:  53.9%  V-AUROC: 0.5746  LR: 4.00e-05
+Ep [051/500] T-Acc:  67.4%  V-Acc:  53.5%  V-AUROC: 0.5758  LR: 4.00e-05
+Ep [052/500] T-Acc:  66.8%  V-Acc:  53.3%  V-AUROC: 0.5743  LR: 4.00e-05
+Ep [053/500] T-Acc:  67.8%  V-Acc:  54.4%  V-AUROC: 0.5753  LR: 4.00e-05
+Ep [054/500] T-Acc:  67.9%  V-Acc:  54.1%  V-AUROC: 0.5756  LR: 4.00e-05
+Ep [055/500] T-Acc:  66.9%  V-Acc:  53.6%  V-AUROC: 0.5731  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5898 at epoch 25. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5898 (epoch 25) → 'best_task_conditioned_model.pth'
+-> Acc=0.636  Sens=0.800  Spec=0.500  AUROC=0.700
+
+=== Fold 15/30 | train: 25 subj / 3818 windows | test: 12 subj / 1918 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 11760.21it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.104  MCI: 0.914
+Ep [001/500] T-Acc:  49.5%  V-Acc:  50.2%  V-AUROC: 0.4705  LR: 2.00e-04
+Ep [002/500] T-Acc:  48.8%  V-Acc:  52.1%  V-AUROC: 0.4941  LR: 4.00e-04
+Ep [003/500] T-Acc:  50.7%  V-Acc:  54.2%  V-AUROC: 0.5194  LR: 6.00e-04
+Ep [004/500] T-Acc:  51.7%  V-Acc:  53.2%  V-AUROC: 0.5476  LR: 8.00e-04
+Ep [005/500] T-Acc:  53.7%  V-Acc:  55.3%  V-AUROC: 0.5567  LR: 1.00e-03
+Ep [006/500] T-Acc:  52.8%  V-Acc:  57.3%  V-AUROC: 0.5953  LR: 1.00e-03
+Ep [007/500] T-Acc:  54.1%  V-Acc:  57.4%  V-AUROC: 0.5988  LR: 1.00e-03
+Ep [008/500] T-Acc:  55.5%  V-Acc:  58.8%  V-AUROC: 0.6161  LR: 1.00e-03
+Ep [009/500] T-Acc:  56.2%  V-Acc:  58.9%  V-AUROC: 0.6099  LR: 1.00e-03
+Ep [010/500] T-Acc:  56.5%  V-Acc:  58.2%  V-AUROC: 0.6034  LR: 1.00e-03
+Ep [011/500] T-Acc:  57.4%  V-Acc:  59.7%  V-AUROC: 0.6172  LR: 1.00e-03
+Ep [012/500] T-Acc:  57.1%  V-Acc:  59.6%  V-AUROC: 0.6300  LR: 1.00e-03
+Ep [013/500] T-Acc:  58.5%  V-Acc:  58.7%  V-AUROC: 0.6354  LR: 1.00e-03
+Ep [014/500] T-Acc:  59.4%  V-Acc:  62.4%  V-AUROC: 0.6485  LR: 1.00e-03
+Ep [015/500] T-Acc:  59.1%  V-Acc:  58.4%  V-AUROC: 0.6367  LR: 1.00e-03
+Ep [016/500] T-Acc:  57.7%  V-Acc:  58.6%  V-AUROC: 0.6209  LR: 1.00e-03
+Ep [017/500] T-Acc:  58.1%  V-Acc:  60.9%  V-AUROC: 0.6374  LR: 1.00e-03
+Ep [018/500] T-Acc:  60.1%  V-Acc:  59.8%  V-AUROC: 0.6429  LR: 1.00e-03
+Ep [019/500] T-Acc:  59.3%  V-Acc:  60.7%  V-AUROC: 0.6428  LR: 1.00e-03
+Ep [020/500] T-Acc:  59.6%  V-Acc:  59.2%  V-AUROC: 0.6233  LR: 1.00e-03
+Ep [021/500] T-Acc:  59.3%  V-Acc:  58.8%  V-AUROC: 0.6292  LR: 1.00e-03
+Ep [022/500] T-Acc:  59.9%  V-Acc:  60.4%  V-AUROC: 0.6418  LR: 1.00e-03
+Ep [023/500] T-Acc:  59.9%  V-Acc:  61.3%  V-AUROC: 0.6415  LR: 1.00e-03
+Ep [024/500] T-Acc:  60.3%  V-Acc:  60.8%  V-AUROC: 0.6283  LR: 1.00e-03
+Ep [025/500] T-Acc:  59.3%  V-Acc:  58.8%  V-AUROC: 0.6227  LR: 1.00e-03
+Ep [026/500] T-Acc:  60.1%  V-Acc:  59.9%  V-AUROC: 0.6315  LR: 2.00e-04
+Ep [027/500] T-Acc:  60.6%  V-Acc:  59.5%  V-AUROC: 0.6319  LR: 2.00e-04
+Ep [028/500] T-Acc:  60.4%  V-Acc:  59.7%  V-AUROC: 0.6287  LR: 2.00e-04
+Ep [029/500] T-Acc:  60.9%  V-Acc:  60.3%  V-AUROC: 0.6330  LR: 2.00e-04
+Ep [030/500] T-Acc:  60.3%  V-Acc:  59.8%  V-AUROC: 0.6320  LR: 2.00e-04
+Ep [031/500] T-Acc:  60.7%  V-Acc:  60.2%  V-AUROC: 0.6269  LR: 2.00e-04
+Ep [032/500] T-Acc:  61.5%  V-Acc:  60.2%  V-AUROC: 0.6316  LR: 2.00e-04
+Ep [033/500] T-Acc:  61.2%  V-Acc:  59.7%  V-AUROC: 0.6328  LR: 2.00e-04
+Ep [034/500] T-Acc:  62.5%  V-Acc:  59.7%  V-AUROC: 0.6300  LR: 2.00e-04
+Ep [035/500] T-Acc:  61.1%  V-Acc:  60.7%  V-AUROC: 0.6248  LR: 2.00e-04
+Ep [036/500] T-Acc:  61.1%  V-Acc:  59.4%  V-AUROC: 0.6285  LR: 2.00e-04
+Ep [037/500] T-Acc:  60.1%  V-Acc:  59.9%  V-AUROC: 0.6267  LR: 4.00e-05
+Ep [038/500] T-Acc:  60.1%  V-Acc:  59.8%  V-AUROC: 0.6247  LR: 4.00e-05
+Ep [039/500] T-Acc:  61.1%  V-Acc:  60.0%  V-AUROC: 0.6265  LR: 4.00e-05
+Ep [040/500] T-Acc:  60.6%  V-Acc:  59.3%  V-AUROC: 0.6260  LR: 4.00e-05
+Ep [041/500] T-Acc:  61.8%  V-Acc:  59.9%  V-AUROC: 0.6264  LR: 4.00e-05
+Ep [042/500] T-Acc:  60.6%  V-Acc:  59.6%  V-AUROC: 0.6261  LR: 4.00e-05
+Ep [043/500] T-Acc:  60.9%  V-Acc:  59.9%  V-AUROC: 0.6288  LR: 4.00e-05
+Ep [044/500] T-Acc:  61.5%  V-Acc:  59.7%  V-AUROC: 0.6286  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6485 at epoch 14. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6485 (epoch 14) → 'best_task_conditioned_model.pth'
+-> Acc=0.909  Sens=0.857  Spec=1.000  AUROC=0.893
+
+=== Fold 16/30 | train: 25 subj / 3839 windows | test: 12 subj / 1897 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 9134.46it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.311  MCI: 0.808
+Ep [001/500] T-Acc:  48.0%  V-Acc:  54.8%  V-AUROC: 0.5333  LR: 2.00e-04
+Ep [002/500] T-Acc:  49.2%  V-Acc:  54.0%  V-AUROC: 0.5345  LR: 4.00e-04
+Ep [003/500] T-Acc:  51.1%  V-Acc:  55.0%  V-AUROC: 0.5570  LR: 6.00e-04
+Ep [004/500] T-Acc:  55.4%  V-Acc:  53.4%  V-AUROC: 0.5354  LR: 8.00e-04
+Ep [005/500] T-Acc:  57.4%  V-Acc:  51.3%  V-AUROC: 0.5309  LR: 1.00e-03
+Ep [006/500] T-Acc:  60.0%  V-Acc:  51.4%  V-AUROC: 0.5276  LR: 1.00e-03
+Ep [007/500] T-Acc:  63.5%  V-Acc:  48.3%  V-AUROC: 0.4960  LR: 1.00e-03
+Ep [008/500] T-Acc:  63.8%  V-Acc:  49.3%  V-AUROC: 0.5052  LR: 1.00e-03
+Ep [009/500] T-Acc:  64.8%  V-Acc:  49.6%  V-AUROC: 0.5075  LR: 1.00e-03
+Ep [010/500] T-Acc:  66.4%  V-Acc:  48.9%  V-AUROC: 0.4980  LR: 1.00e-03
+Ep [011/500] T-Acc:  66.2%  V-Acc:  49.9%  V-AUROC: 0.5011  LR: 1.00e-03
+Ep [012/500] T-Acc:  67.0%  V-Acc:  50.7%  V-AUROC: 0.5135  LR: 1.00e-03
+Ep [013/500] T-Acc:  66.7%  V-Acc:  50.1%  V-AUROC: 0.4927  LR: 1.00e-03
+Ep [014/500] T-Acc:  67.7%  V-Acc:  47.0%  V-AUROC: 0.4937  LR: 1.00e-03
+Ep [015/500] T-Acc:  67.5%  V-Acc:  46.5%  V-AUROC: 0.4856  LR: 1.00e-03
+Ep [016/500] T-Acc:  69.1%  V-Acc:  50.0%  V-AUROC: 0.4929  LR: 1.00e-03
+Ep [017/500] T-Acc:  68.1%  V-Acc:  47.0%  V-AUROC: 0.4776  LR: 1.00e-03
+Ep [018/500] T-Acc:  69.9%  V-Acc:  48.4%  V-AUROC: 0.4803  LR: 2.00e-04
+Ep [019/500] T-Acc:  69.6%  V-Acc:  48.3%  V-AUROC: 0.4775  LR: 2.00e-04
+Ep [020/500] T-Acc:  69.6%  V-Acc:  47.6%  V-AUROC: 0.4727  LR: 2.00e-04
+Ep [021/500] T-Acc:  69.5%  V-Acc:  48.7%  V-AUROC: 0.4797  LR: 2.00e-04
+Ep [022/500] T-Acc:  69.8%  V-Acc:  48.7%  V-AUROC: 0.4760  LR: 2.00e-04
+Ep [023/500] T-Acc:  69.5%  V-Acc:  48.2%  V-AUROC: 0.4856  LR: 2.00e-04
+Ep [024/500] T-Acc:  68.8%  V-Acc:  48.9%  V-AUROC: 0.4835  LR: 2.00e-04
+Ep [025/500] T-Acc:  70.1%  V-Acc:  48.3%  V-AUROC: 0.4794  LR: 2.00e-04
+Ep [026/500] T-Acc:  70.2%  V-Acc:  48.1%  V-AUROC: 0.4764  LR: 2.00e-04
+Ep [027/500] T-Acc:  69.8%  V-Acc:  49.0%  V-AUROC: 0.4789  LR: 2.00e-04
+Ep [028/500] T-Acc:  70.1%  V-Acc:  49.3%  V-AUROC: 0.4774  LR: 2.00e-04
+Ep [029/500] T-Acc:  69.8%  V-Acc:  48.7%  V-AUROC: 0.4754  LR: 4.00e-05
+Ep [030/500] T-Acc:  69.6%  V-Acc:  48.4%  V-AUROC: 0.4751  LR: 4.00e-05
+Ep [031/500] T-Acc:  69.7%  V-Acc:  48.7%  V-AUROC: 0.4746  LR: 4.00e-05
+Ep [032/500] T-Acc:  71.1%  V-Acc:  48.1%  V-AUROC: 0.4741  LR: 4.00e-05
+Ep [033/500] T-Acc:  70.1%  V-Acc:  48.2%  V-AUROC: 0.4713  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5570 at epoch 3. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5570 (epoch 3) → 'best_task_conditioned_model.pth'
+-> Acc=0.364  Sens=0.500  Spec=0.200  AUROC=0.433
+
+=== Fold 17/30 | train: 25 subj / 3725 windows | test: 12 subj / 2011 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 7853.82it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.332  MCI: 0.800
+Ep [001/500] T-Acc:  52.4%  V-Acc:  48.2%  V-AUROC: 0.4907  LR: 2.00e-04
+Ep [002/500] T-Acc:  53.1%  V-Acc:  50.1%  V-AUROC: 0.5125  LR: 4.00e-04
+Ep [003/500] T-Acc:  54.0%  V-Acc:  49.7%  V-AUROC: 0.5199  LR: 6.00e-04
+Ep [004/500] T-Acc:  56.2%  V-Acc:  51.7%  V-AUROC: 0.5498  LR: 8.00e-04
+Ep [005/500] T-Acc:  55.0%  V-Acc:  53.0%  V-AUROC: 0.5629  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.8%  V-Acc:  54.8%  V-AUROC: 0.5771  LR: 1.00e-03
+Ep [007/500] T-Acc:  56.5%  V-Acc:  53.9%  V-AUROC: 0.5762  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.9%  V-Acc:  55.2%  V-AUROC: 0.5898  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.1%  V-Acc:  55.1%  V-AUROC: 0.5890  LR: 1.00e-03
+Ep [010/500] T-Acc:  58.4%  V-Acc:  55.1%  V-AUROC: 0.5820  LR: 1.00e-03
+Ep [011/500] T-Acc:  59.0%  V-Acc:  54.5%  V-AUROC: 0.5809  LR: 1.00e-03
+Ep [012/500] T-Acc:  61.6%  V-Acc:  55.5%  V-AUROC: 0.5837  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.8%  V-Acc:  57.0%  V-AUROC: 0.6025  LR: 1.00e-03
+Ep [014/500] T-Acc:  61.2%  V-Acc:  56.5%  V-AUROC: 0.5963  LR: 1.00e-03
+Ep [015/500] T-Acc:  61.3%  V-Acc:  56.6%  V-AUROC: 0.5910  LR: 1.00e-03
+Ep [016/500] T-Acc:  61.6%  V-Acc:  57.3%  V-AUROC: 0.5924  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.5%  V-Acc:  56.7%  V-AUROC: 0.5917  LR: 1.00e-03
+Ep [018/500] T-Acc:  62.3%  V-Acc:  55.5%  V-AUROC: 0.6000  LR: 1.00e-03
+Ep [019/500] T-Acc:  62.5%  V-Acc:  56.0%  V-AUROC: 0.5928  LR: 1.00e-03
+Ep [020/500] T-Acc:  61.9%  V-Acc:  56.6%  V-AUROC: 0.5984  LR: 1.00e-03
+Ep [021/500] T-Acc:  63.5%  V-Acc:  57.3%  V-AUROC: 0.5992  LR: 1.00e-03
+Ep [022/500] T-Acc:  62.5%  V-Acc:  56.0%  V-AUROC: 0.6013  LR: 1.00e-03
+Ep [023/500] T-Acc:  63.0%  V-Acc:  56.1%  V-AUROC: 0.5930  LR: 1.00e-03
+Ep [024/500] T-Acc:  64.0%  V-Acc:  56.6%  V-AUROC: 0.6044  LR: 1.00e-03
+Ep [025/500] T-Acc:  63.8%  V-Acc:  56.8%  V-AUROC: 0.5985  LR: 1.00e-03
+Ep [026/500] T-Acc:  63.7%  V-Acc:  57.5%  V-AUROC: 0.6054  LR: 1.00e-03
+Ep [027/500] T-Acc:  65.4%  V-Acc:  55.6%  V-AUROC: 0.5896  LR: 1.00e-03
+Ep [028/500] T-Acc:  64.7%  V-Acc:  56.2%  V-AUROC: 0.6025  LR: 1.00e-03
+Ep [029/500] T-Acc:  65.6%  V-Acc:  55.3%  V-AUROC: 0.5943  LR: 1.00e-03
+Ep [030/500] T-Acc:  65.1%  V-Acc:  56.2%  V-AUROC: 0.6077  LR: 1.00e-03
+Ep [031/500] T-Acc:  65.3%  V-Acc:  57.7%  V-AUROC: 0.6050  LR: 1.00e-03
+Ep [032/500] T-Acc:  64.7%  V-Acc:  57.5%  V-AUROC: 0.6058  LR: 1.00e-03
+Ep [033/500] T-Acc:  64.1%  V-Acc:  56.9%  V-AUROC: 0.6074  LR: 1.00e-03
+Ep [034/500] T-Acc:  64.7%  V-Acc:  56.7%  V-AUROC: 0.6068  LR: 1.00e-03
+Ep [035/500] T-Acc:  66.6%  V-Acc:  57.2%  V-AUROC: 0.6077  LR: 1.00e-03
+Ep [036/500] T-Acc:  65.8%  V-Acc:  57.0%  V-AUROC: 0.6018  LR: 1.00e-03
+Ep [037/500] T-Acc:  66.1%  V-Acc:  56.4%  V-AUROC: 0.6025  LR: 1.00e-03
+Ep [038/500] T-Acc:  66.6%  V-Acc:  56.8%  V-AUROC: 0.6057  LR: 1.00e-03
+Ep [039/500] T-Acc:  66.2%  V-Acc:  56.4%  V-AUROC: 0.6045  LR: 1.00e-03
+Ep [040/500] T-Acc:  66.8%  V-Acc:  57.0%  V-AUROC: 0.6096  LR: 1.00e-03
+Ep [041/500] T-Acc:  66.8%  V-Acc:  57.3%  V-AUROC: 0.6070  LR: 1.00e-03
+Ep [042/500] T-Acc:  65.9%  V-Acc:  56.8%  V-AUROC: 0.6023  LR: 1.00e-03
+Ep [043/500] T-Acc:  67.4%  V-Acc:  57.1%  V-AUROC: 0.6027  LR: 1.00e-03
+Ep [044/500] T-Acc:  66.0%  V-Acc:  55.1%  V-AUROC: 0.6020  LR: 1.00e-03
+Ep [045/500] T-Acc:  67.0%  V-Acc:  56.7%  V-AUROC: 0.6062  LR: 1.00e-03
+Ep [046/500] T-Acc:  67.1%  V-Acc:  57.0%  V-AUROC: 0.6115  LR: 1.00e-03
+Ep [047/500] T-Acc:  66.4%  V-Acc:  56.9%  V-AUROC: 0.6127  LR: 1.00e-03
+Ep [048/500] T-Acc:  67.3%  V-Acc:  56.0%  V-AUROC: 0.6076  LR: 1.00e-03
+Ep [049/500] T-Acc:  67.1%  V-Acc:  57.8%  V-AUROC: 0.6104  LR: 1.00e-03
+Ep [050/500] T-Acc:  66.6%  V-Acc:  56.6%  V-AUROC: 0.6110  LR: 1.00e-03
+Ep [051/500] T-Acc:  67.6%  V-Acc:  56.3%  V-AUROC: 0.5982  LR: 1.00e-03
+Ep [052/500] T-Acc:  66.4%  V-Acc:  56.0%  V-AUROC: 0.5980  LR: 1.00e-03
+Ep [053/500] T-Acc:  67.4%  V-Acc:  56.3%  V-AUROC: 0.6023  LR: 1.00e-03
+Ep [054/500] T-Acc:  66.6%  V-Acc:  56.2%  V-AUROC: 0.6052  LR: 1.00e-03
+Ep [055/500] T-Acc:  67.7%  V-Acc:  57.3%  V-AUROC: 0.6104  LR: 1.00e-03
+Ep [056/500] T-Acc:  67.3%  V-Acc:  55.8%  V-AUROC: 0.6041  LR: 1.00e-03
+Ep [057/500] T-Acc:  66.8%  V-Acc:  56.3%  V-AUROC: 0.6046  LR: 1.00e-03
+Ep [058/500] T-Acc:  67.4%  V-Acc:  55.4%  V-AUROC: 0.6005  LR: 1.00e-03
+Ep [059/500] T-Acc:  68.0%  V-Acc:  56.5%  V-AUROC: 0.6010  LR: 2.00e-04
+Ep [060/500] T-Acc:  68.9%  V-Acc:  55.9%  V-AUROC: 0.5996  LR: 2.00e-04
+Ep [061/500] T-Acc:  68.3%  V-Acc:  56.4%  V-AUROC: 0.6025  LR: 2.00e-04
+Ep [062/500] T-Acc:  68.0%  V-Acc:  56.2%  V-AUROC: 0.6038  LR: 2.00e-04
+Ep [063/500] T-Acc:  68.6%  V-Acc:  56.4%  V-AUROC: 0.6037  LR: 2.00e-04
+Ep [064/500] T-Acc:  67.3%  V-Acc:  56.1%  V-AUROC: 0.6055  LR: 2.00e-04
+Ep [065/500] T-Acc:  67.8%  V-Acc:  55.9%  V-AUROC: 0.6040  LR: 2.00e-04
+Ep [066/500] T-Acc:  68.4%  V-Acc:  56.7%  V-AUROC: 0.6086  LR: 2.00e-04
+Ep [067/500] T-Acc:  68.0%  V-Acc:  56.6%  V-AUROC: 0.6091  LR: 2.00e-04
+Ep [068/500] T-Acc:  68.1%  V-Acc:  56.0%  V-AUROC: 0.6067  LR: 2.00e-04
+Ep [069/500] T-Acc:  68.1%  V-Acc:  55.8%  V-AUROC: 0.6064  LR: 2.00e-04
+Ep [070/500] T-Acc:  69.0%  V-Acc:  55.8%  V-AUROC: 0.6058  LR: 4.00e-05
+Ep [071/500] T-Acc:  68.7%  V-Acc:  56.1%  V-AUROC: 0.6045  LR: 4.00e-05
+Ep [072/500] T-Acc:  68.2%  V-Acc:  56.0%  V-AUROC: 0.6067  LR: 4.00e-05
+Ep [073/500] T-Acc:  68.7%  V-Acc:  56.0%  V-AUROC: 0.6050  LR: 4.00e-05
+Ep [074/500] T-Acc:  69.0%  V-Acc:  55.9%  V-AUROC: 0.6055  LR: 4.00e-05
+Ep [075/500] T-Acc:  68.7%  V-Acc:  56.2%  V-AUROC: 0.6060  LR: 4.00e-05
+Ep [076/500] T-Acc:  68.8%  V-Acc:  55.9%  V-AUROC: 0.6069  LR: 4.00e-05
+Ep [077/500] T-Acc:  69.1%  V-Acc:  56.3%  V-AUROC: 0.6070  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6127 at epoch 47. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6127 (epoch 47) → 'best_task_conditioned_model.pth'
+-> Acc=0.833  Sens=1.000  Spec=0.667  AUROC=0.833
+
+=== Fold 18/30 | train: 25 subj / 4014 windows | test: 12 subj / 1722 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 11931.65it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 0.867  MCI: 1.182
+Ep [001/500] T-Acc:  50.5%  V-Acc:  49.9%  V-AUROC: 0.4722  LR: 2.00e-04
+Ep [002/500] T-Acc:  53.1%  V-Acc:  51.5%  V-AUROC: 0.5098  LR: 4.00e-04
+Ep [003/500] T-Acc:  54.6%  V-Acc:  47.0%  V-AUROC: 0.5068  LR: 6.00e-04
+Ep [004/500] T-Acc:  56.5%  V-Acc:  47.3%  V-AUROC: 0.5120  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.7%  V-Acc:  54.4%  V-AUROC: 0.5520  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.4%  V-Acc:  52.4%  V-AUROC: 0.5547  LR: 1.00e-03
+Ep [007/500] T-Acc:  57.8%  V-Acc:  49.7%  V-AUROC: 0.5658  LR: 1.00e-03
+Ep [008/500] T-Acc:  58.5%  V-Acc:  51.2%  V-AUROC: 0.5787  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.9%  V-Acc:  50.4%  V-AUROC: 0.5736  LR: 1.00e-03
+Ep [010/500] T-Acc:  59.8%  V-Acc:  50.2%  V-AUROC: 0.5767  LR: 1.00e-03
+Ep [011/500] T-Acc:  61.4%  V-Acc:  51.9%  V-AUROC: 0.5819  LR: 1.00e-03
+Ep [012/500] T-Acc:  61.0%  V-Acc:  50.2%  V-AUROC: 0.5813  LR: 1.00e-03
+Ep [013/500] T-Acc:  61.7%  V-Acc:  56.6%  V-AUROC: 0.5867  LR: 1.00e-03
+Ep [014/500] T-Acc:  60.9%  V-Acc:  51.5%  V-AUROC: 0.6026  LR: 1.00e-03
+Ep [015/500] T-Acc:  61.5%  V-Acc:  53.2%  V-AUROC: 0.5995  LR: 1.00e-03
+Ep [016/500] T-Acc:  62.6%  V-Acc:  51.3%  V-AUROC: 0.5956  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.9%  V-Acc:  52.3%  V-AUROC: 0.5940  LR: 1.00e-03
+Ep [018/500] T-Acc:  63.1%  V-Acc:  53.9%  V-AUROC: 0.5992  LR: 1.00e-03
+Ep [019/500] T-Acc:  63.0%  V-Acc:  51.9%  V-AUROC: 0.5976  LR: 1.00e-03
+Ep [020/500] T-Acc:  63.6%  V-Acc:  52.7%  V-AUROC: 0.6090  LR: 1.00e-03
+Ep [021/500] T-Acc:  63.4%  V-Acc:  54.6%  V-AUROC: 0.5946  LR: 1.00e-03
+Ep [022/500] T-Acc:  63.2%  V-Acc:  53.4%  V-AUROC: 0.6029  LR: 1.00e-03
+Ep [023/500] T-Acc:  63.4%  V-Acc:  53.9%  V-AUROC: 0.6144  LR: 1.00e-03
+Ep [024/500] T-Acc:  63.4%  V-Acc:  57.4%  V-AUROC: 0.6151  LR: 1.00e-03
+Ep [025/500] T-Acc:  63.0%  V-Acc:  55.3%  V-AUROC: 0.6077  LR: 1.00e-03
+Ep [026/500] T-Acc:  64.0%  V-Acc:  54.4%  V-AUROC: 0.6035  LR: 1.00e-03
+Ep [027/500] T-Acc:  64.5%  V-Acc:  53.7%  V-AUROC: 0.6032  LR: 1.00e-03
+Ep [028/500] T-Acc:  64.4%  V-Acc:  52.8%  V-AUROC: 0.6039  LR: 1.00e-03
+Ep [029/500] T-Acc:  64.9%  V-Acc:  51.5%  V-AUROC: 0.6010  LR: 1.00e-03
+Ep [030/500] T-Acc:  65.5%  V-Acc:  55.0%  V-AUROC: 0.6109  LR: 1.00e-03
+Ep [031/500] T-Acc:  64.5%  V-Acc:  56.5%  V-AUROC: 0.6009  LR: 1.00e-03
+Ep [032/500] T-Acc:  65.8%  V-Acc:  55.7%  V-AUROC: 0.5955  LR: 1.00e-03
+Ep [033/500] T-Acc:  64.8%  V-Acc:  52.0%  V-AUROC: 0.5919  LR: 1.00e-03
+Ep [034/500] T-Acc:  64.8%  V-Acc:  54.1%  V-AUROC: 0.5982  LR: 1.00e-03
+Ep [035/500] T-Acc:  65.3%  V-Acc:  56.3%  V-AUROC: 0.6141  LR: 1.00e-03
+Ep [036/500] T-Acc:  64.7%  V-Acc:  53.5%  V-AUROC: 0.6090  LR: 2.00e-04
+Ep [037/500] T-Acc:  65.8%  V-Acc:  53.9%  V-AUROC: 0.6077  LR: 2.00e-04
+Ep [038/500] T-Acc:  65.4%  V-Acc:  53.8%  V-AUROC: 0.6069  LR: 2.00e-04
+Ep [039/500] T-Acc:  65.9%  V-Acc:  52.8%  V-AUROC: 0.6071  LR: 2.00e-04
+Ep [040/500] T-Acc:  65.3%  V-Acc:  53.2%  V-AUROC: 0.6005  LR: 2.00e-04
+Ep [041/500] T-Acc:  66.0%  V-Acc:  54.7%  V-AUROC: 0.5998  LR: 2.00e-04
+Ep [042/500] T-Acc:  65.9%  V-Acc:  55.6%  V-AUROC: 0.6025  LR: 2.00e-04
+Ep [043/500] T-Acc:  66.3%  V-Acc:  51.2%  V-AUROC: 0.6057  LR: 2.00e-04
+Ep [044/500] T-Acc:  66.0%  V-Acc:  54.6%  V-AUROC: 0.5980  LR: 2.00e-04
+Ep [045/500] T-Acc:  65.1%  V-Acc:  54.9%  V-AUROC: 0.5966  LR: 2.00e-04
+Ep [046/500] T-Acc:  65.3%  V-Acc:  55.7%  V-AUROC: 0.6003  LR: 2.00e-04
+Ep [047/500] T-Acc:  65.7%  V-Acc:  55.3%  V-AUROC: 0.6005  LR: 4.00e-05
+Ep [048/500] T-Acc:  66.2%  V-Acc:  55.6%  V-AUROC: 0.6001  LR: 4.00e-05
+Ep [049/500] T-Acc:  65.2%  V-Acc:  55.3%  V-AUROC: 0.5996  LR: 4.00e-05
+Ep [050/500] T-Acc:  65.9%  V-Acc:  56.0%  V-AUROC: 0.6009  LR: 4.00e-05
+Ep [051/500] T-Acc:  65.9%  V-Acc:  54.1%  V-AUROC: 0.5996  LR: 4.00e-05
+Ep [052/500] T-Acc:  66.2%  V-Acc:  55.6%  V-AUROC: 0.6027  LR: 4.00e-05
+Ep [053/500] T-Acc:  65.8%  V-Acc:  53.1%  V-AUROC: 0.6011  LR: 4.00e-05
+Ep [054/500] T-Acc:  66.3%  V-Acc:  53.8%  V-AUROC: 0.6000  LR: 4.00e-05
+[Early Stop] Best AUROC 0.6151 at epoch 24. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6151 (epoch 24) → 'best_task_conditioned_model.pth'
+-> Acc=0.500  Sens=0.500  Spec=0.000  AUROC=0.500
+
+=== Fold 19/30 | train: 25 subj / 3905 windows | test: 12 subj / 1831 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 10320.63it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.106  MCI: 0.912
+Ep [001/500] T-Acc:  49.8%  V-Acc:  50.8%  V-AUROC: 0.4946  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.6%  V-Acc:  50.2%  V-AUROC: 0.4925  LR: 4.00e-04
+Ep [003/500] T-Acc:  52.6%  V-Acc:  51.1%  V-AUROC: 0.4971  LR: 6.00e-04
+Ep [004/500] T-Acc:  54.5%  V-Acc:  51.4%  V-AUROC: 0.5186  LR: 8.00e-04
+Ep [005/500] T-Acc:  56.0%  V-Acc:  48.3%  V-AUROC: 0.5005  LR: 1.00e-03
+Ep [006/500] T-Acc:  58.2%  V-Acc:  47.6%  V-AUROC: 0.4998  LR: 1.00e-03
+Ep [007/500] T-Acc:  59.5%  V-Acc:  50.9%  V-AUROC: 0.5210  LR: 1.00e-03
+Ep [008/500] T-Acc:  60.6%  V-Acc:  52.6%  V-AUROC: 0.5332  LR: 1.00e-03
+Ep [009/500] T-Acc:  61.7%  V-Acc:  50.1%  V-AUROC: 0.5161  LR: 1.00e-03
+Ep [010/500] T-Acc:  62.4%  V-Acc:  51.3%  V-AUROC: 0.5384  LR: 1.00e-03
+Ep [011/500] T-Acc:  62.5%  V-Acc:  52.5%  V-AUROC: 0.5242  LR: 1.00e-03
+Ep [012/500] T-Acc:  62.3%  V-Acc:  51.5%  V-AUROC: 0.5282  LR: 1.00e-03
+Ep [013/500] T-Acc:  63.6%  V-Acc:  52.9%  V-AUROC: 0.5392  LR: 1.00e-03
+Ep [014/500] T-Acc:  63.4%  V-Acc:  50.3%  V-AUROC: 0.5209  LR: 1.00e-03
+Ep [015/500] T-Acc:  64.3%  V-Acc:  51.8%  V-AUROC: 0.5305  LR: 1.00e-03
+Ep [016/500] T-Acc:  64.3%  V-Acc:  51.2%  V-AUROC: 0.5295  LR: 1.00e-03
+Ep [017/500] T-Acc:  65.1%  V-Acc:  52.2%  V-AUROC: 0.5414  LR: 1.00e-03
+Ep [018/500] T-Acc:  65.4%  V-Acc:  51.5%  V-AUROC: 0.5283  LR: 1.00e-03
+Ep [019/500] T-Acc:  64.2%  V-Acc:  52.4%  V-AUROC: 0.5387  LR: 1.00e-03
+Ep [020/500] T-Acc:  65.6%  V-Acc:  51.0%  V-AUROC: 0.5375  LR: 1.00e-03
+Ep [021/500] T-Acc:  64.8%  V-Acc:  51.7%  V-AUROC: 0.5389  LR: 1.00e-03
+Ep [022/500] T-Acc:  66.0%  V-Acc:  50.1%  V-AUROC: 0.5416  LR: 1.00e-03
+Ep [023/500] T-Acc:  65.2%  V-Acc:  52.0%  V-AUROC: 0.5374  LR: 1.00e-03
+Ep [024/500] T-Acc:  66.6%  V-Acc:  51.3%  V-AUROC: 0.5455  LR: 1.00e-03
+Ep [025/500] T-Acc:  66.4%  V-Acc:  51.3%  V-AUROC: 0.5396  LR: 1.00e-03
+Ep [026/500] T-Acc:  66.6%  V-Acc:  50.2%  V-AUROC: 0.5179  LR: 1.00e-03
+Ep [027/500] T-Acc:  66.9%  V-Acc:  50.7%  V-AUROC: 0.5331  LR: 1.00e-03
+Ep [028/500] T-Acc:  66.0%  V-Acc:  51.0%  V-AUROC: 0.5269  LR: 1.00e-03
+Ep [029/500] T-Acc:  66.6%  V-Acc:  50.5%  V-AUROC: 0.5282  LR: 1.00e-03
+Ep [030/500] T-Acc:  67.6%  V-Acc:  50.2%  V-AUROC: 0.5275  LR: 1.00e-03
+Ep [031/500] T-Acc:  67.1%  V-Acc:  50.6%  V-AUROC: 0.5340  LR: 1.00e-03
+Ep [032/500] T-Acc:  68.2%  V-Acc:  51.8%  V-AUROC: 0.5384  LR: 1.00e-03
+Ep [033/500] T-Acc:  67.6%  V-Acc:  50.4%  V-AUROC: 0.5373  LR: 1.00e-03
+Ep [034/500] T-Acc:  67.9%  V-Acc:  50.4%  V-AUROC: 0.5291  LR: 1.00e-03
+Ep [035/500] T-Acc:  68.1%  V-Acc:  51.8%  V-AUROC: 0.5330  LR: 1.00e-03
+Ep [036/500] T-Acc:  68.2%  V-Acc:  51.9%  V-AUROC: 0.5334  LR: 2.00e-04
+Ep [037/500] T-Acc:  67.9%  V-Acc:  51.6%  V-AUROC: 0.5357  LR: 2.00e-04
+Ep [038/500] T-Acc:  67.6%  V-Acc:  52.0%  V-AUROC: 0.5366  LR: 2.00e-04
+Ep [039/500] T-Acc:  68.0%  V-Acc:  52.0%  V-AUROC: 0.5390  LR: 2.00e-04
+Ep [040/500] T-Acc:  68.0%  V-Acc:  51.6%  V-AUROC: 0.5359  LR: 2.00e-04
+Ep [041/500] T-Acc:  68.4%  V-Acc:  52.5%  V-AUROC: 0.5404  LR: 2.00e-04
+Ep [042/500] T-Acc:  68.7%  V-Acc:  51.4%  V-AUROC: 0.5386  LR: 2.00e-04
+Ep [043/500] T-Acc:  67.9%  V-Acc:  51.9%  V-AUROC: 0.5382  LR: 2.00e-04
+Ep [044/500] T-Acc:  68.7%  V-Acc:  52.4%  V-AUROC: 0.5393  LR: 2.00e-04
+Ep [045/500] T-Acc:  68.7%  V-Acc:  51.1%  V-AUROC: 0.5393  LR: 2.00e-04
+Ep [046/500] T-Acc:  68.7%  V-Acc:  51.7%  V-AUROC: 0.5409  LR: 2.00e-04
+Ep [047/500] T-Acc:  68.0%  V-Acc:  51.4%  V-AUROC: 0.5372  LR: 4.00e-05
+Ep [048/500] T-Acc:  68.1%  V-Acc:  51.0%  V-AUROC: 0.5381  LR: 4.00e-05
+Ep [049/500] T-Acc:  68.1%  V-Acc:  51.0%  V-AUROC: 0.5389  LR: 4.00e-05
+Ep [050/500] T-Acc:  68.9%  V-Acc:  51.9%  V-AUROC: 0.5393  LR: 4.00e-05
+Ep [051/500] T-Acc:  68.3%  V-Acc:  51.2%  V-AUROC: 0.5386  LR: 4.00e-05
+Ep [052/500] T-Acc:  68.3%  V-Acc:  50.8%  V-AUROC: 0.5390  LR: 4.00e-05
+Ep [053/500] T-Acc:  68.8%  V-Acc:  50.8%  V-AUROC: 0.5395  LR: 4.00e-05
+Ep [054/500] T-Acc:  68.4%  V-Acc:  51.7%  V-AUROC: 0.5403  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5455 at epoch 24. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5455 (epoch 24) → 'best_task_conditioned_model.pth'
+-> Acc=0.455  Sens=0.500  Spec=0.333  AUROC=0.500
+
+=== Fold 20/30 | train: 25 subj / 3960 windows | test: 12 subj / 1776 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 9395.84it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.010  MCI: 0.990
+Ep [001/500] T-Acc:  49.2%  V-Acc:  41.4%  V-AUROC: 0.5005  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.3%  V-Acc:  46.2%  V-AUROC: 0.5022  LR: 4.00e-04
+Ep [003/500] T-Acc:  51.8%  V-Acc:  47.1%  V-AUROC: 0.5214  LR: 6.00e-04
+Ep [004/500] T-Acc:  53.2%  V-Acc:  49.0%  V-AUROC: 0.5082  LR: 8.00e-04
+Ep [005/500] T-Acc:  54.7%  V-Acc:  51.1%  V-AUROC: 0.5304  LR: 1.00e-03
+Ep [006/500] T-Acc:  55.6%  V-Acc:  53.3%  V-AUROC: 0.5549  LR: 1.00e-03
+Ep [007/500] T-Acc:  56.6%  V-Acc:  51.2%  V-AUROC: 0.5560  LR: 1.00e-03
+Ep [008/500] T-Acc:  55.9%  V-Acc:  54.3%  V-AUROC: 0.5570  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.5%  V-Acc:  50.9%  V-AUROC: 0.5446  LR: 1.00e-03
+Ep [010/500] T-Acc:  57.3%  V-Acc:  53.4%  V-AUROC: 0.5501  LR: 1.00e-03
+Ep [011/500] T-Acc:  58.3%  V-Acc:  52.4%  V-AUROC: 0.5487  LR: 1.00e-03
+Ep [012/500] T-Acc:  60.5%  V-Acc:  53.5%  V-AUROC: 0.5662  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.2%  V-Acc:  52.2%  V-AUROC: 0.5381  LR: 1.00e-03
+Ep [014/500] T-Acc:  59.6%  V-Acc:  50.8%  V-AUROC: 0.5279  LR: 1.00e-03
+Ep [015/500] T-Acc:  60.0%  V-Acc:  53.2%  V-AUROC: 0.5474  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.4%  V-Acc:  53.1%  V-AUROC: 0.5384  LR: 1.00e-03
+Ep [017/500] T-Acc:  61.1%  V-Acc:  54.5%  V-AUROC: 0.5526  LR: 1.00e-03
+Ep [018/500] T-Acc:  61.2%  V-Acc:  53.0%  V-AUROC: 0.5341  LR: 1.00e-03
+Ep [019/500] T-Acc:  60.0%  V-Acc:  51.6%  V-AUROC: 0.5318  LR: 1.00e-03
+Ep [020/500] T-Acc:  61.0%  V-Acc:  53.1%  V-AUROC: 0.5307  LR: 1.00e-03
+Ep [021/500] T-Acc:  61.5%  V-Acc:  52.3%  V-AUROC: 0.5403  LR: 1.00e-03
+Ep [022/500] T-Acc:  60.6%  V-Acc:  54.1%  V-AUROC: 0.5465  LR: 1.00e-03
+Ep [023/500] T-Acc:  61.2%  V-Acc:  51.3%  V-AUROC: 0.5291  LR: 1.00e-03
+Ep [024/500] T-Acc:  61.7%  V-Acc:  52.3%  V-AUROC: 0.5320  LR: 2.00e-04
+Ep [025/500] T-Acc:  62.4%  V-Acc:  52.9%  V-AUROC: 0.5328  LR: 2.00e-04
+Ep [026/500] T-Acc:  62.3%  V-Acc:  52.0%  V-AUROC: 0.5332  LR: 2.00e-04
+Ep [027/500] T-Acc:  61.7%  V-Acc:  52.8%  V-AUROC: 0.5346  LR: 2.00e-04
+Ep [028/500] T-Acc:  61.7%  V-Acc:  51.6%  V-AUROC: 0.5274  LR: 2.00e-04
+Ep [029/500] T-Acc:  62.4%  V-Acc:  55.5%  V-AUROC: 0.5252  LR: 2.00e-04
+Ep [030/500] T-Acc:  61.4%  V-Acc:  55.1%  V-AUROC: 0.5306  LR: 2.00e-04
+Ep [031/500] T-Acc:  62.4%  V-Acc:  52.6%  V-AUROC: 0.5312  LR: 2.00e-04
+Ep [032/500] T-Acc:  61.6%  V-Acc:  54.8%  V-AUROC: 0.5225  LR: 2.00e-04
+Ep [033/500] T-Acc:  62.3%  V-Acc:  52.3%  V-AUROC: 0.5317  LR: 2.00e-04
+Ep [034/500] T-Acc:  62.7%  V-Acc:  52.0%  V-AUROC: 0.5343  LR: 2.00e-04
+Ep [035/500] T-Acc:  61.8%  V-Acc:  51.9%  V-AUROC: 0.5305  LR: 4.00e-05
+Ep [036/500] T-Acc:  62.2%  V-Acc:  54.9%  V-AUROC: 0.5279  LR: 4.00e-05
+Ep [037/500] T-Acc:  61.5%  V-Acc:  55.1%  V-AUROC: 0.5259  LR: 4.00e-05
+Ep [038/500] T-Acc:  61.7%  V-Acc:  53.2%  V-AUROC: 0.5350  LR: 4.00e-05
+Ep [039/500] T-Acc:  61.4%  V-Acc:  52.5%  V-AUROC: 0.5312  LR: 4.00e-05
+Ep [040/500] T-Acc:  62.7%  V-Acc:  51.7%  V-AUROC: 0.5296  LR: 4.00e-05
+Ep [041/500] T-Acc:  61.9%  V-Acc:  54.7%  V-AUROC: 0.5300  LR: 4.00e-05
+Ep [042/500] T-Acc:  63.0%  V-Acc:  52.6%  V-AUROC: 0.5304  LR: 4.00e-05
+[Early Stop] Best AUROC 0.5662 at epoch 12. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5662 (epoch 12) → 'best_task_conditioned_model.pth'
+-> Acc=0.700  Sens=0.750  Spec=0.500  AUROC=0.688
+
+=== Fold 21/30 | train: 25 subj / 3885 windows | test: 12 subj / 1851 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 11432.23it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.325  MCI: 0.803
+Ep [001/500] T-Acc:  50.2%  V-Acc:  46.8%  V-AUROC: 0.4851  LR: 2.00e-04
+Ep [002/500] T-Acc:  49.3%  V-Acc:  46.1%  V-AUROC: 0.4777  LR: 4.00e-04
+Ep [003/500] T-Acc:  50.3%  V-Acc:  47.8%  V-AUROC: 0.4810  LR: 6.00e-04
+Ep [004/500] T-Acc:  49.9%  V-Acc:  49.0%  V-AUROC: 0.4925  LR: 8.00e-04
+Ep [005/500] T-Acc:  51.1%  V-Acc:  48.1%  V-AUROC: 0.5000  LR: 1.00e-03
+Ep [006/500] T-Acc:  52.0%  V-Acc:  48.3%  V-AUROC: 0.4880  LR: 1.00e-03
+Ep [007/500] T-Acc:  54.7%  V-Acc:  49.6%  V-AUROC: 0.4814  LR: 1.00e-03
+Ep [008/500] T-Acc:  54.2%  V-Acc:  49.1%  V-AUROC: 0.4886  LR: 1.00e-03
+Ep [009/500] T-Acc:  56.3%  V-Acc:  49.1%  V-AUROC: 0.5088  LR: 1.00e-03
+Ep [010/500] T-Acc:  57.4%  V-Acc:  50.0%  V-AUROC: 0.5103  LR: 1.00e-03
+Ep [011/500] T-Acc:  58.3%  V-Acc:  49.2%  V-AUROC: 0.5102  LR: 1.00e-03
+Ep [012/500] T-Acc:  59.5%  V-Acc:  50.7%  V-AUROC: 0.5202  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.2%  V-Acc:  50.4%  V-AUROC: 0.5179  LR: 1.00e-03
+Ep [014/500] T-Acc:  60.9%  V-Acc:  51.4%  V-AUROC: 0.5333  LR: 1.00e-03
+Ep [015/500] T-Acc:  59.6%  V-Acc:  51.1%  V-AUROC: 0.5441  LR: 1.00e-03
+Ep [016/500] T-Acc:  61.9%  V-Acc:  50.4%  V-AUROC: 0.5335  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.0%  V-Acc:  51.7%  V-AUROC: 0.5570  LR: 1.00e-03
+Ep [018/500] T-Acc:  62.5%  V-Acc:  51.2%  V-AUROC: 0.5403  LR: 1.00e-03
+Ep [019/500] T-Acc:  60.9%  V-Acc:  51.0%  V-AUROC: 0.5325  LR: 1.00e-03
+Ep [020/500] T-Acc:  62.7%  V-Acc:  51.2%  V-AUROC: 0.5487  LR: 1.00e-03
+Ep [021/500] T-Acc:  62.5%  V-Acc:  53.0%  V-AUROC: 0.5633  LR: 1.00e-03
+Ep [022/500] T-Acc:  62.7%  V-Acc:  51.0%  V-AUROC: 0.5552  LR: 1.00e-03
+Ep [023/500] T-Acc:  63.1%  V-Acc:  51.9%  V-AUROC: 0.5617  LR: 1.00e-03
+Ep [024/500] T-Acc:  63.3%  V-Acc:  50.6%  V-AUROC: 0.5490  LR: 1.00e-03
+Ep [025/500] T-Acc:  63.9%  V-Acc:  50.5%  V-AUROC: 0.5565  LR: 1.00e-03
+Ep [026/500] T-Acc:  65.0%  V-Acc:  50.3%  V-AUROC: 0.5478  LR: 1.00e-03
+Ep [027/500] T-Acc:  64.9%  V-Acc:  51.6%  V-AUROC: 0.5511  LR: 1.00e-03
+Ep [028/500] T-Acc:  65.0%  V-Acc:  52.1%  V-AUROC: 0.5625  LR: 1.00e-03
+Ep [029/500] T-Acc:  65.2%  V-Acc:  51.0%  V-AUROC: 0.5605  LR: 1.00e-03
+Ep [030/500] T-Acc:  64.7%  V-Acc:  51.4%  V-AUROC: 0.5594  LR: 1.00e-03
+Ep [031/500] T-Acc:  64.7%  V-Acc:  51.7%  V-AUROC: 0.5504  LR: 1.00e-03
+Ep [032/500] T-Acc:  64.6%  V-Acc:  52.1%  V-AUROC: 0.5614  LR: 1.00e-03
+Ep [033/500] T-Acc:  65.7%  V-Acc:  52.0%  V-AUROC: 0.5582  LR: 2.00e-04
+Ep [034/500] T-Acc:  65.3%  V-Acc:  52.6%  V-AUROC: 0.5634  LR: 2.00e-04
+Ep [035/500] T-Acc:  64.9%  V-Acc:  51.9%  V-AUROC: 0.5619  LR: 2.00e-04
+Ep [036/500] T-Acc:  64.4%  V-Acc:  52.6%  V-AUROC: 0.5659  LR: 2.00e-04
+Ep [037/500] T-Acc:  65.3%  V-Acc:  53.0%  V-AUROC: 0.5626  LR: 2.00e-04
+Ep [038/500] T-Acc:  66.8%  V-Acc:  52.1%  V-AUROC: 0.5594  LR: 2.00e-04
+Ep [039/500] T-Acc:  65.7%  V-Acc:  52.1%  V-AUROC: 0.5615  LR: 2.00e-04
+Ep [040/500] T-Acc:  65.3%  V-Acc:  53.0%  V-AUROC: 0.5632  LR: 2.00e-04
+Ep [041/500] T-Acc:  66.1%  V-Acc:  52.6%  V-AUROC: 0.5625  LR: 2.00e-04
+Ep [042/500] T-Acc:  67.0%  V-Acc:  52.2%  V-AUROC: 0.5606  LR: 2.00e-04
+Ep [043/500] T-Acc:  65.7%  V-Acc:  52.2%  V-AUROC: 0.5604  LR: 2.00e-04
+Ep [044/500] T-Acc:  65.1%  V-Acc:  52.8%  V-AUROC: 0.5642  LR: 2.00e-04
+Ep [045/500] T-Acc:  66.0%  V-Acc:  52.2%  V-AUROC: 0.5592  LR: 2.00e-04
+Ep [046/500] T-Acc:  66.6%  V-Acc:  52.1%  V-AUROC: 0.5595  LR: 2.00e-04
+Ep [047/500] T-Acc:  65.3%  V-Acc:  52.5%  V-AUROC: 0.5657  LR: 2.00e-04
+Ep [048/500] T-Acc:  65.9%  V-Acc:  51.9%  V-AUROC: 0.5614  LR: 4.00e-05
+Ep [049/500] T-Acc:  65.4%  V-Acc:  51.9%  V-AUROC: 0.5633  LR: 4.00e-05
+Ep [050/500] T-Acc:  66.1%  V-Acc:  51.4%  V-AUROC: 0.5630  LR: 4.00e-05
+Ep [051/500] T-Acc:  65.3%  V-Acc:  52.0%  V-AUROC: 0.5622  LR: 4.00e-05
+Ep [052/500] T-Acc:  65.6%  V-Acc:  51.8%  V-AUROC: 0.5612  LR: 4.00e-05
+Ep [053/500] T-Acc:  65.4%  V-Acc:  51.9%  V-AUROC: 0.5624  LR: 4.00e-05
+Ep [054/500] T-Acc:  65.5%  V-Acc:  52.1%  V-AUROC: 0.5604  LR: 4.00e-05
+Ep [055/500] T-Acc:  65.5%  V-Acc:  52.0%  V-AUROC: 0.5636  LR: 4.00e-05
+Ep [056/500] T-Acc:  66.7%  V-Acc:  52.1%  V-AUROC: 0.5626  LR: 4.00e-05
+Ep [057/500] T-Acc:  66.3%  V-Acc:  52.0%  V-AUROC: 0.5601  LR: 4.00e-05
+Ep [058/500] T-Acc:  65.8%  V-Acc:  51.6%  V-AUROC: 0.5592  LR: 4.00e-05
+Ep [059/500] T-Acc:  66.6%  V-Acc:  52.1%  V-AUROC: 0.5593  LR: 8.00e-06
+Ep [060/500] T-Acc:  67.2%  V-Acc:  52.2%  V-AUROC: 0.5650  LR: 8.00e-06
+Ep [061/500] T-Acc:  64.9%  V-Acc:  52.1%  V-AUROC: 0.5629  LR: 8.00e-06
+Ep [062/500] T-Acc:  66.5%  V-Acc:  52.0%  V-AUROC: 0.5609  LR: 8.00e-06
+Ep [063/500] T-Acc:  66.4%  V-Acc:  52.2%  V-AUROC: 0.5617  LR: 8.00e-06
+Ep [064/500] T-Acc:  65.7%  V-Acc:  51.5%  V-AUROC: 0.5590  LR: 8.00e-06
+Ep [065/500] T-Acc:  66.5%  V-Acc:  51.7%  V-AUROC: 0.5596  LR: 8.00e-06
+Ep [066/500] T-Acc:  66.5%  V-Acc:  51.8%  V-AUROC: 0.5589  LR: 8.00e-06
+[Early Stop] Best AUROC 0.5659 at epoch 36. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.5659 (epoch 36) → 'best_task_conditioned_model.pth'
+-> Acc=0.636  Sens=1.000  Spec=0.200  AUROC=0.767
+
+=== Fold 22/30 | train: 25 subj / 3837 windows | test: 12 subj / 1899 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 10833.78it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.204  MCI: 0.855
+Ep [001/500] T-Acc:  52.1%  V-Acc:  52.4%  V-AUROC: 0.5269  LR: 2.00e-04
+Ep [002/500] T-Acc:  51.7%  V-Acc:  52.0%  V-AUROC: 0.5238  LR: 4.00e-04
+Ep [003/500] T-Acc:  52.8%  V-Acc:  51.7%  V-AUROC: 0.5322  LR: 6.00e-04
+Ep [004/500] T-Acc:  53.1%  V-Acc:  52.2%  V-AUROC: 0.5438  LR: 8.00e-04
+Ep [005/500] T-Acc:  54.7%  V-Acc:  52.9%  V-AUROC: 0.5467  LR: 1.00e-03
+Ep [006/500] T-Acc:  56.1%  V-Acc:  53.6%  V-AUROC: 0.5553  LR: 1.00e-03
+Ep [007/500] T-Acc:  56.1%  V-Acc:  52.8%  V-AUROC: 0.5587  LR: 1.00e-03
+Ep [008/500] T-Acc:  57.7%  V-Acc:  52.7%  V-AUROC: 0.5510  LR: 1.00e-03
+Ep [009/500] T-Acc:  58.1%  V-Acc:  54.9%  V-AUROC: 0.5704  LR: 1.00e-03
+Ep [010/500] T-Acc:  59.3%  V-Acc:  53.6%  V-AUROC: 0.5611  LR: 1.00e-03
+Ep [011/500] T-Acc:  58.5%  V-Acc:  53.7%  V-AUROC: 0.5674  LR: 1.00e-03
+Ep [012/500] T-Acc:  60.1%  V-Acc:  54.3%  V-AUROC: 0.5770  LR: 1.00e-03
+Ep [013/500] T-Acc:  60.6%  V-Acc:  55.3%  V-AUROC: 0.5805  LR: 1.00e-03
+Ep [014/500] T-Acc:  60.1%  V-Acc:  56.7%  V-AUROC: 0.5872  LR: 1.00e-03
+Ep [015/500] T-Acc:  60.3%  V-Acc:  55.4%  V-AUROC: 0.5773  LR: 1.00e-03
+Ep [016/500] T-Acc:  60.7%  V-Acc:  55.2%  V-AUROC: 0.5796  LR: 1.00e-03
+Ep [017/500] T-Acc:  62.4%  V-Acc:  54.9%  V-AUROC: 0.5769  LR: 1.00e-03
+Ep [018/500] T-Acc:  60.8%  V-Acc:  55.6%  V-AUROC: 0.5811  LR: 1.00e-03
+Ep [019/500] T-Acc:  62.2%  V-Acc:  56.1%  V-AUROC: 0.5837  LR: 1.00e-03
+Ep [020/500] T-Acc:  62.5%  V-Acc:  55.6%  V-AUROC: 0.5893  LR: 1.00e-03
+Ep [021/500] T-Acc:  62.1%  V-Acc:  56.0%  V-AUROC: 0.5856  LR: 1.00e-03
+Ep [022/500] T-Acc:  62.4%  V-Acc:  55.7%  V-AUROC: 0.5913  LR: 1.00e-03
+Ep [023/500] T-Acc:  62.1%  V-Acc:  55.3%  V-AUROC: 0.5895  LR: 1.00e-03
+Ep [024/500] T-Acc:  62.8%  V-Acc:  56.1%  V-AUROC: 0.5900  LR: 1.00e-03
+Ep [025/500] T-Acc:  62.8%  V-Acc:  56.0%  V-AUROC: 0.5946  LR: 1.00e-03
+Ep [026/500] T-Acc:  62.3%  V-Acc:  56.3%  V-AUROC: 0.5893  LR: 1.00e-03
+Ep [027/500] T-Acc:  62.9%  V-Acc:  56.3%  V-AUROC: 0.5940  LR: 1.00e-03
+Ep [028/500] T-Acc:  63.3%  V-Acc:  53.7%  V-AUROC: 0.5766  LR: 1.00e-03
+Ep [029/500] T-Acc:  64.2%  V-Acc:  55.9%  V-AUROC: 0.5914  LR: 1.00e-03
+Ep [030/500] T-Acc:  63.3%  V-Acc:  56.5%  V-AUROC: 0.5990  LR: 1.00e-03
+Ep [031/500] T-Acc:  63.6%  V-Acc:  56.1%  V-AUROC: 0.5938  LR: 1.00e-03
+Ep [032/500] T-Acc:  63.8%  V-Acc:  56.3%  V-AUROC: 0.5935  LR: 1.00e-03
+Ep [033/500] T-Acc:  62.8%  V-Acc:  56.9%  V-AUROC: 0.6042  LR: 1.00e-03
+Ep [034/500] T-Acc:  63.2%  V-Acc:  56.1%  V-AUROC: 0.5996  LR: 1.00e-03
+Ep [035/500] T-Acc:  64.2%  V-Acc:  56.6%  V-AUROC: 0.5994  LR: 1.00e-03
+Ep [036/500] T-Acc:  64.0%  V-Acc:  57.0%  V-AUROC: 0.6039  LR: 1.00e-03
+Ep [037/500] T-Acc:  63.1%  V-Acc:  55.8%  V-AUROC: 0.6012  LR: 1.00e-03
+Ep [038/500] T-Acc:  63.5%  V-Acc:  57.2%  V-AUROC: 0.6055  LR: 1.00e-03
+Ep [039/500] T-Acc:  64.3%  V-Acc:  57.1%  V-AUROC: 0.6012  LR: 1.00e-03
+Ep [040/500] T-Acc:  63.8%  V-Acc:  55.3%  V-AUROC: 0.5965  LR: 1.00e-03
+Ep [041/500] T-Acc:  64.5%  V-Acc:  57.1%  V-AUROC: 0.6085  LR: 1.00e-03
+Ep [042/500] T-Acc:  63.6%  V-Acc:  54.9%  V-AUROC: 0.5932  LR: 1.00e-03
+Ep [043/500] T-Acc:  64.4%  V-Acc:  56.4%  V-AUROC: 0.5972  LR: 1.00e-03
+Ep [044/500] T-Acc:  65.0%  V-Acc:  55.2%  V-AUROC: 0.5842  LR: 1.00e-03
+Ep [045/500] T-Acc:  62.9%  V-Acc:  56.9%  V-AUROC: 0.5969  LR: 1.00e-03
+Ep [046/500] T-Acc:  64.7%  V-Acc:  57.0%  V-AUROC: 0.5978  LR: 1.00e-03
+Ep [047/500] T-Acc:  64.5%  V-Acc:  56.8%  V-AUROC: 0.6057  LR: 1.00e-03
+Ep [048/500] T-Acc:  62.8%  V-Acc:  56.9%  V-AUROC: 0.6050  LR: 1.00e-03
+Ep [049/500] T-Acc:  64.6%  V-Acc:  56.4%  V-AUROC: 0.6050  LR: 1.00e-03
+Ep [050/500] T-Acc:  65.0%  V-Acc:  56.3%  V-AUROC: 0.6015  LR: 1.00e-03
+Ep [051/500] T-Acc:  64.7%  V-Acc:  56.8%  V-AUROC: 0.6031  LR: 1.00e-03
+Ep [052/500] T-Acc:  64.5%  V-Acc:  57.2%  V-AUROC: 0.6054  LR: 1.00e-03
+Ep [053/500] T-Acc:  65.2%  V-Acc:  57.1%  V-AUROC: 0.6039  LR: 2.00e-04
+Ep [054/500] T-Acc:  65.0%  V-Acc:  57.5%  V-AUROC: 0.6100  LR: 2.00e-04
+Ep [055/500] T-Acc:  65.0%  V-Acc:  56.2%  V-AUROC: 0.6034  LR: 2.00e-04
+Ep [056/500] T-Acc:  66.4%  V-Acc:  56.5%  V-AUROC: 0.6054  LR: 2.00e-04
+Ep [057/500] T-Acc:  65.5%  V-Acc:  57.0%  V-AUROC: 0.6077  LR: 2.00e-04
+Ep [058/500] T-Acc:  65.2%  V-Acc:  56.8%  V-AUROC: 0.6077  LR: 2.00e-04
+Ep [059/500] T-Acc:  65.6%  V-Acc:  57.3%  V-AUROC: 0.6093  LR: 2.00e-04
+Ep [060/500] T-Acc:  65.1%  V-Acc:  56.7%  V-AUROC: 0.6067  LR: 2.00e-04
+Ep [061/500] T-Acc:  65.5%  V-Acc:  57.2%  V-AUROC: 0.6085  LR: 2.00e-04
+Ep [062/500] T-Acc:  65.4%  V-Acc:  57.0%  V-AUROC: 0.6096  LR: 2.00e-04
+Ep [063/500] T-Acc:  65.4%  V-Acc:  56.4%  V-AUROC: 0.6044  LR: 2.00e-04
+Ep [064/500] T-Acc:  66.0%  V-Acc:  57.0%  V-AUROC: 0.6065  LR: 2.00e-04
+Ep [065/500] T-Acc:  65.5%  V-Acc:  57.4%  V-AUROC: 0.6092  LR: 2.00e-04
+Ep [066/500] T-Acc:  66.1%  V-Acc:  57.2%  V-AUROC: 0.6076  LR: 4.00e-05
+Ep [067/500] T-Acc:  65.5%  V-Acc:  56.6%  V-AUROC: 0.6080  LR: 4.00e-05
+Ep [068/500] T-Acc:  65.2%  V-Acc:  57.1%  V-AUROC: 0.6091  LR: 4.00e-05
+Ep [069/500] T-Acc:  66.2%  V-Acc:  57.2%  V-AUROC: 0.6092  LR: 4.00e-05
+Ep [070/500] T-Acc:  66.2%  V-Acc:  57.1%  V-AUROC: 0.6098  LR: 4.00e-05
+Ep [071/500] T-Acc:  65.8%  V-Acc:  56.4%  V-AUROC: 0.6088  LR: 4.00e-05
+Ep [072/500] T-Acc:  65.7%  V-Acc:  57.1%  V-AUROC: 0.6057  LR: 4.00e-05
+Ep [073/500] T-Acc:  65.2%  V-Acc:  57.0%  V-AUROC: 0.6082  LR: 4.00e-05
+Ep [074/500] T-Acc:  65.0%  V-Acc:  56.8%  V-AUROC: 0.6066  LR: 4.00e-05
+Ep [075/500] T-Acc:  64.9%  V-Acc:  57.2%  V-AUROC: 0.6058  LR: 4.00e-05
+Ep [076/500] T-Acc:  64.8%  V-Acc:  56.7%  V-AUROC: 0.6066  LR: 4.00e-05
+Ep [077/500] T-Acc:  65.0%  V-Acc:  57.1%  V-AUROC: 0.6076  LR: 8.00e-06
+Ep [078/500] T-Acc:  65.7%  V-Acc:  56.7%  V-AUROC: 0.6060  LR: 8.00e-06
+Ep [079/500] T-Acc:  65.7%  V-Acc:  57.3%  V-AUROC: 0.6090  LR: 8.00e-06
+Ep [080/500] T-Acc:  66.2%  V-Acc:  57.6%  V-AUROC: 0.6095  LR: 8.00e-06
+Ep [081/500] T-Acc:  65.8%  V-Acc:  57.5%  V-AUROC: 0.6082  LR: 8.00e-06
+Ep [082/500] T-Acc:  65.5%  V-Acc:  57.1%  V-AUROC: 0.6100  LR: 8.00e-06
+Ep [083/500] T-Acc:  66.2%  V-Acc:  56.6%  V-AUROC: 0.6071  LR: 8.00e-06
+Ep [084/500] T-Acc:  65.3%  V-Acc:  57.1%  V-AUROC: 0.6103  LR: 8.00e-06
+Ep [085/500] T-Acc:  65.1%  V-Acc:  56.6%  V-AUROC: 0.6081  LR: 8.00e-06
+Ep [086/500] T-Acc:  65.2%  V-Acc:  56.8%  V-AUROC: 0.6074  LR: 8.00e-06
+Ep [087/500] T-Acc:  65.9%  V-Acc:  56.9%  V-AUROC: 0.6063  LR: 8.00e-06
+Ep [088/500] T-Acc:  65.8%  V-Acc:  56.9%  V-AUROC: 0.6067  LR: 8.00e-06
+Ep [089/500] T-Acc:  64.4%  V-Acc:  57.3%  V-AUROC: 0.6094  LR: 8.00e-06
+Ep [090/500] T-Acc:  65.2%  V-Acc:  57.4%  V-AUROC: 0.6098  LR: 8.00e-06
+Ep [091/500] T-Acc:  65.4%  V-Acc:  56.9%  V-AUROC: 0.6067  LR: 8.00e-06
+Ep [092/500] T-Acc:  66.9%  V-Acc:  57.7%  V-AUROC: 0.6086  LR: 8.00e-06
+Ep [093/500] T-Acc:  65.8%  V-Acc:  57.4%  V-AUROC: 0.6081  LR: 8.00e-06
+Ep [094/500] T-Acc:  66.3%  V-Acc:  57.0%  V-AUROC: 0.6088  LR: 8.00e-06
+Ep [095/500] T-Acc:  65.3%  V-Acc:  57.3%  V-AUROC: 0.6100  LR: 8.00e-06
+Ep [096/500] T-Acc:  65.1%  V-Acc:  57.0%  V-AUROC: 0.6101  LR: 1.60e-06
+Ep [097/500] T-Acc:  65.0%  V-Acc:  57.0%  V-AUROC: 0.6061  LR: 1.60e-06
+Ep [098/500] T-Acc:  65.4%  V-Acc:  57.1%  V-AUROC: 0.6087  LR: 1.60e-06
+Ep [099/500] T-Acc:  66.7%  V-Acc:  56.9%  V-AUROC: 0.6086  LR: 1.60e-06
+Ep [100/500] T-Acc:  65.5%  V-Acc:  57.5%  V-AUROC: 0.6097  LR: 1.60e-06
+Ep [101/500] T-Acc:  65.7%  V-Acc:  57.2%  V-AUROC: 0.6051  LR: 1.60e-06
+Ep [102/500] T-Acc:  65.3%  V-Acc:  57.3%  V-AUROC: 0.6098  LR: 1.60e-06
+Ep [103/500] T-Acc:  65.0%  V-Acc:  57.0%  V-AUROC: 0.6058  LR: 1.60e-06
+Ep [104/500] T-Acc:  65.0%  V-Acc:  57.0%  V-AUROC: 0.6072  LR: 1.60e-06
+Ep [105/500] T-Acc:  65.3%  V-Acc:  57.0%  V-AUROC: 0.6091  LR: 1.60e-06
+Ep [106/500] T-Acc:  65.5%  V-Acc:  57.3%  V-AUROC: 0.6108  LR: 1.60e-06
+Ep [107/500] T-Acc:  64.9%  V-Acc:  57.0%  V-AUROC: 0.6094  LR: 1.60e-06
+Ep [108/500] T-Acc:  65.1%  V-Acc:  57.6%  V-AUROC: 0.6094  LR: 1.60e-06
+Ep [109/500] T-Acc:  64.8%  V-Acc:  56.7%  V-AUROC: 0.6075  LR: 1.60e-06
+Ep [110/500] T-Acc:  65.7%  V-Acc:  57.2%  V-AUROC: 0.6082  LR: 1.60e-06
+Ep [111/500] T-Acc:  65.6%  V-Acc:  56.9%  V-AUROC: 0.6093  LR: 1.60e-06
+Ep [112/500] T-Acc:  65.8%  V-Acc:  56.9%  V-AUROC: 0.6092  LR: 1.60e-06
+Ep [113/500] T-Acc:  66.0%  V-Acc:  56.8%  V-AUROC: 0.6072  LR: 1.60e-06
+Ep [114/500] T-Acc:  65.5%  V-Acc:  57.6%  V-AUROC: 0.6091  LR: 1.60e-06
+Ep [115/500] T-Acc:  66.2%  V-Acc:  57.1%  V-AUROC: 0.6079  LR: 1.60e-06
+Ep [116/500] T-Acc:  65.2%  V-Acc:  57.5%  V-AUROC: 0.6104  LR: 1.60e-06
+Ep [117/500] T-Acc:  65.2%  V-Acc:  56.7%  V-AUROC: 0.6065  LR: 1.60e-06
+Ep [118/500] T-Acc:  64.5%  V-Acc:  57.1%  V-AUROC: 0.6119  LR: 1.00e-06
+Ep [119/500] T-Acc:  65.3%  V-Acc:  57.3%  V-AUROC: 0.6061  LR: 1.00e-06
+Ep [120/500] T-Acc:  65.3%  V-Acc:  57.5%  V-AUROC: 0.6075  LR: 1.00e-06
+Ep [121/500] T-Acc:  65.9%  V-Acc:  57.4%  V-AUROC: 0.6100  LR: 1.00e-06
+Ep [122/500] T-Acc:  65.3%  V-Acc:  57.5%  V-AUROC: 0.6093  LR: 1.00e-06
+Ep [123/500] T-Acc:  66.0%  V-Acc:  57.2%  V-AUROC: 0.6069  LR: 1.00e-06
+Ep [124/500] T-Acc:  65.6%  V-Acc:  56.8%  V-AUROC: 0.6053  LR: 1.00e-06
+Ep [125/500] T-Acc:  64.6%  V-Acc:  56.7%  V-AUROC: 0.6088  LR: 1.00e-06
+Ep [126/500] T-Acc:  65.6%  V-Acc:  57.6%  V-AUROC: 0.6088  LR: 1.00e-06
+Ep [127/500] T-Acc:  65.5%  V-Acc:  56.6%  V-AUROC: 0.6080  LR: 1.00e-06
+Ep [128/500] T-Acc:  65.5%  V-Acc:  57.2%  V-AUROC: 0.6092  LR: 1.00e-06
+Ep [129/500] T-Acc:  65.7%  V-Acc:  57.9%  V-AUROC: 0.6102  LR: 1.00e-06
+Ep [130/500] T-Acc:  66.0%  V-Acc:  56.9%  V-AUROC: 0.6041  LR: 1.00e-06
+Ep [131/500] T-Acc:  65.4%  V-Acc:  56.6%  V-AUROC: 0.6090  LR: 1.00e-06
+Ep [132/500] T-Acc:  66.3%  V-Acc:  56.8%  V-AUROC: 0.6070  LR: 1.00e-06
+Ep [133/500] T-Acc:  65.7%  V-Acc:  57.0%  V-AUROC: 0.6086  LR: 1.00e-06
+Ep [134/500] T-Acc:  64.9%  V-Acc:  57.1%  V-AUROC: 0.6077  LR: 1.00e-06
+Ep [135/500] T-Acc:  65.3%  V-Acc:  57.0%  V-AUROC: 0.6093  LR: 1.00e-06
+Ep [136/500] T-Acc:  65.4%  V-Acc:  57.2%  V-AUROC: 0.6083  LR: 1.00e-06
+Ep [137/500] T-Acc:  65.9%  V-Acc:  57.3%  V-AUROC: 0.6092  LR: 1.00e-06
+Ep [138/500] T-Acc:  65.6%  V-Acc:  56.7%  V-AUROC: 0.6069  LR: 1.00e-06
+Ep [139/500] T-Acc:  65.2%  V-Acc:  57.7%  V-AUROC: 0.6105  LR: 1.00e-06
+Ep [140/500] T-Acc:  66.0%  V-Acc:  56.6%  V-AUROC: 0.6058  LR: 1.00e-06
+Ep [141/500] T-Acc:  65.7%  V-Acc:  57.6%  V-AUROC: 0.6085  LR: 1.00e-06
+Ep [142/500] T-Acc:  64.7%  V-Acc:  56.9%  V-AUROC: 0.6089  LR: 1.00e-06
+Ep [143/500] T-Acc:  64.7%  V-Acc:  57.2%  V-AUROC: 0.6060  LR: 1.00e-06
+Ep [144/500] T-Acc:  65.2%  V-Acc:  56.9%  V-AUROC: 0.6076  LR: 1.00e-06
+Ep [145/500] T-Acc:  65.0%  V-Acc:  57.0%  V-AUROC: 0.6085  LR: 1.00e-06
+Ep [146/500] T-Acc:  66.4%  V-Acc:  57.1%  V-AUROC: 0.6083  LR: 1.00e-06
+Ep [147/500] T-Acc:  65.4%  V-Acc:  57.1%  V-AUROC: 0.6086  LR: 1.00e-06
+Ep [148/500] T-Acc:  66.3%  V-Acc:  56.9%  V-AUROC: 0.6077  LR: 1.00e-06
+[Early Stop] Best AUROC 0.6119 at epoch 118. No improvement for 30 epochs.
+[+] Done. Best AUROC: 0.6119 (epoch 118) → 'best_task_conditioned_model.pth'
+-> Acc=0.727  Sens=0.714  Spec=0.750  AUROC=0.786
+
+=== Fold 23/30 | train: 25 subj / 3868 windows | test: 12 subj / 1868 windows ===
+Loading weights:   0%|          | 0/345 [00:00<?, ?it/s]Loading weights: 100%|██████████| 345/345 [00:00<00:00, 15244.14it/s]
+[transformers] [1mMobileViTModel LOAD REPORT[0m from: apple/mobilevit-small
+Key               | Status     |  | 
+------------------+------------+--+-
+classifier.weight | UNEXPECTED |  | 
+classifier.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[*] Device: cuda | max_epochs=500 | batch=32 | es_patience=30
+[*] CE weights — HC: 1.197  MCI: 0.859
+Ep [001/500] T-Acc:  48.2%  V-Acc:  49.3%  V-AUROC: 0.4820  LR: 2.00e-04
+Ep [002/500] T-Acc:  50.0%  V-Acc:  49.7%  V-AUROC: 0.4948  LR: 4.00e-04
+Ep [003/500] T-Acc:  51.4%  V-Acc:  52.6%  V-AUROC: 0.5181  LR: 6.00e-04
+Ep [004/500] T-Acc:  52.7%  V-Acc:  54.0%  V-AUROC: 0.5515  LR: 8.00e-04
+Ep [005/500] T-Acc:  54.0%  V-Acc:  55.2%  V-AUROC: 0.5749  LR: 1.00e-03
+Ep [006/500] T-Acc:  54.9%  V-Acc:  55.8%  V-AUROC: 0.5800  LR: 1.00e-03

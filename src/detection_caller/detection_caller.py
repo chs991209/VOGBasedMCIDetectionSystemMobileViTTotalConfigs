@@ -42,6 +42,13 @@ def _parse_args() -> argparse.Namespace:
              "(src/two_experiments_using/detection_caller/detection_caller.py).",
     )
     parser.add_argument(
+        "--meta",
+        action="store_true",
+        help="Dispatch to the meta-classifier pipeline "
+             "(src/meta_classifier_using/detection_caller/detection_caller.py). "
+             "Unified 8-task flatten-and-concat topology — no soft-voting.",
+    )
+    parser.add_argument(
         "--augment",
         action="store_true",
         help="SpecAugment-style train-only augmentation. Forwarded to whichever sub-pipeline.",
@@ -92,6 +99,25 @@ def _dispatch(target_caller: Path, augment: bool, dropout, patience, weighted_vo
 
 def main() -> None:
     args = _parse_args()
+
+    if args.meta:
+        target = _SRC_DIR / "meta_classifier_using" / "detection_caller" / "detection_caller.py"
+        label = "meta-classifier-using"
+        # Meta caller accepts --dropout and --patience but NOT --weighted-vote / --augment
+        if args.augment:
+            print("[!] --augment has no effect in meta mode (no per-window aggregation); ignored.",
+                  file=sys.stderr)
+        if args.weighted_vote:
+            print("[!] --weighted-vote has no effect in meta mode (no soft-vote); ignored.",
+                  file=sys.stderr)
+        cmd = [sys.executable, str(target)]
+        if args.dropout is not None:
+            cmd.extend(["--dropout", str(args.dropout)])
+        if args.patience is not None:
+            cmd.extend(["--patience", str(int(args.patience))])
+        print(f"[*] Dispatching to {label}: {' '.join(cmd)}", flush=True)
+        import subprocess as _sp
+        sys.exit(_sp.run(cmd, cwd=os.getcwd()).returncode)
 
     if args.full_experiments_using:
         target = _SRC_DIR / "full_experiments_using" / "detection_caller" / "detection_caller.py"
