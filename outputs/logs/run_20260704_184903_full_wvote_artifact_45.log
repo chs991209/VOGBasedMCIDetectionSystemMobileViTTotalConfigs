@@ -1,5 +1,0 @@
-2026-07-04 18:49:03,645 | [FULL    ] | INFO | __main__ | Run ID: 20260704_184903_full_wvote_artifact_45 | augment=False | dropout=0.30 | patience=40 | weighted_vote={0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
-2026-07-04 18:49:03,646 | [FULL    ] | INFO | __main__ | Log file: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/outputs/logs/run_20260704_184903_full_wvote_artifact_45.log
-2026-07-04 18:49:03,647 | [FULL    ] | INFO | __main__ | Loading full 8-task VOG saccade tensors from: /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data
-2026-07-04 18:49:04,277 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Cache config mismatch; reprocessing CSVs.
-2026-07-04 18:49:04,301 | [FULL    ] | INFO | full_experiments_using.data_processor.data_engineering | Processing 300 CSV files under /home/leggo/AIResearch/VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/data

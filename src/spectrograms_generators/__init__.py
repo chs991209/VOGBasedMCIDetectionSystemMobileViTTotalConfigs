@@ -1,7 +1,6 @@
 """Spectrogram visualizer packages.
 
 Sub-packages:
-  - wavelet_transform_generators        — (placeholder) wavelet-side visualizers
   - short_term_fourier_transform_generators
         - data_tensor_processor          — `HighFreqSpectrogramCore` (STFT loader)
         - mean_spectrograms_visualizer   — per-group mean spectrograms
