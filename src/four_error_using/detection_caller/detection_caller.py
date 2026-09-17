@@ -128,6 +128,16 @@ def _parse_args() -> argparse.Namespace:
              f"is numerically inert. Run id suffixed _bsNNN when value differs from default.",
     )
     parser.add_argument(
+        "--eval-batch-size",
+        dest="eval_batch_size",
+        type=int,
+        default=None,
+        help="Inference mini-batch size. Numerically inert (eval runs under no_grad), so "
+             "it only caps the peak GPU memory of the evaluation pass. Default: auto "
+             "(max(256, 8x train batch)). Lower it (e.g. 32) for a big backbone like "
+             "mobilevitv2-2.0 when several runs share one GPU, to avoid eval-time OOM.",
+    )
+    parser.add_argument(
         "--weighted-vote",
         dest="weighted_vote",
         action="store_true",
@@ -434,6 +444,7 @@ def main():
         dataset,
         max_epochs=500,
         batch_size=args.batch_size,
+        eval_batch_size=args.eval_batch_size,
         n_splits=args.n_splits,
         probe=probe,
         checkpoint_dir=run_checkpoint_dir,

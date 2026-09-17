@@ -1,8 +1,18 @@
 # VOG-MCI Detection — Dual-Pipeline Ablation Study
 
-Edge AI pipeline for detecting **Mild Cognitive Impairment (MCI)** from **Video Oculography (VOG)** saccade tracking errors. Deployed on **NVIDIA Jetson AGX Orin 64GB**.
+Edge AI pipeline for detecting **Mild Cognitive Impairment (MCI)** from **Video Oculography (VOG)** saccade tracking errors. Originally developed for **NVIDIA Jetson AGX Orin 64GB** edge deployment; now trained and evaluated on an **NVIDIA RTX A6000 (48 GB) server**.
 
 The project is structured as a side-by-side comparison of two pipelines that share the same model architecture (frozen MobileViT-small + small trainable head) and same evaluation protocol (subject-level 30-fold Monte-Carlo Group CV), but differ in **which subset of the 8 VOG saccade tasks they feed the model**. A common task-contribution probe lets us measure each task's marginal effect on detection.
+
+---
+
+## 📊 Latest results — signal-mode study
+
+The full 8-task pipeline was extended with alternative CWT input representations and balanced sampling. **Consolidated results (successful runs only) + confusion matrices: [`outputs/reports/RESULTS.md`](outputs/reports/RESULTS.md).**
+
+- New flags: `--signal-mode {legacy, four_error, full_error}` (CWT channels) and `--stratified` (balanced HC/MCI folds) — documented in `RESULTS.md` §2.
+- **Headline:** `four_error` (both-axis, 4-channel) with `--stratified` reaches **AUROC ≈ 0.876**, vs the legacy `[mag,re]` baseline **0.791**. The 8-channel `full_error` overfits (0.767).
+- Halted/mid-training runs are archived under `outputs/logs/_halted/` and excluded from the report.
 
 ---
 
@@ -35,7 +45,7 @@ VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/
 │   │   ├── model_trainers/mobile_vit_trainer.py
 │   │   ├── evaluators/monte_carlo_evaluator.py
 │   │   └── detection_caller/detection_caller.py
-│   └── full_experiments_using/            ← 8-task pipeline: all saccade paradigms
+│   └── four_error_using/            ← 8-task pipeline: all saccade paradigms
 │       ├── data_processor/data_engineering.py
 │       ├── models/mobile_vit_model.py
 │       ├── model_trainers/mobile_vit_trainer.py
@@ -58,7 +68,7 @@ VOGBasedMCIDetectionSystemMobileViTSingleExperimentInference/
 └── README.md
 ```
 
-The two sub-packages (`two_experiments_using/` and `full_experiments_using/`) are **file-for-file symmetric**. Each contains its own `data_processor`, `models`, `model_trainers`, `evaluators`, and `detection_caller` modules with the same public class names — but each parameterises them for its own scope.
+The two sub-packages (`two_experiments_using/` and `four_error_using/`) are **file-for-file symmetric**. Each contains its own `data_processor`, `models`, `model_trainers`, `evaluators`, and `detection_caller` modules with the same public class names — but each parameterises them for its own scope.
 
 ---
 
@@ -84,7 +94,7 @@ The two sub-packages (`two_experiments_using/` and `full_experiments_using/`) ar
 **Trade-off observed in practice:**
 - Filtering out 6 of 8 task types is **4× data starvation** per fold. Best val-loss is often achieved in the first 1–10 epochs (before training stabilises), and the model frequently collapses to a single-class predictor. The completed 30-fold BASE run yielded Macro AUROC ≈ 0.39 — below random.
 
-### 3.2 `full_experiments_using/` — Full 8-Task Pipeline (legacy origin)
+### 3.2 `four_error_using/` — Full 8-Task Pipeline (legacy origin)
 
 | Aspect | Value |
 |---|---|
@@ -111,10 +121,10 @@ The two sub-packages (`two_experiments_using/` and `full_experiments_using/`) ar
 | Goal | Pipeline | Flags |
 |---|---|---|
 | Test the clinical-isolation hypothesis | `two_experiments_using` | (default) |
-| Get the best raw accuracy / AUROC | `full_experiments_using` | (default) |
-| Identify which task carries the signal | `full_experiments_using` | (default); read the probe report's by-task / by-axis / by-type / by-inhibition sections |
+| Get the best raw accuracy / AUROC | `four_error_using` | (default) |
+| Identify which task carries the signal | `four_error_using` | (default); read the probe report's by-task / by-axis / by-type / by-inhibition sections |
 | Compare aug vs no-aug | either pipeline | `--augment` |
-| Ablate dropout | `full_experiments_using` | `--dropout 0.5` (or any value) |
+| Ablate dropout | `four_error_using` | `--dropout 0.5` (or any value) |
 | Ablate early-stopping patience | either pipeline | `--patience 30` |
 
 ---
@@ -157,7 +167,7 @@ Each pipeline writes its own cache file under `outputs/cache/`:
 - 2-exp: `data_store.pkl` (~7.5 MB, 229 epochs)
 - full-exp: `data_store_full.pkl` (~30 MB, ~900 epochs)
 
-Cache is keyed by a config signature (pre/post-sec, freq range, bins, wavelet bandwidth, artifact threshold, task map). If any of those change, the cache invalidates and rebuilds. On Jetson: fresh build ~5–6 s; reload from cache <0.05 s.
+Cache is keyed by a config signature (pre/post-sec, freq range, bins, wavelet bandwidth, artifact threshold, task map, plus `region`, `add_entropy`, `add_kinematics`). If any of those change, the cache invalidates and rebuilds. On the A6000 server: a fresh CWT build reprocesses the 300 CSVs; reload from cache is near-instant (<0.1 s).
 
 ---
 
@@ -242,11 +252,11 @@ The 2-exp scope has only the `by-task` grouping (the other slicings are degenera
 
 ### 8.1 Install
 
-```bash
-pip install -r requirements.txt
-```
+On the A6000 server, run inside the **`wind_power`** conda env (the only one with the
+full stack), e.g. `/home/oem/anaconda3/envs/wind_power/bin/python`. (`requirements.txt`
+is the original Jetson freeze — `tensorrt`, `torch 2.11` — and won't install cleanly here.)
 
-Key deps: `torch 2.11`, `transformers 5.9`, `pywavelets 1.8`, `scipy 1.15`, `scikit-learn 1.7`, `pandas 2.3`, `numpy 2.2`, `jetson-stats` (for `jtop` GPU telemetry).
+Key deps (A6000 / `wind_power`): `torch 2.9.1` (CUDA 12.8), `transformers 5.13`, `pywavelets 1.8`, `scipy 1.15`, `scikit-learn 1.7`, `pandas 2.3`, `numpy 2.2`. GPU telemetry via `nvidia-smi`.
 
 ### 8.2 CLI — three equivalent entry points
 
@@ -258,7 +268,7 @@ python src/detection_caller/detection_caller.py [--full-experiments-using] [--au
 python src/two_experiments_using/detection_caller/detection_caller.py [--augment] [--patience N]
 
 # (3) Full-experiment pipeline directly
-python src/full_experiments_using/detection_caller/detection_caller.py [--augment] [--dropout F] [--patience N]
+python src/four_error_using/detection_caller/detection_caller.py [--augment] [--dropout F] [--patience N]
 ```
 
 The top-level dispatcher subprocess-launches the selected sub-package's entry point, forwarding the relevant flags. Each subprocess runs in its own Python interpreter — no shared `sys.modules`, no risk of cross-contamination, safe to run multiple concurrently.
@@ -268,7 +278,7 @@ The top-level dispatcher subprocess-launches the selected sub-package's entry po
 | Flag | Applies to | Effect |
 |---|---|---|
 | (no flag) | dispatcher | runs `two_experiments_using` |
-| `--full-experiments-using` | dispatcher | routes to `full_experiments_using` instead |
+| `--full-experiments-using` | dispatcher | routes to `four_error_using` instead |
 | `--augment` | both | wraps the train Subset in `AugmentedSubset` (freq+time SpecAugment-style masking, train-only). Run id suffixed `_aug`. |
 | `--dropout F` | full-exp only | overrides head dropout. Run id suffixed `_dropNNN` when ≠ default 0.3. Dispatcher silently drops it (with warning) in 2-exp mode. |
 | `--patience N` | both | early-stop patience on the monitored val metric. Default 40. Run id suffixed `_patNNN` when ≠ 40. |
@@ -306,12 +316,12 @@ Every combination produces a uniquely-tagged `run_id`, so concurrent runs never 
 tail -f outputs/logs/run_*.log
 ```
 
-GPU telemetry on Jetson:
+GPU telemetry on the A6000 server:
 
 ```bash
-sudo /usr/bin/python3 -c "from jtop import jtop, time
-with jtop() as j:
-    if j.ok(): time.sleep(1); print(j.gpu, j.memory['RAM'], j.temperature)"
+nvidia-smi                                   # snapshot of memory / utilisation
+watch -n 2 nvidia-smi                         # live, refreshing every 2 s
+nvidia-smi --query-gpu=memory.used,memory.free,utilization.gpu --format=csv
 ```
 
 ---
@@ -349,7 +359,7 @@ with jtop() as j:
 | Evaluation protocol | 30-fold subject-grouped MC CV, 70/30 |
 | Primary metric | Accuracy > 0.66 (majority prior) |
 | Secondary metrics | Sensitivity, Specificity, AUROC, PPV, NPV, F1 |
-| Edge target | NVIDIA Jetson AGX Orin 64GB (MAXN power profile) |
-| Input tensor | `[4, 32, 32]` — fixed |
-| Backbone | `apple/mobilevit-small` (frozen) |
-| Concurrent runs supported | Yes — verified up to 4 simultaneous, each in its own Python subprocess |
+| Train/eval hardware | NVIDIA RTX A6000, 48 GB (original edge target: Jetson AGX Orin 64GB) |
+| Input tensor | `[4, 32, 32]` base; `+1` channel with `--entropy`, `+10` with `--kinematics-in-model` |
+| Backbone (frozen) | `mobilevit-small` (default) · `mobilevitv2-1.0` · `mobilevitv2-2.0` via `--backbone` |
+| Concurrent runs | Multiple subprocesses share the GPU; a big backbone (`mobilevitv2-2.0`) needs a small `--eval-batch-size` to avoid eval-time OOM |
