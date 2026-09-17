@@ -14,4 +14,5 @@ class TaskEmbedding(nn.Module):
         self.embedding = nn.Embedding(num_embeddings=num_tasks, embedding_dim=task_emb_dim)
 
     def forward(self, task_id):
+        """task id(s) [B] -> the learned context vector for each task [B, task_emb_dim]."""
         return self.embedding(task_id)

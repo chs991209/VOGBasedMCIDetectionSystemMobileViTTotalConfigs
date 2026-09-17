@@ -38,6 +38,9 @@ from four_error_using.data_processor.data_engineer import (  # noqa: E402
     EventLockedCWTPipeline,
     TaskConditionedDataset,
 )
+from four_error_using.data_processor.saccade_metrics import (  # noqa: E402
+    FEATURE_NAMES as KIN_FEATURE_NAMES,
+)
 from four_error_using.evaluators.repetitive_validator import (  # noqa: E402
     RepetitiveGroupValidator,
 )
@@ -53,7 +56,7 @@ _NUM_TASKS = 8
 # analysis. Vertical B / B-anti / R (5,6,7) up-weighted 1.5×; Horizontal B /
 # B-anti / R (1,2,3) kept at 0.5×; low-information "A" tasks (0,4) excluded
 # (weight 0). Used when --weighted-vote is given without explicit --vote-weights.
-WEIGHTED_VOTE_SCHEME = {0: 0.0, 1: 0.5, 2: 0.5, 3: 0.5, 4: 0.0, 5: 1.5, 6: 1.5, 7: 1.5}
+WEIGHTED_VOTE_SCHEME = {0: 0.0, 1: 0.0, 2: 0.0, 3: 1.5, 4: 0.0, 5: 1.5, 6: 3.0, 7: 2.5}
 
 # Fixed per-class TEST-subject counts for --stratified sampling, matching the
 # dataset (14 HC / 23 MCI subjects): HC test=4 (train=10), MCI test=8 (train=15)
@@ -179,6 +182,18 @@ def _parse_args() -> argparse.Namespace:
              "_4err / _8err. Adapter in_channels adjusts automatically.",
     )
     parser.add_argument(
+        "--region",
+        dest="region",
+        choices=["event", "leftover", "all"],
+        default="event",
+        help="Which parts of each recording become input windows. 'event' (default) = "
+             "event-locked 1-s windows around each target change (the main system). "
+             "'leftover' = the COMPLEMENT: fixed 1-s windows from the stretches NOT covered "
+             "by a kept event window (inter-saccade / fixation) — the additional 'not-used "
+             "regions' system. four_error / full_error only; uses a dedicated '_leftover' "
+             "cache and run id label. Same artifact threshold gates the leftover windows.",
+    )
+    parser.add_argument(
         "--no-artifact-reject",
         dest="no_artifact_reject",
         action="store_true",
@@ -186,6 +201,54 @@ def _parse_args() -> argparse.Namespace:
              "large-gaze-error ones normally dropped by --artifact-threshold. Uses a dedicated "
              "'_allTrials' cache and run-id label so it never collides with the gated caches. "
              "Overrides --artifact-threshold.",
+    )
+    parser.add_argument(
+        "--entropy", dest="entropy", action="store_true",
+        help="Add one extra input channel = Shannon entropy of each trial's task-axis "
+             "tracking error (actual eye movement − target), fed into the image model "
+             "(joined to the features before the head). four_error only; run id suffixed _ent.",
+    )
+    parser.add_argument(
+        "--entropy-signal", dest="entropy_signal", choices=["deviation","position","kl"], default="deviation",
+        help="What the entropy channel summarizes: deviation from target (default) or actual eye position.",
+    )
+    parser.add_argument(
+        "--n-splits", dest="n_splits", type=int, default=30,
+        help="Number of CV folds/repetitions (default 30).",
+    )
+    parser.add_argument(
+        "--fuse-kinematic",
+        dest="fuse_kinematic",
+        action="store_true",
+        help="Late-fuse a kinematic logistic gate (velocity hi/lo + latency + variance) with the "
+             "CWT weighted vote, per fold: P = alpha*P_cwt + (1-alpha)*P_kin. Reports CWT-only, "
+             "KIN-only and fused metrics over an alpha sweep. Run id suffixed _fuse.",
+    )
+    parser.add_argument(
+        "--fuse-alpha",
+        dest="fuse_alpha",
+        type=float,
+        default=None,
+        help="Single CWT-weight alpha for fusion (e.g. 0.9). Default: sweep 0.5–0.95.",
+    )
+    parser.add_argument(
+        "--backbone",
+        dest="backbone",
+        choices=["mobilevit-small", "mobilevitv2-1.0", "mobilevitv2-2.0"],
+        default="mobilevit-small",
+        help="Frozen feature-extractor backbone. 'mobilevit-small' (default, 640-d, 4.94M); "
+             "'mobilevitv2-1.0' (512-d, 4.39M); 'mobilevitv2-2.0' (1024-d, 17.4M, the big one). "
+             "Head sizes itself to the backbone. Run id suffixed _<backbone> when not the default.",
+    )
+    parser.add_argument(
+        "--kinematics-in-model",
+        dest="kinematics_in_model",
+        action="store_true",
+        help="Feature-level fusion: attach the 10 per-trial saccade numbers to each "
+             "scalogram and join them to the image features just before the head (the "
+             "head learns to weight them jointly). Unlike --fuse-kinematic (separate "
+             "logistic + blend), this is one end-to-end model. four_error + region=event "
+             "only; uses a dedicated '_kinmodel' cache and run-id label.",
     )
     return parser.parse_args()
 
@@ -211,6 +274,9 @@ def _setup_logging(log_path: Path, mode_tag: str) -> None:
 
 def main():
     args = _parse_args()
+
+    if args.kinematics_in_model and (args.signal_mode != "four_error" or args.region != "event"):
+        raise SystemExit("--kinematics-in-model requires --signal-mode four_error and region=event.")
 
     ensure_output_dirs()
     # Single source of truth for the artifact-rejection threshold: used both in
@@ -258,10 +324,25 @@ def main():
         run_id += "_4err"
     elif args.signal_mode == "full_error":
         run_id += "_8err"
+    if args.region == "leftover":
+        run_id += "_leftover"
+    if args.region == "all":
+        run_id += "_allwin"
+    if args.fuse_kinematic:
+        run_id += "_fuse"
+    if args.entropy:
+        run_id += {"deviation":"_ent","position":"_entpos","kl":"_entkl"}[args.entropy_signal]
+    if args.kinematics_in_model:
+        run_id += "_kinmodel"
+    if args.backbone != "mobilevit-small":
+        run_id += "_" + args.backbone.replace(".", "")
 
     # Adapter input channels follow the representation: full_error stacks mag+re
-    # on both axes/eyes → 8; the others are 4-channel.
-    in_channels = 8 if args.signal_mode == "full_error" else 4
+    # on both axes/eyes → 8; the others are 4-channel. Entropy (if on) rides as an
+    # extra adapter channel; kinematics (if on) instead ride as before-head planes.
+    in_channels = (8 if args.signal_mode == "full_error" else 4) + (1 if args.entropy else 0)
+    # before-head extra planes = the 10 kinematic numbers (feature-level fusion).
+    kin_extra_dim = len(KIN_FEATURE_NAMES) if args.kinematics_in_model else 0
 
     mode_tag = "FULL+AUG" if args.augment else "FULL    "
 
@@ -284,6 +365,14 @@ def main():
     }.get(args.signal_mode, "data_store_full.pkl")
     if args.no_artifact_reject:
         cache_name = cache_name.replace(".pkl", "_allTrials.pkl")
+    if args.region == "leftover":
+        cache_name = cache_name.replace(".pkl", "_leftover.pkl")
+    if args.region == "all":
+        cache_name = cache_name.replace(".pkl", "_allwin.pkl")
+    if args.entropy:
+        cache_name = cache_name.replace(".pkl", {"deviation":"_ent.pkl","position":"_entpos.pkl","kl":"_entkl.pkl"}[args.entropy_signal])
+    if args.kinematics_in_model:
+        cache_name = cache_name.replace(".pkl", "_kinmodel.pkl")
 
     pipeline = EventLockedCWTPipeline(
         pre_stimulus_sec=0.2,
@@ -295,8 +384,12 @@ def main():
         w_morlet=4.0,
         artifact_threshold=artifact_threshold,
         signal_mode=args.signal_mode,
-        # Separate cache per signal mode (and per rejection setting) so tensors of
-        # different shape / trial-set never collide.
+        region=args.region,
+        add_entropy=args.entropy,
+        entropy_signal=args.entropy_signal,
+        add_kinematics=args.kinematics_in_model,
+        # Separate cache per signal mode (and per rejection setting / region) so
+        # tensors of different shape / trial-set never collide.
         cache_path=CACHE_DIR / cache_name,
     )
 
@@ -323,11 +416,25 @@ def main():
         output_path=report_path,
         report_style="full",  # 8-task layout with reflexive-vs-anti deep dive
     )
+    # optional kinematic gate for late fusion (velocity hi/lo + latency + variance)
+    kin_store = None
+    fuse_alphas = None
+    if args.fuse_kinematic:
+        from four_error_using.data_processor.kinematic_features import KinematicFeaturePipeline
+        kp = KinematicFeaturePipeline(
+            artifact_threshold=artifact_threshold,
+            cache_path=CACHE_DIR / f"kinematic_features_thr{int(round(artifact_threshold))}.pkl")
+        kp.process_directory(DATA_DIR)
+        kin_store = {sid: trials for subs in kp.data_store.values() for sid, trials in subs.items()}
+        fuse_alphas = ([args.fuse_alpha] if args.fuse_alpha is not None
+                       else [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95])
+        log.info("Kinematic fusion ENABLED | subjects with kin=%d | alphas=%s", len(kin_store), fuse_alphas)
+
     mc = RepetitiveGroupValidator(
         dataset,
         max_epochs=500,
         batch_size=args.batch_size,
-        n_splits=30,
+        n_splits=args.n_splits,
         probe=probe,
         checkpoint_dir=run_checkpoint_dir,
         num_tasks=8,
@@ -338,6 +445,12 @@ def main():
         in_channels=in_channels,
         stratified=args.stratified,
         strat_test_counts=STRATIFIED_TEST_COUNTS if args.stratified else None,
+        kin_store=kin_store,
+        kin_weights=task_weights if kin_store is not None else None,
+        fuse_alphas=fuse_alphas,
+        dump_probs_path=run_checkpoint_dir / "window_probs.csv",
+        entropy_dim=kin_extra_dim,   # before-head planes = 10 kinematic numbers (if on)
+        backbone=args.backbone,
     )
     mc.run()
 

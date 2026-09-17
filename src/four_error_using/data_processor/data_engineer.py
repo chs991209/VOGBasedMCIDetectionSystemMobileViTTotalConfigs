@@ -19,7 +19,18 @@ import torch
 from scipy.ndimage import zoom
 from torch.utils.data import Dataset, Subset
 
+from four_error_using.data_processor.saccade_metrics import (
+    FEATURE_NAMES as KIN_FEATURE_NAMES, FEATURE_VERSION as KIN_FEATURE_VERSION,
+    lowpass, total_speed_2d, window_metrics,
+)
+
 logger = logging.getLogger(__name__)
+
+# Directory names under data/ that are NOT part of the 37-subject study cohort
+# and must be skipped during ingestion (e.g. a separate, incomplete newly-
+# collected cohort staged for inspection). Keeps runs comparable to the caches
+# built before these were added.
+_EXCLUDED_DIR_NAMES = {"New_data"}
 
 
 class EventLockedCWTPipeline:
@@ -36,7 +47,21 @@ class EventLockedCWTPipeline:
         default_fs: float = 120.0,
         cache_path: Optional[Union[str, Path]] = None,
         signal_mode: str = "legacy",
+        region: str = "event",
+        add_entropy: bool = False,
+        entropy_signal: str = "deviation",
+        add_kinematics: bool = False,
     ):
+        # add_entropy: append one extra channel = Shannon entropy of the trial.
+        # entropy_signal: "deviation" = entropy of (actual eye − target) outline;
+        #                 "position"  = entropy of the actual eye-position outline.
+        self.add_entropy = bool(add_entropy)
+        self.entropy_signal = entropy_signal
+        # add_kinematics: append the 10 per-trial saccade numbers as extra constant
+        # planes AFTER the CWT (and entropy) channels, so the image network can fuse
+        # them with the visual features before the head (feature-level fusion).
+        # four_error only. len(KIN_FEATURE_NAMES) planes per window.
+        self.add_kinematics = bool(add_kinematics)
         # signal_mode:
         #   "legacy"        — task-axis only; channels = {mag_L, re_L, mag_R, re_R}
         #                     with sparsify (85th-pctile floor) + z-score per trial.
@@ -50,6 +75,14 @@ class EventLockedCWTPipeline:
                 "signal_mode must be 'legacy', 'four_error', 'raw_magnitude', or "
                 f"'full_error', got {signal_mode!r}"
             )
+        # region:
+        #   "event"    — event-locked windows around each target change (default).
+        #   "leftover" — the COMPLEMENT: fixed 1-s windows from the stretches NOT
+        #                covered by a kept event window (inter-saccade / fixation).
+        #                The 'not-used regions' system. four_error/full_error only.
+        if region not in ("event", "leftover", "all"):
+            raise ValueError(f"region must be 'event', 'leftover' or 'all', got {region!r}")
+        self.region = region
         self.signal_mode = signal_mode
         self.pre_sec = pre_stimulus_sec
         self.post_sec = post_stimulus_sec
@@ -81,6 +114,7 @@ class EventLockedCWTPipeline:
         self.cache_path = Path(cache_path) if cache_path is not None else None
 
     def _config_signature(self) -> dict:
+        """Settings fingerprint — the cache is only reused if this matches."""
         return {
             "pre_sec": self.pre_sec,
             "post_sec": self.post_sec,
@@ -92,10 +126,18 @@ class EventLockedCWTPipeline:
             "artifact_threshold": self.artifact_threshold,
             "task_map": dict(self.task_map),
             "signal_mode": self.signal_mode,
+            "region": self.region,
+            "add_entropy": self.add_entropy,
+            "entropy_signal": self.entropy_signal,
+            "add_kinematics": self.add_kinematics,
+            # kinematic feature math version — so the kinmodel tensor cache rebuilds
+            # whenever the saccade metrics change.
+            "kin_version": KIN_FEATURE_VERSION if self.add_kinematics else None,
             "schema_version": {"four_error": 2, "full_error": 3}.get(self.signal_mode, 1),
         }
 
     def _load_csv_safely(self, file_path: Path):
+        """Read one VOG CSV, tolerant of odd encodings/whitespace headers."""
         try:
             df = pd.read_csv(file_path, skipinitialspace=True)
             df.columns = [str(c).strip().lower() for c in df.columns]
@@ -121,6 +163,7 @@ class EventLockedCWTPipeline:
         raise ValueError(f"Failed to load {file_path.name}")
 
     def _get_cwt_tensor(self, error_sig, fs):
+        """Wavelet-transform one 1-D error signal into a 32x32 time-frequency map."""
         if len(error_sig) == 0:
             return None
         sampling_period = 1.0 / fs
@@ -135,6 +178,7 @@ class EventLockedCWTPipeline:
         return cwt_real, cwt_imag
 
     def _sparsify_and_compress(self, cwt_real, cwt_imag):
+        """Keep only the strongest wavelet coefficients (top 15%) to shrink the cache."""
         magnitude = np.sqrt(cwt_real ** 2 + cwt_imag ** 2)
         threshold = np.percentile(magnitude, 85)
         magnitude[magnitude < threshold] = 1e-3
@@ -144,6 +188,7 @@ class EventLockedCWTPipeline:
         return mag_db
 
     def _try_load_cache(self) -> bool:
+        """Reload pre-computed scalograms from disk if the config matches (skip re-processing)."""
         if self.cache_path is None or not self.cache_path.exists():
             return False
         try:
@@ -167,6 +212,7 @@ class EventLockedCWTPipeline:
         return True
 
     def _save_cache(self) -> None:
+        """Write the processed scalograms to disk so the next run skips processing."""
         if self.cache_path is None:
             return
         plain = {
@@ -184,6 +230,7 @@ class EventLockedCWTPipeline:
             logger.warning("Cache write failed: %s", e)
 
     def _process_file_legacy(self, df, axis_char, is_anti, group, subject_id, task_id) -> int:
+        """Old 1-channel extractor (single axis) — kept for the 2-experiment mode."""
         target_col = next(
             (c for c in df.columns if f'target{axis_char}' in c or f'target_{axis_char}' in c),
             None,
@@ -349,6 +396,12 @@ class EventLockedCWTPipeline:
         samples_pre = int(self.pre_sec * fs)
         samples_post = int(self.post_sec * fs)
 
+        # For kinematics-in-tensor: one smoothed 2D total eye-speed signal per file
+        # (both eyes, H&V) for the `latency` onset, plus the smoothed task-axis eye
+        # position (both features differentiate a low-pass-filtered signal).
+        v_total_full = total_speed_2d(lh, rh, lv, rv, fs) if self.add_kinematics else None
+        p_tax_smooth = lowpass(0.5 * (l_tax + r_tax), fs) if self.add_kinematics else None
+
         kept_here = 0
         for idx in event_indices:
             s, e = idx - samples_pre, idx + samples_post
@@ -391,6 +444,48 @@ class EventLockedCWTPipeline:
                     channels.append(mag_c)             # four_error: 4 magnitudes
             tensor = np.stack(channels, axis=0)            # [8|4, F, T]
 
+            if self.add_entropy:
+                if self.entropy_signal == "kl":
+                    # KL divergence: how far the ACTUAL eye distribution is from the
+                    # EXPECTED (target) distribution over the trial.
+                    eye = 0.5 * (lh[s:e] + rh[s:e]) if axis_char == 'h' else 0.5 * (lv[s:e] + rv[s:e])
+                    tg = th[s:e] if axis_char == 'h' else tv[s:e]
+                    lo, hi = float(min(eye.min(), tg.min())), float(max(eye.max(), tg.max()))
+                    if hi - lo < 1e-6:
+                        hi = lo + 1e-6
+                    ha, _ = np.histogram(eye, bins=16, range=(lo, hi))
+                    he, _ = np.histogram(tg, bins=16, range=(lo, hi))
+                    eps = 1e-6
+                    pa = (ha + eps) / (ha + eps).sum()
+                    pe = (he + eps) / (he + eps).sum()
+                    ent = float((pa * np.log2(pa / pe)).sum())    # KL(actual || expected)
+                else:
+                    # Shannon entropy of the trial's movement outline over time
+                    if self.entropy_signal == "position":
+                        eye = 0.5 * (lh[s:e] + rh[s:e]) if axis_char == 'h' else 0.5 * (lv[s:e] + rv[s:e])
+                        err_sig = eye - eye[:samples_pre].mean()  # actual eye position outline
+                    else:
+                        err_sig = 0.5 * (task_l_err + task_r_err)  # deviation from target
+                    hist, _ = np.histogram(err_sig, bins=16)
+                    pdh = hist[hist > 0] / hist.sum()
+                    ent = float(-(pdh * np.log2(pdh)).sum())
+                plane = np.full((tensor.shape[1], tensor.shape[2]), ent, dtype=tensor.dtype)
+                tensor = np.concatenate([tensor, plane[None]], axis=0)   # +1 entropy channel
+
+            if self.add_kinematics:
+                # The 10 saccade numbers for THIS window (same trial as the scalogram),
+                # each tiled into a constant plane appended after the CWT/entropy
+                # channels. The model splits them off (mean over H,W recovers the
+                # scalar), BatchNorm-standardizes, and joins them to the visual
+                # features before the head — feature-level fusion.
+                p_tax = p_tax_smooth[s:e] - p_tax_smooth[s:s + samples_pre].mean()
+                v_win = v_total_full[s:e] if v_total_full is not None else None
+                feats = window_metrics(p_tax, target_tax[s:e], v_win, samples_pre, fs)
+                planes = np.empty((len(feats), tensor.shape[1], tensor.shape[2]), dtype=tensor.dtype)
+                for k, val in enumerate(feats):
+                    planes[k].fill(val)
+                tensor = np.concatenate([tensor, planes], axis=0)   # +10 kinematic channels
+
             # Cross-axis energy ratio: mean magnitude in OFF-axis channels divided
             # by mean magnitude in TASK-AXIS channels (raw, pre-normalization).
             # H tasks (id 0-3): task axis = H (ch0+ch1 raw), cross = V (ch2+ch3 raw).
@@ -410,12 +505,222 @@ class EventLockedCWTPipeline:
             kept_here += 1
         return kept_here, False
 
+    def _process_file_four_error_leftover(self, df, axis_char, is_anti, group, subject_id,
+                                          task_id, keep_real=False):
+        """four_error extractor over the COMPLEMENT of the kept event windows.
+
+        Marks the samples covered by used (artifact-passing) event windows, then
+        packs fixed 1-s windows from the stretches left over (inter-saccade /
+        fixation) and builds the same four_error CWT channels + artifact rule on
+        them. Same task_id, so the model and the task-weighted vote are unchanged;
+        only the input regions differ. This is the additional 'not-used' system.
+        """
+        # ---- column resolution (identical to _process_file_four_error) ----
+        target_tax_col = next(
+            (c for c in df.columns if f'target{axis_char}' in c or f'target_{axis_char}' in c), None)
+        l_tax_col = next((c for c in df.columns if c == f'l{axis_char}'), None)
+        r_tax_col = next((c for c in df.columns if c == f'r{axis_char}'), None)
+        other_axis = 'v' if axis_char == 'h' else 'h'
+        target_oax_col = next(
+            (c for c in df.columns if f'target{other_axis}' in c or f'target_{other_axis}' in c), None)
+        l_oax_col = next((c for c in df.columns if c == f'l{other_axis}'), None)
+        r_oax_col = next((c for c in df.columns if c == f'r{other_axis}'), None)
+        if not all([target_tax_col, l_tax_col, r_tax_col, target_oax_col, l_oax_col, r_oax_col]):
+            return 0, True
+
+        if is_anti:
+            df[target_tax_col] = df[target_tax_col] * -1
+
+        time_col = next((c for c in df.columns if 'time' in c or c == 't'), df.columns[0])
+        time_val = df[time_col].dropna().values
+        fs = 1.0 / np.mean(np.diff(time_val)) if len(time_val) > 1 else self.default_fs
+
+        target_tax = df[target_tax_col].fillna(0).values
+        l_tax = df[l_tax_col].fillna(0).values
+        r_tax = df[r_tax_col].fillna(0).values
+        target_oax = df[target_oax_col].fillna(0).values
+        l_oax = df[l_oax_col].fillna(0).values
+        r_oax = df[r_oax_col].fillna(0).values
+        if axis_char == 'h':
+            lh, rh, th = l_tax, r_tax, target_tax
+            lv, rv, tv = l_oax, r_oax, target_oax
+        else:
+            lh, rh, th = l_oax, r_oax, target_oax
+            lv, rv, tv = l_tax, r_tax, target_tax
+
+        samples_pre = int(self.pre_sec * fs)
+        samples_post = int(self.post_sec * fs)
+        win = samples_pre + samples_post          # 1-s window length (samples)
+        n = len(df)
+
+        # ---- 1) mark samples covered by KEPT (used) event windows ----
+        used = np.zeros(n, dtype=bool)
+        for idx in np.where(np.diff(target_tax, prepend=0) != 0)[0]:
+            s, e = idx - samples_pre, idx + samples_post
+            if s < 0 or e > n:
+                continue
+            eL = (l_tax[s:e] - target_tax[s:e]).astype(np.float64)
+            eR = (r_tax[s:e] - target_tax[s:e]).astype(np.float64)
+            eL -= np.mean(eL[:samples_pre]); eR -= np.mean(eR[:samples_pre])
+            if (np.max(np.abs(eL)) > self.artifact_threshold
+                    or np.max(np.abs(eR)) > self.artifact_threshold):
+                continue                            # rejected event stays in the leftover pool
+            used[s:e] = True
+
+        # ---- 2) pack non-overlapping 1-s windows fully inside the complement ----
+        free = ~used
+        starts = []
+        i = 0
+        while i + win <= n:
+            if free[i:i + win].all():
+                starts.append(i); i += win
+            else:
+                i += 1
+
+        # ---- 3) build a four_error epoch per leftover window (same body + artifact rule) ----
+        kept_here = 0
+        for s in starts:
+            e = s + win
+            err_LH = (lh[s:e] - th[s:e]).astype(np.float64)
+            err_RH = (rh[s:e] - th[s:e]).astype(np.float64)
+            err_LV = (lv[s:e] - tv[s:e]).astype(np.float64)
+            err_RV = (rv[s:e] - tv[s:e]).astype(np.float64)
+            for arr in (err_LH, err_RH, err_LV, err_RV):
+                arr -= np.mean(arr[:samples_pre])
+
+            if axis_char == 'h':
+                task_l_err, task_r_err = err_LH, err_RH
+            else:
+                task_l_err, task_r_err = err_LV, err_RV
+            if (np.max(np.abs(task_l_err)) > self.artifact_threshold
+                    or np.max(np.abs(task_r_err)) > self.artifact_threshold):
+                continue
+
+            raw_mags = []
+            channels = []
+            for err in (err_LH, err_RH, err_LV, err_RV):
+                re_c, im_c = self._get_cwt_tensor(err, fs)
+                raw_mag = np.sqrt(re_c ** 2 + im_c ** 2)
+                raw_mags.append(raw_mag)
+                mag_c = self._sparsify_and_compress(re_c, im_c)
+                if keep_real:
+                    channels.extend([mag_c, re_c])
+                else:
+                    channels.append(mag_c)
+            tensor = np.stack(channels, axis=0)
+
+            if axis_char == 'h':
+                active_e = (raw_mags[0].mean() + raw_mags[1].mean()) * 0.5
+                cross_e = (raw_mags[2].mean() + raw_mags[3].mean()) * 0.5
+            else:
+                active_e = (raw_mags[2].mean() + raw_mags[3].mean()) * 0.5
+                cross_e = (raw_mags[0].mean() + raw_mags[1].mean()) * 0.5
+            ratio = float(cross_e / (active_e + 1e-8))
+
+            if keep_real:
+                self.data_store[group][subject_id].append((tensor, task_id))
+            else:
+                self.data_store[group][subject_id].append((tensor, task_id, ratio))
+            kept_here += 1
+        return kept_here, False
+
+    def _process_file_four_error_all(self, df, axis_char, is_anti, group, subject_id,
+                                     task_id, keep_real=False):
+        """four_error over the WHOLE recording: tile it into non-overlapping 1-s
+        windows (every part of the trajectory — saccades AND fixations), and build
+        the same four_error CWT channels + artifact rule on each. Same task_id."""
+        target_tax_col = next(
+            (c for c in df.columns if f'target{axis_char}' in c or f'target_{axis_char}' in c), None)
+        l_tax_col = next((c for c in df.columns if c == f'l{axis_char}'), None)
+        r_tax_col = next((c for c in df.columns if c == f'r{axis_char}'), None)
+        other_axis = 'v' if axis_char == 'h' else 'h'
+        target_oax_col = next(
+            (c for c in df.columns if f'target{other_axis}' in c or f'target_{other_axis}' in c), None)
+        l_oax_col = next((c for c in df.columns if c == f'l{other_axis}'), None)
+        r_oax_col = next((c for c in df.columns if c == f'r{other_axis}'), None)
+        if not all([target_tax_col, l_tax_col, r_tax_col, target_oax_col, l_oax_col, r_oax_col]):
+            return 0, True
+        if is_anti:
+            df[target_tax_col] = df[target_tax_col] * -1
+        time_col = next((c for c in df.columns if 'time' in c or c == 't'), df.columns[0])
+        time_val = df[time_col].dropna().values
+        fs = 1.0 / np.mean(np.diff(time_val)) if len(time_val) > 1 else self.default_fs
+        target_tax = df[target_tax_col].fillna(0).values
+        l_tax = df[l_tax_col].fillna(0).values; r_tax = df[r_tax_col].fillna(0).values
+        target_oax = df[target_oax_col].fillna(0).values
+        l_oax = df[l_oax_col].fillna(0).values; r_oax = df[r_oax_col].fillna(0).values
+        if axis_char == 'h':
+            lh, rh, th = l_tax, r_tax, target_tax
+            lv, rv, tv = l_oax, r_oax, target_oax
+        else:
+            lh, rh, th = l_oax, r_oax, target_oax
+            lv, rv, tv = l_tax, r_tax, target_tax
+        samples_pre = int(self.pre_sec * fs); samples_post = int(self.post_sec * fs)
+        win = samples_pre + samples_post
+        n = len(df)
+
+        kept_here = 0
+        for s in range(0, n - win + 1, win):           # tile the whole recording
+            e = s + win
+            err_LH = (lh[s:e] - th[s:e]).astype(np.float64)
+            err_RH = (rh[s:e] - th[s:e]).astype(np.float64)
+            err_LV = (lv[s:e] - tv[s:e]).astype(np.float64)
+            err_RV = (rv[s:e] - tv[s:e]).astype(np.float64)
+            for arr in (err_LH, err_RH, err_LV, err_RV):
+                arr -= np.mean(arr[:samples_pre])
+            if axis_char == 'h':
+                task_l_err, task_r_err = err_LH, err_RH
+            else:
+                task_l_err, task_r_err = err_LV, err_RV
+            if (np.max(np.abs(task_l_err)) > self.artifact_threshold
+                    or np.max(np.abs(task_r_err)) > self.artifact_threshold):
+                continue
+            raw_mags = []; channels = []
+            for err in (err_LH, err_RH, err_LV, err_RV):
+                re_c, im_c = self._get_cwt_tensor(err, fs)
+                raw_mags.append(np.sqrt(re_c ** 2 + im_c ** 2))
+                mag_c = self._sparsify_and_compress(re_c, im_c)
+                if keep_real:
+                    channels.extend([mag_c, re_c])
+                else:
+                    channels.append(mag_c)
+            tensor = np.stack(channels, axis=0)
+            if axis_char == 'h':
+                active_e = (raw_mags[0].mean() + raw_mags[1].mean()) * 0.5
+                cross_e = (raw_mags[2].mean() + raw_mags[3].mean()) * 0.5
+            else:
+                active_e = (raw_mags[2].mean() + raw_mags[3].mean()) * 0.5
+                cross_e = (raw_mags[0].mean() + raw_mags[1].mean()) * 0.5
+            ratio = float(cross_e / (active_e + 1e-8))
+            if keep_real:
+                self.data_store[group][subject_id].append((tensor, task_id))
+            else:
+                self.data_store[group][subject_id].append((tensor, task_id, ratio))
+            kept_here += 1
+        return kept_here, False
+
     def process_directory(self, base_dir: Path):
+        """Walk every subject CSV under base_dir → build all scalograms (region-aware).
+
+        Skips folders in _EXCLUDED_DIR_NAMES (New_data). Dispatches each file to the
+        event / leftover / all extractor per self.region. Caches the result at the end.
+        """
         if self._try_load_cache():
             return
 
         csv_files = list(base_dir.rglob('*.csv'))
-        logger.info("Processing %d CSV files under %s", len(csv_files), base_dir)
+        # Drop CSVs living under an excluded holding-area (e.g. a separate,
+        # incomplete newly-collected cohort staged under data/New_data). The
+        # 37-subject study caches predate these, so they must stay out of the
+        # training/eval set unless deliberately pointed at.
+        n_excluded_dir = 0
+        if _EXCLUDED_DIR_NAMES:
+            before = len(csv_files)
+            csv_files = [p for p in csv_files
+                         if not (_EXCLUDED_DIR_NAMES & set(p.parts))]
+            n_excluded_dir = before - len(csv_files)
+        logger.info("Processing %d CSV files under %s (excluded %d under %s)",
+                    len(csv_files), base_dir, n_excluded_dir, sorted(_EXCLUDED_DIR_NAMES))
         n_kept = 0
         n_skipped_task = 0
         n_skipped_group = 0
@@ -450,7 +755,11 @@ class EventLockedCWTPipeline:
                         df, axis_char, is_anti, group, subject_id, task_id,
                     )
                 else:  # four_error or full_error (both use the two-axis extractor)
-                    kept_here, missing_cols = self._process_file_four_error(
+                    extractor = {
+                        "leftover": self._process_file_four_error_leftover,
+                        "all": self._process_file_four_error_all,
+                    }.get(self.region, self._process_file_four_error)
+                    kept_here, missing_cols = extractor(
                         df, axis_char, is_anti, group, subject_id, task_id,
                         keep_real=(self.signal_mode == "full_error"),
                     )
@@ -474,6 +783,9 @@ class EventLockedCWTPipeline:
 
 
 class TaskConditionedDataset(Dataset):
+    """PyTorch dataset: flattens the {group: {subject: [windows]}} store into
+    (scalogram, task_id, HC/MCI label) samples, remembering each window's subject."""
+
     def __init__(self, data_store):
         self.X = []
         self.T = []
@@ -522,6 +834,7 @@ class AugmentedSubset(Subset):
             self.y = dataset.y[torch.as_tensor(indices, dtype=torch.long)]
 
     def _freq_mask(self, x: torch.Tensor) -> torch.Tensor:
+        """Zero out a random band of frequency rows (SpecAugment) — train-only."""
         F = x.shape[1]
         f = int(torch.randint(1, self.freq_mask_max + 1, (1,)).item())
         f = min(f, F)
@@ -531,6 +844,7 @@ class AugmentedSubset(Subset):
         return x
 
     def _time_mask(self, x: torch.Tensor) -> torch.Tensor:
+        """Zero out a random band of time columns (SpecAugment) — train-only."""
         T = x.shape[2]
         t = int(torch.randint(1, self.time_mask_max + 1, (1,)).item())
         t = min(t, T)

@@ -1,0 +1,9 @@
+Experiment : 3_stratified_weightmod_VsacR
+four_error (4ch, magnitude, both axes) · STRATIFIED (HC=4/MCI=8 per fold) · WEIGHT-MODIFIED larger to Saccade R: [0,.5,.5,1,0,1.5,1.5,3]  (Vertical R = 3.0, the largest)
+Run ID     : 20260803_091237_full_wvote_artifact30_w0-5-5-10-0-15-15-30_strat_4err
+Protocol   : threshold 30 · 30-fold subject-grouped CV · 37 subjects (14 HC / 23 MCI)
+----------------------------------------------------------------
+Accuracy    : 0.765 ± 0.137
+Sensitivity : 0.809 ± 0.209
+Specificity : 0.675 ± 0.271
+AUROC       : 0.864 ± 0.113

@@ -1,0 +1,12 @@
+Kinematic-feature experiment (velocity hi/lo, latency, velocity-variance)
+Run: 20260917_113411_kinematic_artifact30
+Subjects: HC=14 MCI=23  (stratified 30-fold, HC=4/MCI=8 test, artifact thr 30)
+Aggregation: task-weighted per subject (A=0, H=0.5, V=1.5)
+
+Accuracy    : 0.528 ± 0.124
+Sensitivity : 0.542 ± 0.181
+Specificity : 0.500 ± 0.281
+AUROC       : 0.557 ± 0.156
+
+Confusion (pooled): TN=60 FP=60 FN=110 TP=130
+Mean logistic coefficients (standardized): {'latency': -0.308, 'peak_velocity': -0.28, 'peak_accel': -0.1369, 'peak_decel': -0.3189, 'amplitude': -0.9001, 'duration': 0.2351, 'time_to_peak_vel': -0.1308, 'time_to_target': -0.1562, 'gain': 0.4006, 'vigor': 0.3139}

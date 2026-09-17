@@ -1,0 +1,9 @@
+Experiment : 2_stratified_default
+four_error (4ch, magnitude, both axes) · STRATIFIED (HC=4/MCI=8 per fold) · default weights
+Run ID     : 20260803_091231_full_wvote_artifact30_strat_4err
+Protocol   : threshold 30 · 30-fold subject-grouped CV · 37 subjects (14 HC / 23 MCI)
+----------------------------------------------------------------
+Accuracy    : 0.708 ± 0.159
+Sensitivity : 0.708 ± 0.250
+Specificity : 0.711 ± 0.298
+AUROC       : 0.871 ± 0.099

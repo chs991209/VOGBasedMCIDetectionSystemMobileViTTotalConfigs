@@ -1,0 +1,9 @@
+Experiment : 1_nonstratified_default
+four_error (4ch, magnitude, both axes) · NON-stratified (grouped) · default weights [0,.5,.5,.5,0,1.5,1.5,1.5]
+Run ID     : 20260801_202901_full_wvote_artifact30_4err
+Protocol   : threshold 30 · 30-fold subject-grouped CV · 37 subjects (14 HC / 23 MCI)
+----------------------------------------------------------------
+Accuracy    : 0.704 ± 0.143
+Sensitivity : 0.708 ± 0.215
+Specificity : 0.715 ± 0.217
+AUROC       : 0.804 ± 0.149

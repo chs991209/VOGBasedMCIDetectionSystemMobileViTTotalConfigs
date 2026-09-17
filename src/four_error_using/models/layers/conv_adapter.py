@@ -17,4 +17,5 @@ class ConvAdapter(nn.Module):
         )
 
     def forward(self, x):
+        """[B, in_channels, 32, 32] scalograms -> [B, 3, 32, 32] for the backbone."""
         return self.block(x)

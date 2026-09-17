@@ -14,6 +14,8 @@ from typing import Optional
 import numpy as np
 import torch
 from sklearn.model_selection import GroupShuffleSplit
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
 from torch.utils.data import DataLoader, Subset
 
 from four_error_using.data_processor.data_engineer import AugmentedSubset
@@ -41,7 +43,29 @@ class RepetitiveGroupValidator:
         in_channels: int = 4,
         stratified: bool = False,
         strat_test_counts: Optional[dict] = None,
+        kin_store: Optional[dict] = None,
+        kin_weights: Optional[dict] = None,
+        fuse_alphas: Optional[list] = None,
+        dump_probs_path: Optional[Path] = None,
+        entropy_dim: int = 0,
+        backbone: str = "mobilevit-small",
     ):
+        self.entropy_dim = int(entropy_dim)
+        self.backbone = backbone
+        # If set, every test window's out-of-fold probability is written to this CSV
+        # (columns: rep, subject, task, prob, label) so any vote scheme can be
+        # re-applied later without retraining.
+        self.dump_probs_path = Path(dump_probs_path) if dump_probs_path is not None else None
+        self._prob_rows = []
+        # Optional late-fusion with a per-fold kinematic logistic gate. When
+        # kin_store is given ({sid: [(feat_vec, task_id), ...]}), each fold also
+        # trains a logistic on the train subjects' task-weighted kinematic vectors
+        # and reports fused metrics P = alpha*P_cwt + (1-alpha)*P_kin for each
+        # alpha in fuse_alphas (CWT weight). Purely additive: the CWT path is
+        # unchanged when kin_store is None.
+        self.kin_store = kin_store
+        self.kin_weights = dict(kin_weights) if kin_weights is not None else None
+        self.fuse_alphas = list(fuse_alphas) if fuse_alphas else [0.9]
         if torch.cuda.is_available():
             self.device = torch.device("cuda")
         elif torch.backends.mps.is_available():
@@ -102,6 +126,13 @@ class RepetitiveGroupValidator:
         return float(num / den)
 
     def _infer_subjects(self, model, test_idx, subj_ids, fold_idx):
+        """Score every test window, then collapse to one probability per subject.
+
+        Runs the model on the fold's test windows, maps each window back to its
+        subject (via subj_ids at the true test index — the fix for the old
+        offset bug), optionally records rows for window_probs.csv / the probe,
+        and returns {subject: (label, task-weighted-mean prob)}.
+        """
         model.eval()
         subj_probs: dict = defaultdict(list)  # sid -> list of (prob, task_id)
         subj_labels: dict = {}
@@ -121,7 +152,7 @@ class RepetitiveGroupValidator:
 
                 tasks_np = tasks.cpu().numpy()
                 labels_np = labels.numpy()
-                sid_slice = subj_ids[offset:offset + len(labels)]
+                sid_slice = subj_ids[test_idx[offset:offset + len(labels)]]
 
                 if self.probe is not None:
                     for i in range(len(labels_np)):
@@ -136,12 +167,22 @@ class RepetitiveGroupValidator:
                 for sid, p, l, t in zip(sid_slice, probs, labels_np, tasks_np):
                     subj_probs[sid].append((float(p), int(t)))
                     subj_labels[sid] = int(l)
+                    if self.dump_probs_path is not None:
+                        self._prob_rows.append((fold_idx, str(sid), int(t), float(p), int(l)))
                 offset += len(labels)
 
         return {
             sid: (subj_labels[sid], self._aggregate_subject_prob(subj_probs[sid]))
             for sid in subj_probs
         }
+
+    def _kin_vec(self, trials):
+        """Task-weighted mean kinematic vector for one subject's trials."""
+        feats = np.stack([f for f, _ in trials]).astype(np.float64)
+        if self.kin_weights is None:
+            return feats.mean(0)
+        w = np.array([self.kin_weights.get(t, 0.0) for _, t in trials])
+        return (feats * w[:, None]).sum(0) / w.sum() if w.sum() > 0 else feats.mean(0)
 
     def _stratified_group_splits(self, y_arr, subj_ids):
         """Yield (train_idx, test_idx) window-index arrays for each fold with a
@@ -184,11 +225,21 @@ class RepetitiveGroupValidator:
             yield train_idx, test_idx
 
     def run(self):
+        """The main loop: for each of n_splits stratified folds, train a fresh model,
+        score subjects, apply the weighted vote (+ optional kinematic fusion), and
+        average AUROC / sensitivity / specificity ± SD across folds. Dumps
+        window_probs.csv at the end if a path was given.
+        """
         y_arr = self.dataset.y.numpy()
         subj_ids = np.array(self.dataset.subject_ids)
         indices = np.arange(len(self.dataset))
 
         fold_metrics = []
+        # optional kinematic-gate fusion accumulators
+        _fuse = self.kin_store is not None
+        fuse_metrics = {a: [] for a in self.fuse_alphas} if _fuse else None
+        kin_only_metrics = [] if _fuse else None
+        subj_label_map = {sid: int(lab) for sid, lab in zip(subj_ids, y_arr)} if _fuse else None
         sampling = "stratified-group" if self.stratified else "grouped (unstratified)"
         logger.info(
             "MC Group CV [%s] — %d folds | device=%s | num_tasks=%d | augment=%s | dropout=%.2f | weighted_vote=%s",
@@ -225,7 +276,7 @@ class RepetitiveGroupValidator:
 
             model = TransferMobileViTClassifier(
                 num_classes=2, in_channels=self.in_channels, num_tasks=self.num_tasks,
-                dropout=self.dropout,
+                dropout=self.dropout, entropy_dim=self.entropy_dim, backbone=self.backbone,
             )
             trainer = ModelTrainer(
                 model,
@@ -272,6 +323,33 @@ class RepetitiveGroupValidator:
                 fold + 1, acc, sens, spec, auroc,
             )
 
+            # ---- optional kinematic-gate late fusion (additive; CWT path above unchanged) ----
+            if _fuse:
+                tr_sids = [s for s in train_subjs if s in self.kin_store]
+                Xtr = np.stack([self._kin_vec(self.kin_store[s]) for s in tr_sids])
+                ytr = np.array([subj_label_map[s] for s in tr_sids])
+                sc = StandardScaler().fit(Xtr)
+                clf = LogisticRegression(class_weight="balanced", max_iter=2000).fit(sc.transform(Xtr), ytr)
+                pkin = {sid: (float(clf.predict_proba(sc.transform(self._kin_vec(self.kin_store[sid])[None]))[0, 1])
+                              if sid in self.kin_store else 0.5) for sid in subj_preds}
+
+                def _fold_m(prob_by_sid):
+                    yy = np.array([subj_preds[s][0] for s in subj_preds])
+                    pp = np.array([prob_by_sid[s] for s in subj_preds])
+                    prd = (pp > 0.5).astype(int)
+                    tp = int(((yy == 1) & (prd == 1)).sum()); tn = int(((yy == 0) & (prd == 0)).sum())
+                    fp = int(((yy == 0) & (prd == 1)).sum()); fn = int(((yy == 1) & (prd == 0)).sum())
+                    return {'acc': (tp + tn) / len(yy), 'sens': tp / (tp + fn) if tp + fn else 0.0,
+                            'spec': tn / (tn + fp) if tn + fp else 0.0, 'auroc': _auroc(yy, pp)}
+
+                kin_only_metrics.append(_fold_m(pkin))
+                for a in self.fuse_alphas:
+                    fused = {s: a * subj_preds[s][1] + (1 - a) * pkin[s] for s in subj_preds}
+                    fuse_metrics[a].append(_fold_m(fused))
+                logger.info("   Fold %02d Fusion | KIN AUROC=%.3f | fused@%.2f AUROC=%.3f",
+                            fold + 1, kin_only_metrics[-1]['auroc'],
+                            self.fuse_alphas[0], fuse_metrics[self.fuse_alphas[0]][-1]['auroc'])
+
         accs = [m['acc'] for m in fold_metrics]
         senss = [m['sens'] for m in fold_metrics]
         specs = [m['spec'] for m in fold_metrics]
@@ -284,6 +362,34 @@ class RepetitiveGroupValidator:
         logger.info("  Specificity : %.3f ± %.3f", float(np.mean(specs)), float(np.std(specs)))
         logger.info("  AUROC       : %.3f ± %.3f", float(np.mean(aurocs)), float(np.std(aurocs)))
         logger.info("=" * 60)
+
+        if _fuse:
+            def _agg(ms):
+                return {k: (float(np.mean([m[k] for m in ms])), float(np.std([m[k] for m in ms])))
+                        for k in ('acc', 'sens', 'spec', 'auroc')}
+            ko = _agg(kin_only_metrics)
+            logger.info("  [FUSION] weights=%s  vote=%s", self.kin_weights, self.task_weights)
+            logger.info("  [FUSION] CWT-only    AUROC %.3f ± %.3f", float(np.mean(aurocs)), float(np.std(aurocs)))
+            logger.info("  [FUSION] KIN-only    AUROC %.3f ± %.3f  Sens %.3f  Spec %.3f",
+                        ko['auroc'][0], ko['auroc'][1], ko['sens'][0], ko['spec'][0])
+            best_a, best_au = None, -1.0
+            for a in self.fuse_alphas:
+                fa = _agg(fuse_metrics[a])
+                logger.info("  [FUSION] alpha=%.2f (CWT:%.2f/KIN:%.2f)  AUROC %.3f ± %.3f  Sens %.3f  Spec %.3f  Acc %.3f",
+                            a, a, 1 - a, fa['auroc'][0], fa['auroc'][1], fa['sens'][0], fa['spec'][0], fa['acc'][0])
+                if fa['auroc'][0] > best_au:
+                    best_a, best_au = a, fa['auroc'][0]
+            logger.info("  [FUSION] best fused AUROC %.3f at alpha=%.2f", best_au, best_a)
+            logger.info("=" * 60)
+
+        if self.dump_probs_path is not None and self._prob_rows:
+            self.dump_probs_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.dump_probs_path, "w") as fh:
+                fh.write("rep,subject,task,prob,label\n")
+                for rep, sid, t, p, l in self._prob_rows:
+                    fh.write(f"{rep},{sid},{t},{p:.6f},{l}\n")
+            logger.info("Saved %d window probabilities -> %s",
+                        len(self._prob_rows), self.dump_probs_path)
 
         if self.probe is not None:
             logger.info("Evaluator lifecycle end: writing probe report...")

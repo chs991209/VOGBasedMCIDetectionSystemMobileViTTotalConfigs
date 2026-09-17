@@ -16,6 +16,7 @@ class CosineLinear(nn.Module):
         self.scale = scale
 
     def forward(self, x):
+        """fused feature [B, in] -> scaled cosine similarity to each class [B, out] (the logits)."""
         x_norm = F.normalize(x, p=2, dim=1)
         w_norm = F.normalize(self.weight, p=2, dim=1)
         return self.scale * F.linear(x_norm, w_norm)

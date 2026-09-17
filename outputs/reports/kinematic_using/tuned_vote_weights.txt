@@ -1,0 +1,4 @@
+Vote-weight local search (greedy, from seed 0 .5 1 1 0 1.5 3 3)
+seed  weights: [0.0, 0.5, 1.0, 1.0, 0.0, 1.5, 3.0, 3.0]  all-subject AUROC 0.8540
+tuned weights: [0.0, 0.0, 0.0, 1.5, 0.0, 1.5, 3.0, 2.5]  all-subject AUROC 0.8851
+Note: all-subject AUROC is optimistic (weights chosen on the same people). Nested check earlier showed default and tuned both ~0.875 on held-out people.

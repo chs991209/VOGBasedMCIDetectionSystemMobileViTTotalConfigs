@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 def _auroc(true_labels: np.ndarray, scores: np.ndarray) -> float:
+    """Area under the ROC curve (the headline metric) computed by hand — 0.5 = chance."""
     order = np.argsort(scores)[::-1]
     y_sorted = true_labels[order]
     n_pos = np.sum(true_labels == 1)
@@ -47,6 +48,9 @@ def _get_labels(dataset) -> torch.Tensor:
 
 
 class ModelTrainer:
+    """Trains one fold: warm-up LR, gradient clipping, LR-drop on plateau, and
+    saves the checkpoint at the best validation AUROC (early stops if it stalls)."""
+
     WARMUP_EPOCHS = 5
     GRAD_CLIP = 1.0
 
@@ -78,6 +82,7 @@ class ModelTrainer:
         self.fold_idx = fold_idx
 
     def _checkpoint_path(self) -> Optional[Path]:
+        """Where this fold's best-model weights get saved (fold_NN_best.pth)."""
         if self.checkpoint_dir is None:
             return None
         self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
@@ -93,6 +98,8 @@ class ModelTrainer:
         early_stop_patience: int = 40,
         eval_batch_size: Optional[int] = None,
     ):
+        """Train on train_dataset, watch val_dataset each epoch, keep the best-AUROC
+        weights, and return them. Stops early after `early_stop_patience` flat epochs."""
         # Validation runs in eval()/no_grad, so its batch size is numerically
         # inert — size it large to keep the A6000 busy. Falls back to the train
         # batch when unset.
