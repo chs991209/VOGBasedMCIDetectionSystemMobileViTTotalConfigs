@@ -25,3 +25,7 @@ imgs/cwt_scalograms/         # generated scalogram PNGs (~115 MB)
 # archived (superseded/discarded) material — kept locally, not uploaded
 src/archive/
 outputs/reports/archive/
+
+# presentation files
+*.pptx
+
