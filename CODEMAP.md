@@ -6,20 +6,21 @@ What each file is for, grouped by the job it does. Main system lives in
 ## 1. Run an experiment (entry points — you call these)
 | File | Use it to |
 |---|---|
-| `src/four_error_using/detection_caller/detection_caller.py` | **The main launcher.** Runs the scalogram image model + weighted vote. Flags: `--region {event,leftover,all}`, `--no-artifact-reject`, `--vote-weights`, `--fuse-kinematic`, `--fuse-alpha`, `--entropy`, `--entropy-signal`, `--n-splits`. |
+| `src/four_error_using/detection_caller/detection_caller.py` | **The main launcher.** Runs the scalogram image model + weighted vote. Flags: `--region {event,leftover,all}`, `--no-artifact-reject`, `--vote-weights`, `--fuse-kinematic`, `--fuse-alpha`, `--kinematics-in-model`, `--entropy`, `--entropy-signal`, `--backbone {mobilevit-small,mobilevitv2-1.0,mobilevitv2-2.0}`, `--eval-batch-size`, `--batch-size`, `--n-splits`. |
 | `src/four_error_using/detection_caller/kinematic_caller.py` | Run the kinematics-only experiment (saccade indicators, no images). |
 
 ## 2. Turn raw CSV → model inputs (data prep)
 | File | Use it to |
 |---|---|
-| `src/four_error_using/data_processor/data_engineer.py` | Load VOG CSVs, cut event/leftover/all windows, make the 4-channel CWT scalograms, add the optional entropy channel. Excludes `New_data`. |
-| `src/four_error_using/data_processor/kinematic_features.py` | From the same trials, compute the 10 saccade numbers (latency, peak velocity, amplitude, gain, …). |
+| `src/four_error_using/data_processor/data_engineer.py` | Load VOG CSVs, cut event/leftover/all windows, make the 4-channel CWT scalograms, add the optional entropy channel and (for `--kinematics-in-model`) the 10 kinematic planes. Excludes `New_data`. |
+| `src/four_error_using/data_processor/kinematic_features.py` | From the same trials, compute the 10 saccade numbers (latency, peak velocity, amplitude, gain, …) for the standalone/late-fusion experiments. |
+| `src/four_error_using/data_processor/saccade_metrics.py` | **Shared** saccade math used by both files above: the low-pass filter, the 2D total-speed signal, and the one `window_metrics()` that computes all 10 numbers (so they're identical everywhere). |
 
 ## 3. The model (what learns)
 | File | Use it to |
 |---|---|
 | `src/four_error_using/models/task_conditioned_classifier.py` | The whole model: frozen MobileViT + small trainable adapter + task head. |
-| `src/four_error_using/models/layers/frozen_mobilevit_backbone.py` | Frozen MobileViT feature extractor. |
+| `src/four_error_using/models/layers/frozen_mobilevit_backbone.py` | Frozen feature extractor; selectable via `--backbone` (MobileViT-small or MobileViTv2), feature width auto-detected. |
 | `src/four_error_using/models/layers/conv_adapter.py` | Small trainable adapter (the part that actually learns). |
 | `src/four_error_using/models/layers/task_embedding.py` | Tells the model which VOG task a window came from. |
 | `src/four_error_using/models/layers/cosine_linear.py` | The final HC-vs-MCI decision layer. |

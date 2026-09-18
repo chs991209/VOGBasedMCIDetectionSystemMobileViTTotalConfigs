@@ -14,17 +14,19 @@ Best number per experiment. **α** = weight on the image model when fused with k
 
 | # | Experiment | Vote | Windows | Reps | α | AUROC | Sens | Spec |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Image model (scalograms) | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | 1.0 | 0.840 ± 0.109 | 0.75 | 0.62 |
+| 1 | Image model (scalograms) | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | 1.0 | 0.829 ± 0.109 | 0.76 | 0.66 |
 | 2 | **Image model (scalograms)** ⭐ | 0 .5 .5 1 0 1.5 1.5 3 | event, filtered | 30 | 1.0 | **0.864 ± 0.113** | 0.81 | 0.68 |
 | 3 | Image + **KL-entropy** channel | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | — | 0.842 ± 0.077 | 0.82 | 0.50 |
 | 4 | Image + Shannon-entropy channel | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | — | 0.822 ± 0.119 | 0.76 | 0.58 |
-| 5 | Image + kinematics (fused) | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | 0.95 | 0.819 ± 0.095 | 0.74 | 0.66 |
-| 6 | Kinematics only (10 indicators) | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | 0.0 | 0.618 ± 0.150 | 0.56 | 0.56 |
+| 5 | Image + kinematics (fused) †v3 | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | 0.95 | 0.805 ± 0.102 | 0.75 | 0.62 |
+| 6 | Kinematics only (10 indicators) †v3 | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | 0.0 | 0.578 ± 0.150 | 0.53 | 0.54 |
 | 7 | Whole-recording (all windows) | 0 .5 .5 1 0 1.5 1.5 3 | all, no reject | 30 | 1.0 | 0.759 ± 0.103 | 0.72 | 0.55 |
 | 8 | Image + kinematics, all windows | 0 .5 1 1 0 1.5 3 3 | all, no reject | 30 | 0.95 | 0.746 ± 0.140 | 0.66 | 0.71 |
 | 9 | Leftover / fixation gaps | 0 .5 .5 .5 0 1.5 1.5 1.5 | leftover | **13 / 30** ⚠ | 1.0 | 0.686 ± 0.162 | 0.81 | 0.50 |
+| 10 | Kinematics-in-model (fused before head) †v3 | 0 .5 1 1 0 1.5 3 3 | event, filtered | 30 | — | 0.797 ± 0.112 | 0.75 | 0.60 |
 
 ⭐ = best in this table. Rows 1, 5, 6 are one consistent run (same vote); row 2 is a different vote.
+†v3 = uses the **corrected** kinematics (low-pass smoothed, direction-robust accel/decel, 2D-onset latency).
 ⚠ Row 9 stopped at 13 of 30 reps — **partial, indicative only** (re-running to 30 now).
 
 ## What each experiment was
@@ -73,7 +75,9 @@ Computed from the **low-pass-smoothed** task-axis eye position in each event win
 ## Notes
 - "filtered" = artifact windows removed (5,715 windows); "no reject" = all windows kept (9,964).
 - Vote weights and α are applied *after* training — they don't change the model.
-- **Kinematics rows (5, 6, 8) predate the latency fix** (they used the old task-axis onset).
-  Latency is now the research-admin's 2D-total-speed method (median ~192 ms, realistic) —
-  re-run the kinematics experiment to refresh those rows.
+- **Rows 5, 6 now use the corrected (†v3) kinematics** — low-pass smoothing before
+  differentiation, direction-robust accel/decel, and the 2D-onset latency (median ~192 ms).
+  The proper kinematics score slightly *lower* than the old buggy version (kin-only 0.578 vs
+  0.618), confirming they add no generalizable signal. Row 8 (all-windows fused) is being
+  re-run on v3.
 - Benchmark (VECA, npj 2024): sensitivity 88.5% / specificity 83% on 201 people with VR. Ours is 37 people, lab VOG.

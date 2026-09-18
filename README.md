@@ -253,10 +253,14 @@ The 2-exp scope has only the `by-task` grouping (the other slicings are degenera
 ### 8.1 Install
 
 On the A6000 server, run inside the **`wind_power`** conda env (the only one with the
-full stack), e.g. `/home/oem/anaconda3/envs/wind_power/bin/python`. (`requirements.txt`
-is the original Jetson freeze — `tensorrt`, `torch 2.11` — and won't install cleanly here.)
+full stack), e.g. `/home/oem/anaconda3/envs/wind_power/bin/python`. `requirements.txt`
+is pinned to this env (Jetson-only `tensorrt` removed).
 
-Key deps (A6000 / `wind_power`): `torch 2.9.1` (CUDA 12.8), `transformers 5.13`, `pywavelets 1.8`, `scipy 1.15`, `scikit-learn 1.7`, `pandas 2.3`, `numpy 2.2`. GPU telemetry via `nvidia-smi`.
+```bash
+pip install -r requirements.txt
+```
+
+Key deps (A6000 / `wind_power`): `torch 2.9.1` (CUDA 12.8), `torchvision 0.24.1`, `transformers 5.13`, `pywavelets 1.8`, `scipy 1.15`, `scikit-learn 1.7`, `pandas 2.3`, `numpy 2.2`. GPU telemetry via `nvidia-smi`.
 
 ### 8.2 CLI — three equivalent entry points
 
