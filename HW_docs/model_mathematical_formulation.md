@@ -85,7 +85,7 @@ $$\mathbf{X} = \begin{bmatrix} Z_{LH} \\ Z_{RH} \\ Z_{LV} \\ Z_{RV} \end{bmatrix
 
 
 ### 3.1 Layer 1: 비대칭 공간 어댑터 (`ConvAdapter`)
-CWT의 수직축(temporal transient) 특이 신호를 강조하고 수평축(주파수 해상도)을 보존하기 위해 비대칭 커널 $(5, 1)$ 및 패딩 $(2, 0)$을 적용합니다.
+CWT의 수직축(temporal transient) 특이 신호를 강조하고 수평축(주파수 해상도)을 보존하기 위해 비대칭 커널 $(5, 1)$ 및 패딩 $(2, 0)$을 적용.
 
 - 2D Convolution:
   $$\mathbf{U}_{b, c_{\text{out}}, i, j} = \sum_{c_{\text{in}}=0}^{3} \sum_{m=-2}^{2} \mathbf{X}_{b, c_{\text{in}}, i+m, j} \cdot \mathbf{W}^{\text{adapt}}_{c_{\text{out}}, c_{\text{in}}, m+2, 0} + b^{\text{adapt}}_{c_{\text{out}}}$$
